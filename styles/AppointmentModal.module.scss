@@ -1,0 +1,230 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.popup {
+    background: var(--color-background);
+    border-radius: 20px;
+    width: 90%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    padding: 1.5rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    color: var(--color-secondary);
+}
+
+.closeBtn {
+    background: none;
+    border: none;
+    color: var(--color-text);
+    font-size: 1.5rem;
+    padding: 0;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.content {
+    padding: 2rem;
+}
+
+/* Date Grid */
+.calendarGrid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.calendarHead {
+    text-align: center;
+    color: var(--color-text);
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding-bottom: 0.5rem;
+    margin: 0;
+}
+
+.dayBtn {
+    aspect-ratio: 1;
+    background: white;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 8px;
+    color: var(--color-text);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+}
+
+.dayBtn:hover:not(:disabled) {
+    background: var(--color-primary);
+    color: white;
+    cursor: pointer;
+    border-color: var(--color-primary);
+}
+
+.dayBtn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    background: #f1f5f9;
+}
+
+.dayBtn.selected {
+    background: var(--color-primary);
+    color: white;
+}
+
+/* Time Slots */
+.timeGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.timeBtn {
+    background: white;
+    border: 1px solid rgba(0,0,0,0.1);
+    padding: 1rem;
+    border-radius: 10px;
+    color: var(--color-text);
+    text-align: center;
+    transition: all 0.2s;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.timeBtn:hover:not(:disabled) {
+    border-color: var(--color-primary);
+    background: rgba(242, 139, 48, 0.1); /* light orange */
+    color: var(--color-primary);
+}
+
+/* Form */
+.formGroup {
+    margin-bottom: 1.2rem;
+}
+
+.label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.input,
+.textarea {
+    width: 100%;
+    background: white;
+    border: 1px solid rgba(0,0,0,0.2);
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    color: var(--color-text);
+    font-family: inherit;
+}
+
+.input:focus,
+.textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 2px rgba(242, 139, 48, 0.2);
+}
+
+.textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Review */
+.reviewItem {
+    margin-bottom: 1rem;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    padding-bottom: 1rem;
+}
+
+.reviewLabel {
+    color: var(--color-text);
+    font-size: 0.8rem;
+    display: block;
+    opacity: 0.8;
+}
+
+.reviewValue {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-secondary);
+}
+
+/* Actions */
+.actions {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.backBtn {
+    background: white;
+    border: 1px solid rgba(0,0,0,0.2);
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    color: var(--color-text);
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.confirmBtn {
+    background-color: var(--color-primary);
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 8px;
+    color: white;
+    font-weight: 600;
+    flex: 1;
+    margin-left: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.confirmBtn:hover:not(:disabled) {
+    background-color: #d97826;
+}
+
+.successMessage {
+    text-align: center;
+    padding: 2rem 0;
+}
+
+.successIcon {
+    font-size: 4rem;
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+}
+
+.successMessage h2 {
+    color: var(--color-secondary);
+}

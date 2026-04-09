@@ -1,0 +1,101 @@
+.servicesPage {
+  display: flex;
+  flex-direction: column;
+}
+
+.headerSection {
+  background-color: var(--color-light-bg);
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  
+  h1 {
+    font-size: 3rem;
+    color: var(--color-secondary);
+    margin-bottom: 1rem;
+    text-align: center;
+    width: 100%;
+  }
+  
+  p {
+    font-size: 1.25rem;
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+.servicesList {
+  padding: 5rem 0;
+}
+
+.serviceRow {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 4rem;
+  padding: 2rem;
+  border-radius: 12px;
+  background-color: white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  &:nth-child(even) {
+    @media (min-width: 768px) {
+      flex-direction: row-reverse;
+    }
+  }
+}
+
+.iconWrapper {
+  font-size: 5rem;
+  background-color: var(--color-background);
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin: 0 auto;
+}
+
+.serviceContent {
+  h2 {
+    color: var(--color-primary);
+    margin-top: 0;
+  }
+  
+  p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--color-text);
+  }
+}
+
+.ctaBanner {
+  background-color: var(--color-secondary);
+  color: white;
+  padding: 4rem 0;
+  text-align: center;
+  
+  h2 {
+    margin-bottom: 1rem;
+  }
+  
+  p {
+    margin-bottom: 2rem;
+    font-size: 1.2rem;
+    opacity: 0.9;
+  }
+}
+
+.text-center {
+  text-align: center;
+}
