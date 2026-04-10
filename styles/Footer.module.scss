@@ -1,45 +1,106 @@
 .footer {
-  background-color: var(--color-secondary);
-  color: white;
-  padding: 3rem 0 1rem;
-  margin-top: auto;
+  background-color: rgb(10, 10, 10); /* neutral 950 essentially */
+  width: 100%;
+  border-top: 1px solid rgba(72, 72, 73, 0.3);
 }
 
 .footerContainer {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
   display: grid;
   grid-template-columns: 1fr;
   gap: 2rem;
-  
+
   @media (min-width: 768px) {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
-.brand {
-  h3 {
-    margin-top: 0;
-    color: var(--color-primary);
-  }
-}
-
-.links {
+.brandCol {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  
+  gap: 1rem;
+
+  .brandTitle {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #e5e5e5;
+    font-family: var(--font-headline);
+  }
+
+  p {
+    color: #737373;
+    font-size: 0.875rem;
+    line-height: 1.6;
+  }
+}
+
+.linkCol {
+  h4 {
+    color: var(--color-on-surface);
+    font-weight: 700;
+    margin-bottom: 1rem;
+    font-family: var(--font-headline);
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
   a {
-    transition: color 0.3s;
+    color: #737373;
+    font-size: 0.875rem;
+    font-family: var(--font-body);
+    transition: color 0.2s ease;
+
     &:hover {
-      color: var(--color-primary);
+      color: #c084fc; /* purple 400 */
     }
   }
 }
 
-.copyright {
-  text-align: center;
-  margin-top: 3rem;
-  padding-top: 1rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  font-size: 0.875rem;
-  opacity: 0.8;
+.connectCol {
+  h4 {
+    color: var(--color-on-surface);
+    font-weight: 700;
+    margin-bottom: 1rem;
+    font-family: var(--font-headline);
+  }
+
+  .socials {
+    display: flex;
+    gap: 1rem;
+
+    a {
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 9999px;
+      background-color: var(--color-surface-container-high);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #a3a3a3;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: var(--color-primary);
+      }
+    }
+  }
+
+  .copyright {
+    margin-top: 1.5rem;
+    font-size: 0.75rem;
+    color: #525252;
+  }
 }

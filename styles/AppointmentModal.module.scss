@@ -62,7 +62,7 @@
 
 .calendarHead {
     text-align: center;
-    color: var(--color-text);
+    color: var(--color-on-surface);
     font-weight: 600;
     font-size: 0.9rem;
     padding-bottom: 0.5rem;
@@ -71,10 +71,10 @@
 
 .dayBtn {
     aspect-ratio: 1;
-    background: white;
-    border: 1px solid rgba(0,0,0,0.1);
+    background: var(--color-surface-container-high);
+    border: 1px solid var(--color-outline-variant);
     border-radius: 8px;
-    color: var(--color-text);
+    color: var(--color-on-surface);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -84,7 +84,7 @@
 
 .dayBtn:hover:not(:disabled) {
     background: var(--color-primary);
-    color: white;
+    color: var(--color-on-primary);
     cursor: pointer;
     border-color: var(--color-primary);
 }
@@ -92,12 +92,12 @@
 .dayBtn:disabled {
     opacity: 0.4;
     cursor: not-allowed;
-    background: #f1f5f9;
+    background: var(--color-surface);
 }
 
 .dayBtn.selected {
     background: var(--color-primary);
-    color: white;
+    color: var(--color-on-primary);
 }
 
 /* Time Slots */
@@ -108,11 +108,11 @@
 }
 
 .timeBtn {
-    background: white;
-    border: 1px solid rgba(0,0,0,0.1);
+    background: var(--color-surface-container-high);
+    border: 1px solid var(--color-outline-variant);
     padding: 1rem;
     border-radius: 10px;
-    color: var(--color-text);
+    color: var(--color-on-surface);
     text-align: center;
     transition: all 0.2s;
     cursor: pointer;
@@ -121,7 +121,7 @@
 
 .timeBtn:hover:not(:disabled) {
     border-color: var(--color-primary);
-    background: rgba(242, 139, 48, 0.1); /* light orange */
+    background: rgba(143, 245, 255, 0.1);
     color: var(--color-primary);
 }
 
@@ -133,7 +133,7 @@
 .label {
     display: block;
     margin-bottom: 0.5rem;
-    color: var(--color-text);
+    color: var(--color-on-surface);
     font-weight: 600;
     font-size: 0.9rem;
 }
@@ -141,11 +141,11 @@
 .input,
 .textarea {
     width: 100%;
-    background: white;
-    border: 1px solid rgba(0,0,0,0.2);
+    background: var(--color-surface-container-high);
+    border: 1px solid var(--color-outline-variant);
     padding: 0.8rem 1rem;
     border-radius: 8px;
-    color: var(--color-text);
+    color: var(--color-on-surface);
     font-family: inherit;
 }
 
@@ -189,11 +189,11 @@
 }
 
 .backBtn {
-    background: white;
-    border: 1px solid rgba(0,0,0,0.2);
+    background: var(--color-surface-container-high);
+    border: 1px solid var(--color-outline-variant);
     padding: 0.8rem 1.5rem;
     border-radius: 8px;
-    color: var(--color-text);
+    color: var(--color-on-surface);
     cursor: pointer;
     font-weight: 600;
 }
@@ -203,7 +203,7 @@
     border: none;
     padding: 0.8rem 2rem;
     border-radius: 8px;
-    color: white;
+    color: var(--color-on-primary);
     font-weight: 600;
     flex: 1;
     margin-left: 1rem;
@@ -211,7 +211,7 @@
     transition: background-color 0.3s;
 }
 .confirmBtn:hover:not(:disabled) {
-    background-color: #d97826;
+    background-color: var(--color-primary-dim);
 }
 
 .successMessage {

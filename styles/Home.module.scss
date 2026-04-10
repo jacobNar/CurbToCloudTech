@@ -1,105 +1,599 @@
-.homeContainer {
-  display: flex;
-  flex-direction: column;
-}
-
-.hero {
-  background-color: var(--color-light-bg);
-  text-align: center;
-  padding: 6rem 0;
-
-  h1 {
-    font-size: 3.5rem;
-    font-weight: 800;
-    color: var(--color-secondary);
-    margin-bottom: 1.5rem;
-  }
-
-  p {
-    font-size: 1.25rem;
-    max-width: 800px;
-    margin: 0 auto 2rem;
-    line-height: 1.6;
-  }
-}
-
-.heroCta {
-  margin-top: 2rem;
-}
-
-.servicesOverview {
-  padding: 5rem 0;
-  text-align: center;
-
-  h2 {
-    font-size: 2.5rem;
-    color: var(--color-primary);
-    margin-bottom: 3rem;
-  }
-}
-
-.serviceGrid {
+/* Layout Helpers */
+.twoColGrid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2rem;
+  gap: 3rem;
+  align-items: center;
+
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.threeColGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
 
   @media (min-width: 768px) {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
-.serviceCard {
-  background: white;
-  padding: 2.5rem 2rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  text-align: left;
-  border-top: 4px solid var(--color-primary);
+/* Base Wrapper for Grids Overlaps */
+.gridOverlap {
+  display: grid;
+  > * {
+    grid-column: 1 / -1;
+    grid-row: 1 / -1;
+  }
+}
+
+/* Hero Section */
+.heroSection {
+  position: relative; /* allowed to establish stacking context as long as no direct position absolute? Rule: Never use position absolute */
+  overflow: hidden;
+}
+
+.heroBgImage {
+  width: 100%;
+  height: 0;
+  min-height: 100%;
+  object-fit: cover;
+  opacity: 0.2;
+  transform: scale(1.05);
+}
+
+.heroBgGradient {
+  width: 100%;
+  height: 0;
+  min-height: 100%;
+  background: linear-gradient(to bottom, var(--color-background), transparent, var(--color-background));
+}
+
+.heroContentWrapper {
+  padding: 8rem 0 5rem 0;
+  @media (min-width: 768px) {
+    padding: 12rem 0 8rem 0;
+  }
+}
+
+.heroLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.heroBadge {
+  align-self: flex-start;
+  padding: 0.375rem 1rem;
+  border-radius: 9999px;
+  background-color: rgba(0, 238, 252, 0.1);
+  border: 1px solid rgba(143, 245, 255, 0.2);
+  color: var(--color-primary);
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  font-family: var(--font-body);
+}
+
+.heroH1 {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.05em;
+
+  @media (min-width: 768px) {
+    font-size: 4.5rem;
+  }
+}
+
+.heroText {
+  font-size: 1.125rem;
+  color: var(--color-on-surface-variant);
+  max-width: 32rem;
+  line-height: 1.6;
+
+  @media (min-width: 768px) {
+    font-size: 1.25rem;
+  }
+}
+
+.heroActions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+
+  @media (min-width: 640px) {
+    flex-direction: row;
+  }
+}
+
+.heroRight {
+  display: none;
+  
+  @media (min-width: 768px) {
+    display: block;
+  }
+}
+
+.heroImageContainer {
+  /* Using purely CSS Grid without absolute */
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  align-items: end;
+  justify-items: start;
+  border-radius: 1rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  margin-left: 1.5rem;
+}
+
+.heroMainImg {
+  grid-column: 1 / -1;
+  grid-row: 1 / -1;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 1rem;
+  transition: transform 0.7s ease;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.heroImgOverlay {
+  grid-column: 1 / -1;
+  grid-row: 1 / -1;
+  width: 100%;
+  height: 0;
+  min-height: 100%;
+  background-color: rgba(143, 245, 255, 0.1);
+  mix-blend-mode: overlay;
+  border-radius: 1rem;
+  pointer-events: none;
+}
+
+.heroFloatingBadgeStack {
+  grid-column: 1 / -1;
+  grid-row: 1 / -1;
+  align-self: end;
+  justify-self: start;
+  transform: translate(-1.5rem, 1.5rem);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+
+  /* Slightly overlayed on each other */
+  .heroFloatingBadge {
+    background-color: var(--color-surface-container-highest);
+    padding: 1.25rem 1.5rem;
+    border-radius: 0.75rem;
+    border: 1px solid rgba(143, 245, 255, 0.2);
+    backdrop-filter: blur(16px);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    margin-top: -1.25rem;
+    position: relative;
+    
+    &:first-child {
+      margin-top: 0;
+      z-index: 3;
+    }
+    &:nth-child(2) {
+      z-index: 2;
+    }
+    &:nth-child(3) {
+      z-index: 1;
+    }
+    
+    .badgeContent {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .badgeIcon {
+      width: 2.75rem;
+      height: 2.75rem;
+      border-radius: 9999px;
+      background-color: rgba(143, 245, 255, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-primary);
+      
+      span {
+        font-size: 1.5rem;
+      }
+    }
+
+    .badgeTitle {
+      font-size: 0.7rem;
+      color: var(--color-primary);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+    }
+
+    .badgeValue {
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+  }
+}
+
+/* Locked Out Feature Segment */
+.lockedSegment {
+  padding: 6rem 0;
+  background-color: var(--color-surface-container-low);
+  overflow: hidden;
+}
+
+.lockedGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: center;
+
+  @media (min-width: 1024px) {
+    grid-template-columns: 7fr 5fr;
+  }
+}
+
+.lockedImageContainer {
+  display: grid;
+  align-items: center;
+  border-radius: 1rem;
+  overflow: hidden;
+  border: 1px solid rgba(72, 72, 73, 0.1);
+
+  > * {
+    grid-column: 1 / -1;
+    grid-row: 1 / -1;
+  }
+}
+
+.lockedImg {
+  width: 100%;
+  height: 24rem;
+  object-fit: cover;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.lockedImgGradient {
+  width: 100%;
+  height: 0;
+  min-height: 100%;
+  background: linear-gradient(to right, var(--color-surface-container-low), transparent, transparent);
+}
+
+.lockedIcon {
+  padding: 0 3rem;
+  display: flex;
+  align-items: center;
+  color: rgba(143, 245, 255, 0.2);
+
+  span {
+    font-size: 6rem;
+  }
+}
+
+.lockedContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  
+  h2 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+  }
+  
+  .subtitle {
+    font-size: 1.25rem;
+    color: var(--color-primary);
+    font-weight: 500;
+  }
+  
+  .desc {
+    font-size: 1.125rem;
+    color: var(--color-on-surface-variant);
+    line-height: 1.6;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+
+      span:first-child {
+        color: var(--color-secondary);
+      }
+    }
+  }
+}
+
+/* Services Bento Section */
+.bentoSegment {
+  padding: 6rem 0;
+  background-color: var(--color-background);
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  .label {
+    color: var(--color-primary);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  h2 {
+    font-size: 2.25rem;
+    font-weight: 700;
+
+    @media (min-width: 768px) {
+      font-size: 3rem;
+    }
+  }
+}
+
+.bentoCard {
+  background-color: var(--color-surface-container-high);
+  padding: 2rem;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(72, 72, 73, 0.1);
+  transition: all 0.5s ease;
+  
+  &:hover {
+    transform: translateY(-0.5rem);
+    border-color: rgba(143, 245, 255, 0.3);
+    box-shadow: 0 0 20px rgba(143, 245, 255, 0.15);
+  }
+
+  .iconBox {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    transition: background-color 0.3s ease;
+    
+    &.primary {
+      background-color: rgba(143, 245, 255, 0.1);
+      color: var(--color-primary);
+    }
+    
+    &.secondary {
+      background-color: rgba(172, 137, 255, 0.1);
+      color: var(--color-secondary);
+    }
+    
+    &.primaryCont {
+      background-color: rgba(0, 238, 252, 0.1);
+      color: var(--color-primary-container);
+    }
+
+    span {
+      font-size: 1.875rem;
+    }
+  }
 
   h3 {
     font-size: 1.5rem;
-    color: var(--color-secondary);
-    margin-top: 0;
+    font-weight: 700;
     margin-bottom: 1rem;
   }
 
   p {
-    color: var(--color-text);
+    color: var(--color-on-surface-variant);
     line-height: 1.6;
-    margin: 0;
   }
 
-  &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  &:hover .iconBox.primary { background-color: rgba(143, 245, 255, 0.2); }
+  &:hover .iconBox.secondary { background-color: rgba(172, 137, 255, 0.2); }
+  &:hover .iconBox.primaryCont { background-color: rgba(0, 238, 252, 0.2); }
+}
+
+/* Process Segment */
+.processSegment {
+  padding: 6rem 0;
+  background-color: var(--color-surface-container-low);
+}
+
+.processHeaderWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
   }
 }
 
-.ctaSection {
-  background-color: var(--color-secondary);
-  color: white;
-  text-align: center;
-  padding: 5rem 0;
+.processStep {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  .stepNum {
+    font-size: 3.75rem;
+    font-weight: 900;
+    color: var(--color-surface-container-highest);
+  }
+
+  h4 {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  p {
+    color: var(--color-on-surface-variant);
+  }
+}
+
+/* Testimonials */
+.testimonialsSegment {
+  padding: 6rem 0;
+  background-color: var(--color-background);
+}
+
+.testiLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  .quoteIcon {
+    align-self: flex-start;
+    padding: 0.5rem;
+    background-color: rgba(143, 245, 255, 0.1);
+    color: var(--color-primary);
+    border-radius: 0.5rem;
+
+    span {
+      font-size: 2.25rem;
+    }
+  }
 
   h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+    font-size: 2.25rem;
+    font-weight: 700;
+    line-height: 1.25;
+  }
+
+  p {
+    font-size: 1.125rem;
+    color: var(--color-on-surface-variant);
+  }
+}
+
+.testiRight {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.testiCard {
+  padding: 2rem;
+  background-color: var(--color-surface-container-high);
+  border-radius: 1rem;
+  border-left: 4px solid;
+
+  &.borderPrimary {
+    border-left-color: var(--color-primary);
+  }
+
+  &.borderSecondary {
+    border-left-color: var(--color-secondary);
+  }
+
+  .quoteText {
+    font-size: 1.25rem;
+    font-style: italic;
+    margin-bottom: 1.5rem;
+  }
+
+  .author {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    .avatar {
+      width: 3rem;
+      height: 3rem;
+      border-radius: 9999px;
+      background-color: #262626;
+      border: 1px solid var(--color-outline-variant);
+    }
+
+    .info {
+      p:first-child {
+        font-weight: 700;
+      }
+      p:last-child {
+        font-size: 0.875rem;
+        color: var(--color-on-surface-variant);
+      }
+    }
+  }
+}
+
+/* Final CTA Section */
+.ctaSegment {
+  padding: 5rem 0;
+}
+
+.ctaContainer {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  background-color: var(--color-surface-container-high);
+  text-align: center;
+
+  > * {
+    grid-column: 1 / -1;
+    grid-row: 1 / -1;
+  }
+}
+
+.ctaBgGradient {
+  width: 100%;
+  height: 0;
+  min-height: 100%;
+  background: radial-gradient(circle at 50% 50%, rgba(0, 240, 255, 0.1), transparent 70%);
+}
+
+.ctaContent {
+  padding: 3rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 48rem;
+  z-index: 10;
+
+  @media (min-width: 768px) {
+    padding: 5rem;
+  }
+
+  h2 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    letter-spacing: -0.05em;
+
+    @media (min-width: 768px) {
+      font-size: 3.75rem;
+    }
   }
 
   p {
     font-size: 1.25rem;
-    margin-bottom: 2rem;
-    opacity: 0.9;
-  }
-}
-
-.ctaBtn {
-  background-color: white;
-  color: var(--color-secondary);
-
-  &:hover {
-    background-color: var(--color-light-bg);
-    color: var(--color-secondary);
+    color: var(--color-on-surface-variant);
   }
 }

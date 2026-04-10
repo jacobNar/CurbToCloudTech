@@ -9,19 +9,29 @@ export default function Header() {
   return (
     <>
       <header className={styles.header}>
-        <div className={`${styles.navContainer} width-container`}>
+        <div className={styles.navContainer}>
           <Link href="/" className={styles.logo}>
-            CurbToCloudTech
+            Curb to Cloud
           </Link>
 
           <input type="checkbox" id="nav-toggle" className={styles.navToggle} />
           
           <nav className={styles.navMenu}>
-            <Link href="/" className={styles.navLink}>Home</Link>
-            <Link href="/services" className={styles.navLink}>Services</Link>
+            <div className={styles.navLinks}>
+               <Link href="/recover" className={styles.navLink}>Recovery</Link>
+               <Link href="/services" className={styles.navLink}>Services</Link>
+               <Link href="/services" className={styles.navLink}>Process</Link>
+               <Link href="/services" className={styles.navLink}>Support</Link>
+            </div>
+            
             <div className={styles.navActions}>
-              <a href="tel:5551234567" className="btn">Book a Call</a>
-              <button className="btn" onClick={() => setIsModalOpen(true)}>Book an Appointment</button>
+              <button 
+                className="btn" 
+                style={{ padding: '0.625rem 1.5rem', fontSize: '0.875rem' }} 
+                onClick={() => setIsModalOpen(true)}
+              >
+                Book Now
+              </button>
             </div>
           </nav>
 
