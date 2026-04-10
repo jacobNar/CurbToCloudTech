@@ -16,17 +16,17 @@ export default async function handler(req, res) {
         let meetLink = null;
         const isDigital = type === 'online';
         
-        // 1. Google Calendar Booking
-        if (process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL && process.env.GOOGLE_PRIVATE_KEY) {
-            const auth = new google.auth.GoogleAuth({
-                credentials: {
-                    client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
-                    private_key: process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, '\n'),
-                },
-                scopes: ['https://www.googleapis.com/auth/calendar.events'],
-            });
+        let eventDetailsForClient = null;
 
-            const calendar = google.calendar({ version: 'v3', auth });
+        // 1. Google Calendar Booking
+        if (process.env.GOOGLE_CLIENT_ID && process.env.GOOGLE_CLIENT_SECRET && process.env.GOOGLE_REFRESH_TOKEN) {
+            const oauth2Client = new google.auth.OAuth2(
+                process.env.GOOGLE_CLIENT_ID,
+                process.env.GOOGLE_CLIENT_SECRET
+            );
+            oauth2Client.setCredentials({ refresh_token: process.env.GOOGLE_REFRESH_TOKEN });
+
+            const calendar = google.calendar({ version: 'v3', auth: oauth2Client });
             const startTime = new Date(appointment_time);
             const endTime = new Date(startTime.getTime() + 60 * 60 * 1000); // 1 hour
 
@@ -48,7 +48,7 @@ export default async function handler(req, res) {
 
             try {
                 const calendarResponse = await calendar.events.insert({
-                    calendarId: process.env.GOOGLE_CALENDAR_ID,
+                    calendarId: process.env.GOOGLE_CALENDAR_ID || 'primary',
                     resource: event,
                     conferenceDataVersion: 1
                 });
@@ -56,6 +56,7 @@ export default async function handler(req, res) {
                 if (isDigital && calendarResponse.data.hangoutLink) {
                    meetLink = calendarResponse.data.hangoutLink;
                 }
+                eventDetailsForClient = calendarResponse.data;
             } catch (err) {
                 console.error("Failed to book Google Calendar event:", err);
                 // Proceed anyway so contact gets added to CRM
@@ -113,7 +114,11 @@ export default async function handler(req, res) {
             }
         }
 
-        return res.status(200).json({ success: true, message: 'Appointment booked successfully!' });
+        return res.status(200).json({ 
+            success: true, 
+            message: 'Appointment booked successfully!',
+            eventDetails: eventDetailsForClient
+        });
     } catch (error) {
         console.error('Error booking appointment:', error);
         return res.status(500).json({ message: 'Internal Server Error' });

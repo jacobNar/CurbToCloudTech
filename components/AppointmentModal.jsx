@@ -7,6 +7,7 @@ export default function AppointmentModal({ onClose }) {
     const [selectedTime, setSelectedTime] = useState(null);
     const [slots, setSlots] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [eventDetails, setEventDetails] = useState(null);
 
     const [formData, setFormData] = useState({
         contact_name: '',
@@ -23,6 +24,7 @@ export default function AppointmentModal({ onClose }) {
         setStep('date');
         setSelectedDate(null);
         setSelectedTime(null);
+        setEventDetails(null);
         setFormData({ contact_name: '', email: '', phone_number: '', company_name: '', project_description: '', type: 'online', address: '' });
     }, []);
 
@@ -42,14 +44,29 @@ export default function AppointmentModal({ onClose }) {
             const res = await fetch(`/api/appointment/get-slots?date=${dateStr}`);
             const data = await res.json();
 
+            const busyBlocks = data.busyBlocks || [];
             const bookedSet = new Set(data.booked || []);
 
             const processedSlots = (data.slots || []).map((time) => {
                 const [hours, minutes] = time.split(':').map(Number);
-                const slotDate = new Date(date);
-                slotDate.setHours(hours, minutes, 0, 0);
-                const isBooked = bookedSet.has(slotDate.toISOString());
-                return { time, available: !isBooked };
+                const slotStart = new Date(date);
+                slotStart.setHours(hours, minutes, 0, 0);
+                const slotEnd = new Date(slotStart.getTime() + 60 * 60 * 1000); // 1 hour slot
+                
+                const isPast = slotStart.getTime() < new Date().getTime();
+
+                let isBooked = bookedSet.has(slotStart.toISOString());
+                
+                for (const block of busyBlocks) {
+                    const blockStart = new Date(block.start).getTime();
+                    const blockEnd = new Date(block.end).getTime();
+                    if (slotStart.getTime() < blockEnd && slotEnd.getTime() > blockStart) {
+                        isBooked = true;
+                        break;
+                    }
+                }
+
+                return { time, available: !isBooked && !isPast };
             });
 
             setSlots(processedSlots);
@@ -93,6 +110,10 @@ export default function AppointmentModal({ onClose }) {
             });
 
             if (res.ok) {
+                const data = await res.json();
+                if (data.eventDetails) {
+                    setEventDetails(data.eventDetails);
+                }
                 setStep('success');
             } else {
                 alert('Something went wrong. Please try again.');
@@ -259,6 +280,56 @@ export default function AppointmentModal({ onClose }) {
                             <div className={styles.successIcon}>✓</div>
                             <h2>Appointment Confirmed!</h2>
                             <p>We have sent a confirmation email to {formData.email}.</p>
+                            
+                            {eventDetails && (
+                                <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginTop: '20px', marginBottom: '20px', alignItems: 'center' }}>
+                                    <button 
+                                        className={styles.confirmBtn} 
+                                        style={{ backgroundColor: '#4285F4', width: '100%', maxWidth: '250px' }}
+                                        onClick={() => {
+                                            const start = new Date(eventDetails.start.dateTime).toISOString().replace(/-|:|\.\d\d\d/g, '');
+                                            const end = new Date(eventDetails.end.dateTime).toISOString().replace(/-|:|\.\d\d\d/g, '');
+                                            const url = new URL('https://calendar.google.com/calendar/render');
+                                            url.searchParams.append('action', 'TEMPLATE');
+                                            url.searchParams.append('text', eventDetails.summary || 'Meeting');
+                                            url.searchParams.append('dates', `${start}/${end}`);
+                                            
+                                            let desc = eventDetails.description || '';
+                                            if (eventDetails.hangoutLink) desc += `\n\nGoogle Meet: ${eventDetails.hangoutLink}`;
+                                            url.searchParams.append('details', desc);
+                                            
+                                            if (eventDetails.location) url.searchParams.append('location', eventDetails.location);
+                                            window.open(url.toString(), '_blank');
+                                        }}
+                                    >
+                                        Add to Google Calendar
+                                    </button>
+                                    
+                                    <button 
+                                        className={styles.backBtn}
+                                        style={{ width: '100%', maxWidth: '250px' }}
+                                        onClick={() => {
+                                            const start = new Date(eventDetails.start.dateTime).toISOString().replace(/-|:|\.\d\d\d/g, '');
+                                            const end = new Date(eventDetails.end.dateTime).toISOString().replace(/-|:|\.\d\d\d/g, '');
+                                            let desc = (eventDetails.description || '').replace(/\n/g, '\\n');
+                                            if (eventDetails.hangoutLink) desc += `\\n\\nGoogle Meet: ${eventDetails.hangoutLink}`;
+                                            
+                                            const icsContent = `BEGIN:VCALENDAR\nVERSION:2.0\nBEGIN:VEVENT\nDTSTART:${start}\nDTEND:${end}\nSUMMARY:${eventDetails.summary || 'Meeting'}\nDESCRIPTION:${desc}\nLOCATION:${eventDetails.location || ''}\nEND:VEVENT\nEND:VCALENDAR`;
+                                            
+                                            const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
+                                            const link = document.createElement('a');
+                                            link.href = URL.createObjectURL(blob);
+                                            link.download = 'appointment.ics';
+                                            document.body.appendChild(link);
+                                            link.click();
+                                            document.body.removeChild(link);
+                                        }}
+                                    >
+                                        Download .ICS (Apple/Outlook)
+                                    </button>
+                                </div>
+                            )}
+
                             <button className={styles.confirmBtn} onClick={onClose}>Close</button>
                         </div>
                     )}
