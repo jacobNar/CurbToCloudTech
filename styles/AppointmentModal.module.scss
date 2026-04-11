@@ -1,15 +1,26 @@
 .overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(5px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 2000;
+  --color-background: #ffffff;
+  --color-surface: #f4f3f7;
+  --color-surface-container-high: #faf9fd;
+  --color-on-surface: #1a1b1e;
+  --color-outline-variant: #e3e2e6;
+  --color-primary: #002046;
+  --color-primary-dim: #1b365d;
+  --color-on-primary: #ffffff;
+  --color-secondary: #002046;
+  --color-text: #44474e;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
 }
 
 .popup {
@@ -121,7 +132,7 @@
 
 .timeBtn:hover:not(:disabled) {
     border-color: var(--color-primary);
-    background: rgba(143, 245, 255, 0.1);
+    background: rgba(0, 32, 70, 0.05);
     color: var(--color-primary);
 }
 

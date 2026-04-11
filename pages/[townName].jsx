@@ -1,5 +1,8 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import AppointmentModal from '../components/AppointmentModal';
 import styles from '@/styles/Town.module.scss';
 import { useState } from 'react';
 
@@ -21,11 +24,9 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const slug = params.townName;
-  // Simple extraction for the display name based on slug
   const extracted = slug.replace('tech-support-in-', '').replace('-il', '');
   const townNameFormatted = towns.find(t => t.toLowerCase().replace(/\s+/g, '-') === extracted) || extracted;
   
-  // Generating unique, localized content variation
   const uniqueFeatures = [
     `Bringing reliable IT support and home network setups directly to the bustling neighborhoods of ${townNameFormatted}.`,
     `We love serving the ${townNameFormatted} community with top-tier tech solutions, from fixing frustrating Wi-Fi drops to building smart AI agents.`,
@@ -45,59 +46,205 @@ export async function getStaticProps({ params }) {
 }
 
 export default function TownPage({ townName, state, featureText }) {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
-    <>
+    <div className={styles.pageWrapper}>
       <Head>
         <title>Tech Support & IT Services in {townName}, {state} | CurbToCloudTech</title>
         <meta name="description" content={`Expert tech support, networking, and web design for homes and businesses in ${townName}, ${state}. Friendly, reliable service.`} />
       </Head>
 
-      <div className={styles.townPage}>
-        <section className={`${styles.hero} full-height`}>
-          <div className="width-container text-center">
-            <h1 className="fade-in">Friendly Neighborhood Tech Support in {townName}</h1>
-            <p className="fade-in">{featureText}</p>
-            <div className="fade-in" style={{ marginTop: '2rem' }}>
-              <Link href="tel:5551234567" className="btn">Call for Support in {townName}</Link>
+      <Header />
+
+      <main className={styles.mainContent}>
+        {/* Hero Section */}
+        <section className={styles.heroSection}>
+          <div className={styles.heroGrid}>
+            <div className={styles.heroText}>
+              <h1 className={styles.heroTitle}>
+                Stop fighting your tech. I'll come to you.
+              </h1>
+              <p className={styles.heroDesc}>
+                Expert, friendly IT support for your {townName} home. Whether it's a broken drive or patchy WiFi, I make it work—guaranteed.
+              </p>
+              <div className={styles.heroActions}>
+                <button className={styles.btnPrimary} onClick={() => setIsModalOpen(true)}>
+                  Schedule Your Visit
+                </button>
+                <button className={styles.btnSecondary} onClick={() => document.getElementById('packages').scrollIntoView({ behavior: 'smooth' })}>
+                  View Pricing
+                </button>
+              </div>
+              <div className={styles.trustSignals}>
+                <div className={styles.avatars}>
+                  <div className={styles.avatarImgWrapper}>
+                    <img alt="technician" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAL-NtBlGu7OOeAydWEgAajq-Y5AXVUvGkH0fBD5AYqYUhmBRbZNAVsPrKn9BgsuJCrP5XYHQYhfv5GXTkimIaEKoTP-9Ec9su0N_l8xMyVQcFaFAdmrAiZ8fIPzAbQENdR9QTAjdv736t9qz57ENuOmmPAhWZNwi2qsPXQ1SBvH_yix40gtAf2gPN-tafEjGcT4UzllEsZcTqaQhKcpgF5fwuKjBGsZhEwaaVQNYpqllvH4W2FKZnGofixo-luCY34KaKDv4Oaths5"/>
+                  </div>
+                  <div className={styles.ratingBadge}>4.9</div>
+                </div>
+                <span>Trusted by 500+ neighbors in {townName}</span>
+              </div>
+            </div>
+            
+            <div className={styles.heroVisual}>
+              <div className={styles.cardOverlap}>
+                <div className={styles.cardBg}></div>
+                <div className={styles.trustCard}>
+                  <div className={styles.cardImgWrapper}>
+                    <img alt="friendly tech support" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvtLPBy5w2987doVa1LuRc2qE7Nha6RtTkRJ9GjI-u8L-5Tsl9dy1srMdMUsxLA7xj_RYe93kl5p5vv-AufPiFtcuHwwS0__DSea-evgxZDS9Gs1i1Ud9yVYoriMaaMKlA0QDy37PGZ3JxcyRT8WhjynPz3XxRUqdHSfR1ltcVP2FRElKq0N5ZL88CcFKzl5e82oMvKfQaq1YmK-4KSvAvJO69iR1P8TddQutaPt04Xhjq9Q0P-8YCN2D2ZluwJ3B4z965QMubYtbN"/>
+                  </div>
+                  <div className={styles.reviewContent}>
+                    <div className={styles.stars}>
+                      <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
+                      <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
+                      <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
+                      <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
+                      <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
+                    </div>
+                    <p className={styles.quote}>"Finally, someone who explains tech in plain English and fixed my internet in minutes!"</p>
+                    <p className={styles.author}>— Sarah J., {townName}</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
 
-        <section className={styles.contentSection}>
-          <div className={`width-container ${styles.twoCol}`}>
-             <div className="fade-in">
-               <h2>Why Choose CurbToCloudTech in {townName}?</h2>
-               <p>
-                 We understand that technology should make your life easier, not more complicated. When your home Wi-Fi drops, your hardware fails, or your business needs a fresh website, having a local partner in {townName} makes all the difference.
-               </p>
-               <ul>
-                 <li>Fast, reliable home visits and remote support</li>
-                 <li>Plain English explanations—no confusing jargon</li>
-                 <li>Comprehensive services: Networking, Websites, AI Automation</li>
-               </ul>
-             </div>
-             
-             <div className={`fade-in ${styles.mapContainer}`}>
-               <iframe 
+        {/* Service Area Wrapper */}
+        <section className={styles.serviceAreaSection}>
+          <div className={styles.sectionHeader}>
+            <h2 className={styles.sectionTitle}>Friendly Tech Support in Your Neighborhood</h2>
+            <p className={styles.sectionDesc}>From the town square to the suburbs, I'm just a short drive away.</p>
+          </div>
+          
+          <div className={styles.mapContainer}>
+            <div className={styles.mapOverlap}>
+              <div className={styles.mapWrapper}>
+                <iframe 
                   width="100%" 
-                  height="350" 
-                  style={{border:0, borderRadius: '12px'}} 
+                  height="100%" 
+                  style={{border:0}} 
                   loading="lazy" 
                   allowFullScreen 
                   referrerPolicy="no-referrer-when-downgrade" 
                   src={`https://www.google.com/maps?q=${encodeURIComponent(townName + ', ' + state)}&output=embed`}>
                 </iframe>
-             </div>
+              </div>
+              <div className={styles.mapTint}></div>
+            </div>
+            
+            <div className={styles.mapInfo}>
+              <div className={styles.infoList}>
+                <div className={styles.infoItem}>
+                  <span className={`material-symbols-outlined ${styles.infoIcon}`}>location_on</span>
+                  <div>
+                    <h4>Local & Reliable</h4>
+                    <p>Serving the entire {townName} area with same-day appointments.</p>
+                  </div>
+                </div>
+                <div className={styles.infoItem}>
+                  <span className={`material-symbols-outlined ${styles.infoIcon}`}>verified</span>
+                  <div>
+                    <h4>Flat-Rate Pricing</h4>
+                    <p>Know exactly what you'll pay before I even start. No hidden hourly fees.</p>
+                  </div>
+                </div>
+              </div>
+              <button className={styles.btnOutline} onClick={() => setIsModalOpen(true)}>Check My Zip Code</button>
+            </div>
           </div>
         </section>
 
-        <section className={styles.ctaBanner}>
-          <div className="width-container text-center fade-in">
-            <h2>Ready to solve your tech headaches?</h2>
-            <p>Our team is available to support the {townName} area. Book an online call or an in-person visit.</p>
+        {/* Packages Section */}
+        <section id="packages" className={styles.packagesSection}>
+          <div className={styles.packagesHeader}>
+            <span className={styles.subtitle}>Concierge Services</span>
+            <h2>Transparent Support Solutions</h2>
+          </div>
+          
+          <div className={styles.packagesGrid}>
+            <div className={styles.packageCard}>
+              <div className={styles.packageIcon}><span className="material-symbols-outlined">database</span></div>
+              <h3>The Digital Lifeline</h3>
+              <p className={styles.packageSub}>Stop worrying about lost memories.</p>
+              <p className={styles.packageDesc}>Emergency data recovery for crashed hard drives and accidental deletions. We prioritize your photos, documents, and business files.</p>
+              <ul className={styles.packageFeatures}>
+                <li><span className="material-symbols-outlined">check_circle</span> SSD & HDD Recovery</li>
+                <li><span className="material-symbols-outlined">check_circle</span> Cloud Backup Setup</li>
+                <li><span className="material-symbols-outlined">check_circle</span> Encrypted Storage</li>
+              </ul>
+              <button className={styles.btnCardSecondary} onClick={() => setIsModalOpen(true)}>Learn More</button>
+            </div>
+
+            <div className={`${styles.packageCard} ${styles.highlighted}`}>
+              <div className={`${styles.packageIcon} ${styles.iconHighlighted}`}><span className="material-symbols-outlined">wifi</span></div>
+              <h3>The Whole-Home Link</h3>
+              <p className={styles.packageSub}>WiFi that actually works in every room.</p>
+              <p className={styles.packageDesc}>Mesh network installation and dead-zone elimination. Perfect for local architecture and multi-story homes.</p>
+              <ul className={styles.packageFeatures}>
+                <li><span className="material-symbols-outlined">check_circle</span> Mesh Wi-Fi 6 Setup</li>
+                <li><span className="material-symbols-outlined">check_circle</span> Hardware Optimization</li>
+                <li><span className="material-symbols-outlined">check_circle</span> Security Hardening</li>
+              </ul>
+              <button className={styles.btnCardPrimary} onClick={() => setIsModalOpen(true)}>Most Popular</button>
+            </div>
+
+            <div className={styles.packageCard}>
+              <div className={styles.packageIcon}><span className="material-symbols-outlined">shield</span></div>
+              <h3>The Tune-Up & Shield</h3>
+              <p className={styles.packageSub}>Make your computer feel brand new.</p>
+              <p className={styles.packageDesc}>Virus removal, performance optimization, and deep cleaning. We speed up old machines and protect them for the future.</p>
+              <ul className={styles.packageFeatures}>
+                <li><span className="material-symbols-outlined">check_circle</span> Malware Removal</li>
+                <li><span className="material-symbols-outlined">check_circle</span> Speed Optimization</li>
+                <li><span className="material-symbols-outlined">check_circle</span> Update Management</li>
+              </ul>
+              <button className={styles.btnCardSecondary} onClick={() => setIsModalOpen(true)}>Learn More</button>
+            </div>
           </div>
         </section>
-      </div>
-    </>
+
+        {/* Trust Signals */}
+        <section className={styles.trustSection}>
+          <div className={styles.trustGrid}>
+            <div className={styles.trustBanner}>
+              <h2>No Fix, No Fee Guarantee</h2>
+              <p>You shouldn't pay for technology that doesn't work. If I can't find a solution for your technical issue, you don't owe me a dime. Simple as that.</p>
+            </div>
+            
+            <div className={styles.trustBoxPrimary}>
+              <span className="material-symbols-outlined">home</span>
+              <h4>{townName} Neighbor</h4>
+              <p>Not a big box store or a corporate call center.</p>
+            </div>
+            
+            <div className={styles.trustBoxSecondary}>
+              <span className="material-symbols-outlined">payments</span>
+              <h4>Flat Rates</h4>
+              <p>Transparent pricing. No surprises on your final bill.</p>
+            </div>
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section className={styles.ctaSection}>
+          <div className={styles.ctaCard}>
+            <div className={styles.ctaBlurWrapper}>
+              <div className={styles.ctaBlurCircle}></div>
+            </div>
+            <div className={styles.ctaContent}>
+              <h2>Ready to fix your home tech once and for all?</h2>
+              <p>Appointments are available as soon as tomorrow in {townName}. Let's get your digital life back on track.</p>
+              <button className={styles.btnCta} onClick={() => setIsModalOpen(true)}>Schedule Your Visit Now</button>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <Footer />
+
+      {isModalOpen && <AppointmentModal onClose={() => setIsModalOpen(false)} />}
+    </div>
   );
 }

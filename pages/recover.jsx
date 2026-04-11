@@ -12,211 +12,154 @@ export default function Recover() {
   return (
     <div className={styles.pageWrapper}>
       <Head>
-        <title>Curb to Cloud | Expert Data Recovery</title>
+        <title>The Digital Lifeline | Curb to Cloud Tech</title>
       </Head>
 
       <Header />
 
       <main className={styles.mainContent}>
-        {/* Hero Section */}
+        {/* Hero Section: Editorial Asymmetry */}
         <section className={styles.heroSection}>
-          <div className={styles.gridOverlap}>
+          <div className={styles.heroContent}>
+            <span className={styles.pillLabel}>Digital Concierge</span>
+            <h1 className={styles.heroTitle}>
+              The Digital Lifeline: <span className={styles.heroTitleHighlight}>Expert Data Recovery</span> at Your Doorstep
+            </h1>
+            <p className={styles.heroDesc}>
+              Losing your precious memories or critical work is stressful. We bring high-end recovery labs directly to your curb, so you never have to worry about your data leaving your sight.
+            </p>
+            <div className={styles.heroActions}>
+              <button className={styles.primaryBtn} onClick={() => setIsModalOpen(true)}>
+                Get Your Files Back
+              </button>
+              <button className={styles.secondaryBtn} onClick={() => document.getElementById('process').scrollIntoView({ behavior: 'smooth' })}>
+                Learn Our Process
+              </button>
+            </div>
+          </div>
+          <div className={styles.heroVisual}>
             <img 
-              className={styles.heroBgImage} 
-              alt="close-up technical photography of complex microchips" 
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7dOUQC7yx8c8MnFMfSkU1qtQklWaViTKZLe8L51d86ljgqr-7cMpB9qKeOpJdRXQHK3w4_8pLEi9SVi0WD3KtceOWv6d3oBu0BPKylv4-aDol8xiMXItyOXOMwTFipKxoIOW7paBDFzrQS-Vo-LlINmMwiciiyIdKGlIsGXxzEXnoxEmXtymD2hV0xVWah--pOsN1PcSi3oOgfKSS57Ndxv2oXf799avcAkTdhxvLf-rx1z6cegUhgtOWxjtneRCukfK9TVWBSv8C" 
+              className={styles.heroImage} 
+              alt="Mobile Tech Work Center" 
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsnFwLCt_coyVYSkDuSyCuM3uijn6PuPmb_815IPKdbXCaj32mWFObjWiiAgDghAdrvbU1x-gks3m-6il6W1msA3NZNLdenYd3_Rutcfog6h-saoTqpuFp1YdYl9vhXeBUD-Axa-L1xDjSpqucpnokjPA_Dr4Ci2BNn4jBNNUuCo_yRTEevqbeuA-FWmbH8ABMr_OHKC2eHxkd_XsHh1rHKnJ5dXuv3IYa3_yI1zPdYJaiq1_6BY10HWNGp_vn8KLntBjSgdflVaIw" 
             />
-            <div className={styles.heroBgGradient} />
-            <div className={styles.heroContentWrapper}>
-              <p className={styles.heroTagline}>Immediate Hardware & Software Extraction</p>
-              <h1 className={styles.heroTitle}>
-                Expert Data Recovery <br />
-                <span className="text-gradient">at Your Doorstep</span>
-              </h1>
-              <p className={styles.heroDesc}>
-                We bring high-performance forensic recovery tools directly to your curb. No shipping, no waiting, no privacy risks. Our mobile lab recovers what others call lost.
-              </p>
-              <div className={styles.heroActions}>
-                <button className={styles.btnPrimary} onClick={() => setIsModalOpen(true)}>
-                  Book Emergency Recovery
-                  <span className="material-symbols-outlined">bolt</span>
-                </button>
-                <button className={styles.heroGlassBtn} onClick={() => document.getElementById('scenarios').scrollIntoView({ behavior: 'smooth' })}>
-                  View Service Areas
-                </button>
+            {/* Floating Trust Card */}
+            <div className={styles.trustCardWrapper}>
+              <div className={styles.trustCard}>
+                <div className={styles.trustCardHeader}>
+                  <div className={styles.trustIcon}>
+                    <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>verified_user</span>
+                  </div>
+                  <span className={styles.trustTitle}>On-Site Guarantee</span>
+                </div>
+                <p className={styles.trustCardDesc}>
+                  Your hard drive never leaves your driveway. 100% privacy maintained.
+                </p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Scenarios Section (Bento Grid) */}
-        <section id="scenarios" className={styles.scenariosSection}>
-          <div className="width-container">
-            <div className={styles.sectionHeader}>
-              <p className={styles.label}>Diagnostic Scope</p>
-              <h2>When Can We Help?</h2>
+        {/* Scenarios Section: Tonal Layering Cards */}
+        <section className={styles.scenariosSection}>
+          <div className={styles.scenariosContainer}>
+            <div className={styles.scenariosHeader}>
+              <h2>When Tech Goes Quiet, We Listen</h2>
+              <p>Common situations where we restore your peace of mind.</p>
             </div>
             
             <div className={styles.scenariosGrid}>
               <div className={styles.scenarioCard}>
-                <div className={styles.cardIcon}>
-                  <span className="material-symbols-outlined">lock_open</span>
+                <div className={styles.scenarioIcon}>
+                  <span className="material-symbols-outlined">lock_reset</span>
                 </div>
-                <h3 className={styles.cardTitle}>Locked Out</h3>
-                <p className={styles.cardDesc}>
-                  Forgotten passwords or corrupted BIOS settings blocking access? We bypass local authentication to secure your raw data volumes.
+                <h3 className={styles.scenarioTitle}>Locked Out</h3>
+                <p className={styles.scenarioDesc}>
+                  Forgotten passwords or encrypted drives holding your memories hostage? We safely bypass locks without risking your data.
                 </p>
-                <ul className={styles.cardList}>
-                  <li><span className={styles.bullet}></span> Windows/Mac bypass</li>
-                  <li><span className={styles.bullet}></span> Encrypted Volume Mount</li>
-                </ul>
               </div>
-
-              <div className={`${styles.scenarioCard} ${styles.highlight}`}>
-                <div className={styles.cardIcon}>
-                  <span className="material-symbols-outlined">skull</span>
-                </div>
-                <h3 className={styles.cardTitle}>Dead PC</h3>
-                <p className={styles.cardDesc}>
-                  Total hardware failure, power surge, or water damage. Our mobile lab features ESD-safe extraction for physical drive removal and cloning.
-                </p>
-                <ul className={styles.cardList}>
-                  <li><span className={styles.bullet}></span> NVMe/SSD Forensic Extraction</li>
-                  <li><span className={styles.bullet}></span> Logic Board Component Swaps</li>
-                </ul>
-              </div>
-
               <div className={styles.scenarioCard}>
-                <div className={styles.cardIcon}>
-                  <span className="material-symbols-outlined">folder_zip</span>
+                <div className={styles.scenarioIcon}>
+                  <span className="material-symbols-outlined">power_off</span>
                 </div>
-                <h3 className={styles.cardTitle}>Corrupted Files</h3>
-                <p className={styles.cardDesc}>
-                  Malware attacks or file system errors. We utilize deep-sector scanning to reconstruct fragmented data and repair broken headers.
+                <h3 className={styles.scenarioTitle}>PC Won't Turn On</h3>
+                <p className={styles.scenarioDesc}>
+                  Blank screens and silent fans don't mean your files are gone. We extract data directly from the internal hardware.
                 </p>
-                <ul className={styles.cardList}>
-                  <li><span className={styles.bullet}></span> RAW File Recovery</li>
-                  <li><span className={styles.bullet}></span> Database Reconstruction</li>
-                </ul>
+              </div>
+              <div className={styles.scenarioCard}>
+                <div className={styles.scenarioIcon}>
+                  <span className="material-symbols-outlined">description</span>
+                </div>
+                <h3 className={styles.scenarioTitle}>Corrupted Files</h3>
+                <p className={styles.scenarioDesc}>
+                  If files are "unreadable" or "damaged," our deep-sector scanning tools can stitch your history back together.
+                </p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Value Proposition Section */}
-        <section className={`width-container ${styles.valueSection}`}>
-          <div className={styles.valueImgWrapper}>
-            <div className={styles.gridOverlap}>
+        {/* Process Section: The Pill Geometry */}
+        <section id="process" className={styles.processSection}>
+          <div className={styles.processContainer}>
+            <div>
+              <h2 className={styles.processTitle}>
+                Simple Recovery,<br/>Professional Care.
+              </h2>
+              <div className={styles.processSteps}>
+                <div className={styles.processStep}>
+                  <div className={`${styles.stepNumber} ${styles.darkBg}`}>1</div>
+                  <div className={styles.stepContent}>
+                    <h4>Book Appointment</h4>
+                    <p>Select a time that fits your schedule. No more waiting at generic repair shops.</p>
+                  </div>
+                </div>
+                <div className={styles.processStep}>
+                  <div className={`${styles.stepNumber} ${styles.accentBg}`}>2</div>
+                  <div className={styles.stepContent}>
+                    <h4>We Arrive at Your Curb</h4>
+                    <p>Our Mobile Work Center pulls up. We handle everything inside our climate-controlled lab.</p>
+                  </div>
+                </div>
+                <div className={styles.processStep}>
+                  <div className={`${styles.stepNumber} ${styles.darkBg}`}>3</div>
+                  <div className={styles.stepContent}>
+                    <h4>Problem Solved</h4>
+                    <p>Verify your files on the spot. We hand back your data on a secure, encrypted drive.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className={styles.processVisual}>
               <img 
-                className={styles.valueImgInner} 
-                alt="high-tech black mobile service van" 
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPrONlM4saLGSFc6LygRe9lpBAWl_qz0R-saVpe0xNM_wd6IMPBbjSZnw1u_5oBCTwzYwTdanae4IrJngDoSJup5IBeB6vCP5D3XJ5w_K4d_nro3ZMLdhjug5AO83d3Qk6boBQ9ts2sjd4RPQb0VegGHoaEILz__-7wC3fYGvGjAP-r76r6JPjAVKcbJhKHC6g_8uF95WLWM4x6EPzJzNKvhEcr1CqDeI1qSphAZvd_QVc-vLLOF8bKwgiltmB6A3IF87dBj5e3l42" 
+                alt="The Recovery Process" 
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjz1XI6sfnpQS0_zRhP909ytMB7cBy40GHxWsL6j0EJyhEP0gpYsUo3b3o1_i2Yt2bbRrdz726h83nZKY20rKYSnRDwc03aypahYHEsadOgMLjukllB5jP4XaB358pr8wBmhH6-4GpnGUHkCmx0_tnBuzb-DYc8tAN4hJ8pJ0HxbJNj5sw5wLvWXD6uMXEmbmo9lalZUUk9DSBRTjdj3fAl_g9WAF6YQoBy_CKMj_1lFn6eZI2kTzClpLsHdk1vrMVrJ07AbLgTFFY"
               />
-              <div className={styles.valueBadgeInner}>
-                <p className={styles.statVal}>98.4%</p>
-                <p className={styles.statLabel}>Success Rate</p>
-                <p className={styles.statDesc}>On-site hardware extraction and software reconstruction success across all hardware tiers.</p>
-              </div>
-            </div>
-          </div>
-          
-          <div className={styles.valueContent}>
-            <p className={styles.vLabel}>The Mobility Advantage</p>
-            <h2>Your Data Never <br/> Leaves Your Sight.</h2>
-            
-            <div className={styles.featureBlock}>
-              <div className={styles.featIcon}>
-                <span className="material-symbols-outlined">precision_manufacturing</span>
-              </div>
-              <div className={styles.featText}>
-                <h4>Mobile Work Center</h4>
-                <p>Our vehicles are climate-controlled, ESD-protected labs on wheels, equipped with the same logic-gate analysis tools as regional depots.</p>
-              </div>
-            </div>
-            
-            <div className={styles.featureBlock}>
-              <div className={styles.featIcon}>
-                <span className="material-symbols-outlined">verified_user</span>
-              </div>
-              <div className={styles.featText}>
-                <h4>Zero-Transit Risk</h4>
-                <p>Traditional mail-in services risk physical loss or privacy breaches during transit. We eliminate the courier entirely by coming to you.</p>
-              </div>
             </div>
           </div>
         </section>
 
-        {/* Process Timeline Section */}
-        <section className={styles.timelineSection}>
-          <div className="width-container">
-            <div className={styles.header}>
-              <p className={styles.label}>Operational Protocol</p>
-              <h2>Three Steps to Recovery</h2>
-            </div>
-            
-            <div className={styles.timelineGrid}>
-              <div className={styles.timelineStep}>
-                <div className={styles.iconRing}>
-                  <span className="material-symbols-outlined">event_available</span>
-                </div>
-                <h4>1. Book Appointment</h4>
-                <p>Select your emergency tier via our portal. A technical specialist confirms your hardware details immediately.</p>
-              </div>
-              
-              <div className={styles.timelineStep}>
-                <div className={styles.iconRing}>
-                  <span className="material-symbols-outlined">local_shipping</span>
-                </div>
-                <h4>2. We Arrive</h4>
-                <p>Our Mobile Work Center arrives at your location. We perform initial diagnostics right in the driveway.</p>
-              </div>
-              
-              <div className={styles.timelineStep}>
-                <div className={styles.iconRing}>
-                  <span className="material-symbols-outlined">task_alt</span>
-                </div>
-                <h4>3. Doorstep Delivery</h4>
-                <p>Once extraction is complete, your data is delivered on a secure drive or synced to your private cloud on the spot.</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* FAQ Section */}
+        {/* FAQ Section: Warm Styling */}
         <section className={styles.faqSection}>
-          <div className={styles.faqWrapper}>
-            <div className={styles.header}>
-              <p className={styles.label}>Technical Queries</p>
-              <h2>Frequently Asked</h2>
-            </div>
-            
-            <div className={styles.faqItem}>
-              <h4><span className="material-symbols-outlined">smartphone</span> Can you recover data from mobile devices?</h4>
-              <p>Yes, we service mobile phones and tablets if they are unlocked and functional enough for forensic software connection. For physical damage to handsets, we perform on-site logic board swaps in our ESD-safe mobile lab.</p>
-            </div>
-            
-            <div className={styles.faqItem}>
-              <h4><span className="material-symbols-outlined">hard_drive</span> What types of drives can you recover?</h4>
-              <p>Our Mobile Work Centers are equipped for all modern and legacy interfaces, including NVMe/M.2 SSDs, SATA hard drives, SAS enterprise volumes, RAID arrays, and even older IDE/PATA interfaces.</p>
-            </div>
-            
-            <div className={styles.faqItem}>
-              <h4><span className="material-symbols-outlined">cloud_download</span> How do I get my data back?</h4>
-              <p>We provide several secure handover methods: instant cloning to a provided external drive, transfer to a new encrypted drive we supply, or a high-speed secure sync to your private cloud architecture directly from our vehicle&apos;s network bridge.</p>
-            </div>
-          </div>
-        </section>
-
-        {/* Final CTA */}
-        <section className={styles.ctaSection}>
-          <div className={styles.gridOverlap}>
-            <div className={styles.heroBgGradient} style={{background: 'radial-gradient(circle at 50% 50%, rgba(0, 240, 255, 0.05), transparent 70%)'}} />
-            <div className={styles.ctaWrapper}>
-              <h2>Data loss isn&apos;t permanent <br/>until you give up.</h2>
-              <p>Connect with a retrieval engineer now. No fix, no fee policy applies to all consumer-tier hardware.</p>
-              <div className={styles.ctaActions}>
-                <button className={styles.btnPrimary} onClick={() => setIsModalOpen(true)}>Initialize Retrieval</button>
-                <button className={styles.heroGlassBtn}>Consultation Line</button>
+          <div className={styles.faqContainer}>
+            <h2 className={styles.faqTitle}>Frequently Asked Questions</h2>
+            <div className={styles.faqGrid}>
+              <div className={styles.faqCard}>
+                <h4>Is there a diagnostic fee?</h4>
+                <p>We believe in honesty first. If we can't find a path to recovery, you don't pay a dime for the evaluation.</p>
+              </div>
+              <div className={styles.faqCard}>
+                <h4>How long does it take?</h4>
+                <p>Most curb-side recoveries are completed within 2 to 4 hours. Complex logical repairs may take slightly longer.</p>
+              </div>
+              <div className={styles.faqCard}>
+                <h4>Can you recover deleted photos?</h4>
+                <p>Absolutely. As long as the data hasn't been overwritten by new files, we can typically rescue deleted memories.</p>
+              </div>
+              <div className={styles.faqCard}>
+                <h4>What about privacy?</h4>
+                <p>Your privacy is our core value. Our technicians are vetted professionals, and your data never leaves your property.</p>
               </div>
             </div>
           </div>
