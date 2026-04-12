@@ -84,7 +84,7 @@ export default function TownPage({ townName, state, featureText }) {
                   </div>
                   <div className={styles.ratingBadge}>4.9</div>
                 </div>
-                <span>Trusted by 500+ neighbors in {townName}</span>
+                <span>Your local IT professionals in {townName}</span>
               </div>
             </div>
 

@@ -30,14 +30,21 @@
 .heroSection {
   max-width: 1440px;
   margin: 0 auto;
-  padding: 8rem 3rem 4rem 3rem;
+  padding: 7rem 1.5rem 3rem;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 3rem;
+  gap: 2rem;
   align-items: center;
+
+  @media (max-width: 767px) {
+    background: linear-gradient(135deg, var(--secondary-container) 0%, var(--tertiary-fixed) 100%);
+    border-radius: 0 0 1rem 1rem;
+  }
 
   @media (min-width: 1024px) {
     grid-template-columns: 1fr 1fr;
+    padding: 8rem 3rem 4rem 3rem;
+    gap: 3rem;
   }
 }
 
@@ -160,6 +167,11 @@
   max-width: 20rem;
   display: flex;
   flex-direction: column;
+
+  @media (max-width: 767px) {
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(4px);
+  }
 }
 
 .trustCardHeader {
@@ -198,8 +210,13 @@
 /* Scenarios Section */
 .scenariosSection {
   background-color: var(--surface-container-low);
-  padding: 6rem 1.5rem;
-  margin-top: 3rem;
+  padding: 4rem 1.5rem;
+  margin-top: 2rem;
+
+  @media (min-width: 768px) {
+    padding: 6rem 1.5rem;
+    margin-top: 3rem;
+  }
 }
 
 .scenariosContainer {
@@ -209,7 +226,11 @@
 
 .scenariosHeader {
   text-align: center;
-  margin-bottom: 5rem;
+  margin-bottom: 3rem;
+
+  @media (min-width: 768px) {
+    margin-bottom: 5rem;
+  }
 
   h2 {
     font-size: 2.25rem;
@@ -280,10 +301,14 @@
 
 /* Process Section */
 .processSection {
-  padding: 8rem 1.5rem;
+  padding: 4rem 1.5rem;
   overflow: hidden;
   max-width: 1440px;
   margin: 0 auto;
+
+  @media (min-width: 768px) {
+    padding: 6rem 1.5rem;
+  }
 }
 
 .processContainer {
@@ -298,11 +323,16 @@
 }
 
 .processTitle {
-  font-size: 3rem;
+  font-size: 2.25rem;
   font-weight: 800;
   color: var(--primary);
   line-height: 1.1;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
+
+  @media (min-width: 768px) {
+    font-size: 3rem;
+    margin-bottom: 3rem;
+  }
 }
 
 .processSteps {
@@ -362,16 +392,20 @@
 .faqSection {
   max-width: 1440px;
   margin: 0 auto;
-  padding: 0 1.5rem 8rem 1.5rem;
+  padding: 0 1.5rem 4rem 1.5rem;
+
+  @media (min-width: 768px) {
+    padding: 0 1.5rem 6rem 1.5rem;
+  }
 }
 
 .faqContainer {
   background-color: var(--surface-container-high);
   border-radius: 12px;
-  padding: 4rem;
+  padding: 2.5rem 1.5rem;
 
-  @media (max-width: 767px) {
-    padding: 2rem;
+  @media (min-width: 768px) {
+    padding: 4rem;
   }
 }
 

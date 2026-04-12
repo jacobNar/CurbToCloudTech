@@ -89,6 +89,30 @@ export default function SpeedUp() {
           </div>
         </section>
 
+        {/* FAQ Section */}
+        <section className={styles.faqSection}>
+          <div className={styles.faqContainer}>
+            <h2 className={styles.faqTitle}>Frequently Asked Questions</h2>
+            <div className={styles.faqGrid}>
+              <div className={styles.faqCard}>
+                <h4>Will this delete my files?</h4>
+                <p>No, our speedup process is completely non-destructive. It focuses on cleaning up junk, optimizing settings, and removing bloatware without affecting your personal documents or photos.</p>
+              </div>
+              <div className={styles.faqCard}>
+                <h4>How long does a tune-up take?</h4>
+                <p>A typical system tune-up takes around an hour. If a deeper virus scan or major OS update is required, it could take slightly longer.</p>
+              </div>
+              <div className={styles.faqCard}>
+                <h4>Do I need new hardware?</h4>
+                <p>Often, a deep spring cleaning of your software brings a dramatic speed increase without any new parts. If we do recommend a RAM or SSD upgrade, we'll suggest cost-effective options.</p>
+              </div>
+              <div className={styles.faqCard}>
+                <h4>What if the tune-up doesn't speed things up?</h4>
+                <p>Our "No Fix, No Fee" policy stands. If your device's speed doesn't noticeably improve, we simply don't charge you for the service.</p>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
 
       <Footer />

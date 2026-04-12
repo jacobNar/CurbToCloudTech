@@ -85,6 +85,35 @@ export default function TechSupport() {
             </div>
           </div>
         </section>
+
+        {/* FAQ Section: Warm Styling */}
+        <section className={styles.faqSection}>
+          <div className={styles.faqContainer}>
+            <h2 className={styles.faqTitle}>Frequently Asked Questions</h2>
+            <div className={styles.faqGrid}>
+              <div className={styles.faqCard}>
+                <h4>Is there a diagnostic fee?</h4>
+                <p>We believe in honesty first. If we can't find a path to a fix, you don't pay a dime for the evaluation.</p>
+              </div>
+              <div className={styles.faqCard}>
+                <h4>How long does it take?</h4>
+                <p>Most curb-side repairs are completed within 1 to 2 hours. Complex software repairs may take slightly longer.</p>
+              </div>
+              <div className={styles.faqCard}>
+                <h4>Do I need to buy parts myself?</h4>
+                <p>If parts are needed, we can source them for you at transparent prices, or you can purchase them yourself based on our recommendations.</p>
+              </div>
+              <div className={styles.faqCard}>
+                <h4>What about privacy?</h4>
+                <p>Your privacy is our core value. Our technicians are vetted professionals, and your data never leaves your property unless requested.</p>
+              </div>
+              <div className={styles.faqCard}>
+                <h4>Do you service mobile devices?</h4>
+                <p>Note: We do not service mobile phones or tablets. Our tech support is focused exclusively on PCs, Macs, printers and home networks.</p>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
 
       <Footer />

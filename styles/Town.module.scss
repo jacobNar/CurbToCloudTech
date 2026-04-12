@@ -34,8 +34,17 @@
 .heroSection {
   max-width: 1440px;
   margin: 0 auto;
-  padding: 5rem 2rem;
+  padding: 7rem 1.5rem 3rem;
   overflow: hidden;
+
+  @media (max-width: 767px) {
+    background: linear-gradient(135deg, var(--secondary-container) 0%, var(--tertiary-fixed) 100%);
+    border-radius: 0 0 1rem 1rem;
+  }
+
+  @media (min-width: 768px) {
+    padding: 8rem 2rem 5rem;
+  }
 }
 
 .heroGrid {
@@ -52,7 +61,11 @@
 .heroText {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.5rem;
+
+  @media (min-width: 768px) {
+    gap: 2rem;
+  }
 }
 
 .heroTitle {
@@ -242,12 +255,19 @@
 /* Service Area Section */
 .serviceAreaSection {
   background-color: var(--surface-container);
-  padding: 6rem 2rem;
+  padding: 4rem 1.5rem;
+
+  @media (min-width: 768px) {
+    padding: 6rem 2rem;
+  }
 }
 
 .sectionHeader {
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 2.5rem;
+  @media (min-width: 768px) {
+    margin-bottom: 4rem;
+  }
   max-width: 1440px;
   margin-left: auto;
   margin-right: auto;
@@ -364,14 +384,22 @@
 
 /* Packages Section */
 .packagesSection {
-  padding: 6rem 2rem;
+  padding: 4rem 1.5rem;
   max-width: 1440px;
   margin: 0 auto;
+
+  @media (min-width: 768px) {
+    padding: 6rem 2rem;
+  }
 }
 
 .packagesHeader {
   text-align: center;
-  margin-bottom: 5rem;
+  margin-bottom: 3rem;
+
+  @media (min-width: 768px) {
+    margin-bottom: 5rem;
+  }
 
   .subtitle {
     color: var(--on-tertiary-container);
@@ -534,9 +562,13 @@
 
 /* Trust Signals */
 .trustSection {
-  padding: 6rem 2rem;
+  padding: 4rem 1.5rem;
   max-width: 1440px;
   margin: 0 auto;
+
+  @media (min-width: 768px) {
+    padding: 6rem 2rem;
+  }
 }
 
 .trustGrid {
@@ -637,7 +669,11 @@
 
 /* CTA Section */
 .ctaSection {
-  padding: 6rem 2rem;
+  padding: 4rem 1.5rem;
+
+  @media (min-width: 768px) {
+    padding: 6rem 2rem;
+  }
 }
 
 .ctaCard {

@@ -59,6 +59,30 @@ export default function Recover() {
           </div>
         </section>
 
+        {/* Emergency Section */}
+        <section className={styles.scenariosSection} style={{ backgroundColor: 'var(--primary)', color: 'white', marginTop: '0', paddingBottom: '6rem' }}>
+          <div className={styles.scenariosContainer}>
+            <div className={styles.scenariosHeader}>
+              <h2 style={{ color: 'white' }}>Emergency: What To Do If Your Drive Fails</h2>
+              <p style={{ color: 'rgba(255,255,255,0.8)' }}>Follow these crucial steps to maximize your chances of a successful data rescue.</p>
+            </div>
+            <div className={styles.scenariosGrid}>
+              <div className={styles.scenarioCard} style={{ backgroundColor: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', boxShadow: 'none' }}>
+                <h3 className={styles.scenarioTitle} style={{ color: 'white' }}>1. Stop Using It</h3>
+                <p className={styles.scenarioDesc} style={{ color: 'rgba(255,255,255,0.8)' }}>Turn off the device immediately. Continuing to run a failing drive can permanently overwrite data or cause physical damage to the platters.</p>
+              </div>
+              <div className={styles.scenarioCard} style={{ backgroundColor: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', boxShadow: 'none' }}>
+                <h3 className={styles.scenarioTitle} style={{ color: 'white' }}>2. Avoid Software Tools</h3>
+                <p className={styles.scenarioDesc} style={{ color: 'rgba(255,255,255,0.8)' }}>Do not run generic disk utility tools or data recovery software. These put extreme stress on failing components and often make recovery impossible.</p>
+              </div>
+              <div className={styles.scenarioCard} style={{ backgroundColor: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', boxShadow: 'none' }}>
+                <h3 className={styles.scenarioTitle} style={{ color: 'white' }}>3. Call The Professionals</h3>
+                <p className={styles.scenarioDesc} style={{ color: 'rgba(255,255,255,0.8)' }}>Don't ship your fragile drive across the country. Call us and we will securely perform the recovery right from your driveway.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Scenarios Section: Tonal Layering Cards */}
         <section className={styles.scenariosSection}>
           <div className={styles.scenariosContainer}>

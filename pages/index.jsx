@@ -53,11 +53,11 @@ export default function Home() {
                         />
                         <div className={styles.trustCard}>
                            <div className={styles.trustIcon}>
-                              <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>sentiment_very_satisfied</span>
+                              <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>verified_user</span>
                            </div>
                            <div>
                               <p className={styles.trustTitle}>Peace of Mind</p>
-                              <p className={styles.trustSubtitle}>500+ happy homes served</p>
+                              <p className={styles.trustSubtitle}>No Fix, No Fee Guarantee</p>
                            </div>
                         </div>
                      </div>
