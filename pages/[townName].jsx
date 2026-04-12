@@ -3,15 +3,16 @@ import Link from 'next/link';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import AppointmentModal from '../components/AppointmentModal';
+import Services from '../components/Services';
 import styles from '@/styles/Town.module.scss';
 import { useState } from 'react';
 
 const towns = [
-  "McHenry", "Crystal Lake", "Algonquin", "Elgin", "Carpentersville", 
-  "Arlington Heights", "Buffalo Grove", "Des Plaines", "Evanston", "Glenview", 
-  "Highland Park", "Lake Forest", "Libertyville", "Mount Prospect", "Northbrook", 
-  "Palatine", "Park Ridge", "Schaumburg", "Skokie", "Wheeling", "Wilmette", 
-  "Winnetka", "Gilberts", "Pingree Grove", "Hampshire", "South Elgin", 
+  "McHenry", "Crystal Lake", "Algonquin", "Elgin", "Carpentersville",
+  "Arlington Heights", "Buffalo Grove", "Des Plaines", "Evanston", "Glenview",
+  "Highland Park", "Lake Forest", "Libertyville", "Mount Prospect", "Northbrook",
+  "Palatine", "Park Ridge", "Schaumburg", "Skokie", "Wheeling", "Wilmette",
+  "Winnetka", "Gilberts", "Pingree Grove", "Hampshire", "South Elgin",
   "West Dundee", "Lake in the Hills", "Barrington", "Hoffman Estates"
 ];
 
@@ -26,7 +27,7 @@ export async function getStaticProps({ params }) {
   const slug = params.townName;
   const extracted = slug.replace('tech-support-in-', '').replace('-il', '');
   const townNameFormatted = towns.find(t => t.toLowerCase().replace(/\s+/g, '-') === extracted) || extracted;
-  
+
   const uniqueFeatures = [
     `Bringing reliable IT support and home network setups directly to the bustling neighborhoods of ${townNameFormatted}.`,
     `We love serving the ${townNameFormatted} community with top-tier tech solutions, from fixing frustrating Wi-Fi drops to building smart AI agents.`,
@@ -79,20 +80,20 @@ export default function TownPage({ townName, state, featureText }) {
               <div className={styles.trustSignals}>
                 <div className={styles.avatars}>
                   <div className={styles.avatarImgWrapper}>
-                    <img alt="technician" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAL-NtBlGu7OOeAydWEgAajq-Y5AXVUvGkH0fBD5AYqYUhmBRbZNAVsPrKn9BgsuJCrP5XYHQYhfv5GXTkimIaEKoTP-9Ec9su0N_l8xMyVQcFaFAdmrAiZ8fIPzAbQENdR9QTAjdv736t9qz57ENuOmmPAhWZNwi2qsPXQ1SBvH_yix40gtAf2gPN-tafEjGcT4UzllEsZcTqaQhKcpgF5fwuKjBGsZhEwaaVQNYpqllvH4W2FKZnGofixo-luCY34KaKDv4Oaths5"/>
+                    <img alt="technician" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAL-NtBlGu7OOeAydWEgAajq-Y5AXVUvGkH0fBD5AYqYUhmBRbZNAVsPrKn9BgsuJCrP5XYHQYhfv5GXTkimIaEKoTP-9Ec9su0N_l8xMyVQcFaFAdmrAiZ8fIPzAbQENdR9QTAjdv736t9qz57ENuOmmPAhWZNwi2qsPXQ1SBvH_yix40gtAf2gPN-tafEjGcT4UzllEsZcTqaQhKcpgF5fwuKjBGsZhEwaaVQNYpqllvH4W2FKZnGofixo-luCY34KaKDv4Oaths5" />
                   </div>
                   <div className={styles.ratingBadge}>4.9</div>
                 </div>
                 <span>Trusted by 500+ neighbors in {townName}</span>
               </div>
             </div>
-            
+
             <div className={styles.heroVisual}>
               <div className={styles.cardOverlap}>
                 <div className={styles.cardBg}></div>
                 <div className={styles.trustCard}>
                   <div className={styles.cardImgWrapper}>
-                    <img alt="friendly tech support" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvtLPBy5w2987doVa1LuRc2qE7Nha6RtTkRJ9GjI-u8L-5Tsl9dy1srMdMUsxLA7xj_RYe93kl5p5vv-AufPiFtcuHwwS0__DSea-evgxZDS9Gs1i1Ud9yVYoriMaaMKlA0QDy37PGZ3JxcyRT8WhjynPz3XxRUqdHSfR1ltcVP2FRElKq0N5ZL88CcFKzl5e82oMvKfQaq1YmK-4KSvAvJO69iR1P8TddQutaPt04Xhjq9Q0P-8YCN2D2ZluwJ3B4z965QMubYtbN"/>
+                    <img alt="friendly tech support" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvtLPBy5w2987doVa1LuRc2qE7Nha6RtTkRJ9GjI-u8L-5Tsl9dy1srMdMUsxLA7xj_RYe93kl5p5vv-AufPiFtcuHwwS0__DSea-evgxZDS9Gs1i1Ud9yVYoriMaaMKlA0QDy37PGZ3JxcyRT8WhjynPz3XxRUqdHSfR1ltcVP2FRElKq0N5ZL88CcFKzl5e82oMvKfQaq1YmK-4KSvAvJO69iR1P8TddQutaPt04Xhjq9Q0P-8YCN2D2ZluwJ3B4z965QMubYtbN" />
                   </div>
                   <div className={styles.reviewContent}>
                     <div className={styles.stars}>
@@ -117,23 +118,23 @@ export default function TownPage({ townName, state, featureText }) {
             <h2 className={styles.sectionTitle}>Friendly Tech Support in Your Neighborhood</h2>
             <p className={styles.sectionDesc}>From the town square to the suburbs, I'm just a short drive away.</p>
           </div>
-          
+
           <div className={styles.mapContainer}>
             <div className={styles.mapOverlap}>
               <div className={styles.mapWrapper}>
-                <iframe 
-                  width="100%" 
-                  height="100%" 
-                  style={{border:0}} 
-                  loading="lazy" 
-                  allowFullScreen 
-                  referrerPolicy="no-referrer-when-downgrade" 
+                <iframe
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  loading="lazy"
+                  allowFullScreen
+                  referrerPolicy="no-referrer-when-downgrade"
                   src={`https://www.google.com/maps?q=${encodeURIComponent(townName + ', ' + state)}&output=embed`}>
                 </iframe>
               </div>
               <div className={styles.mapTint}></div>
             </div>
-            
+
             <div className={styles.mapInfo}>
               <div className={styles.infoList}>
                 <div className={styles.infoItem}>
@@ -156,54 +157,8 @@ export default function TownPage({ townName, state, featureText }) {
           </div>
         </section>
 
-        {/* Packages Section */}
-        <section id="packages" className={styles.packagesSection}>
-          <div className={styles.packagesHeader}>
-            <span className={styles.subtitle}>Concierge Services</span>
-            <h2>Transparent Support Solutions</h2>
-          </div>
-          
-          <div className={styles.packagesGrid}>
-            <div className={styles.packageCard}>
-              <div className={styles.packageIcon}><span className="material-symbols-outlined">database</span></div>
-              <h3>The Digital Lifeline</h3>
-              <p className={styles.packageSub}>Stop worrying about lost memories.</p>
-              <p className={styles.packageDesc}>Emergency data recovery for crashed hard drives and accidental deletions. We prioritize your photos, documents, and business files.</p>
-              <ul className={styles.packageFeatures}>
-                <li><span className="material-symbols-outlined">check_circle</span> SSD & HDD Recovery</li>
-                <li><span className="material-symbols-outlined">check_circle</span> Cloud Backup Setup</li>
-                <li><span className="material-symbols-outlined">check_circle</span> Encrypted Storage</li>
-              </ul>
-              <button className={styles.btnCardSecondary} onClick={() => setIsModalOpen(true)}>Learn More</button>
-            </div>
-
-            <div className={`${styles.packageCard} ${styles.highlighted}`}>
-              <div className={`${styles.packageIcon} ${styles.iconHighlighted}`}><span className="material-symbols-outlined">wifi</span></div>
-              <h3>The Whole-Home Link</h3>
-              <p className={styles.packageSub}>WiFi that actually works in every room.</p>
-              <p className={styles.packageDesc}>Mesh network installation and dead-zone elimination. Perfect for local architecture and multi-story homes.</p>
-              <ul className={styles.packageFeatures}>
-                <li><span className="material-symbols-outlined">check_circle</span> Mesh Wi-Fi 6 Setup</li>
-                <li><span className="material-symbols-outlined">check_circle</span> Hardware Optimization</li>
-                <li><span className="material-symbols-outlined">check_circle</span> Security Hardening</li>
-              </ul>
-              <button className={styles.btnCardPrimary} onClick={() => setIsModalOpen(true)}>Most Popular</button>
-            </div>
-
-            <div className={styles.packageCard}>
-              <div className={styles.packageIcon}><span className="material-symbols-outlined">shield</span></div>
-              <h3>The Tune-Up & Shield</h3>
-              <p className={styles.packageSub}>Make your computer feel brand new.</p>
-              <p className={styles.packageDesc}>Virus removal, performance optimization, and deep cleaning. We speed up old machines and protect them for the future.</p>
-              <ul className={styles.packageFeatures}>
-                <li><span className="material-symbols-outlined">check_circle</span> Malware Removal</li>
-                <li><span className="material-symbols-outlined">check_circle</span> Speed Optimization</li>
-                <li><span className="material-symbols-outlined">check_circle</span> Update Management</li>
-              </ul>
-              <button className={styles.btnCardSecondary} onClick={() => setIsModalOpen(true)}>Learn More</button>
-            </div>
-          </div>
-        </section>
+        {/* Packages Component Wrapper */}
+        <Services onOpenModal={() => setIsModalOpen(true)} />
 
         {/* Trust Signals */}
         <section className={styles.trustSection}>
@@ -212,13 +167,13 @@ export default function TownPage({ townName, state, featureText }) {
               <h2>No Fix, No Fee Guarantee</h2>
               <p>You shouldn't pay for technology that doesn't work. If I can't find a solution for your technical issue, you don't owe me a dime. Simple as that.</p>
             </div>
-            
+
             <div className={styles.trustBoxPrimary}>
               <span className="material-symbols-outlined">home</span>
               <h4>{townName} Neighbor</h4>
               <p>Not a big box store or a corporate call center.</p>
             </div>
-            
+
             <div className={styles.trustBoxSecondary}>
               <span className="material-symbols-outlined">payments</span>
               <h4>Flat Rates</h4>

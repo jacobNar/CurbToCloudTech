@@ -1,0 +1,161 @@
+/* Services.module.scss */
+
+.servicesSegment {
+  background-color: #f4f3f7;
+  padding: 8rem 0;
+  border-top-left-radius: 3rem;
+  border-top-right-radius: 3rem;
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 4rem;
+
+  .sectionH2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #002046;
+    margin-bottom: 1rem;
+  }
+
+  .sectionDesc {
+    color: #44474e;
+    font-size: 1.125rem;
+  }
+}
+
+.bentoGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.serviceCard {
+  background-color: #ffffff;
+  padding: 2.5rem;
+  border-radius: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 3rem;
+  transition: all 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 20px 25px -5px rgba(0, 32, 70, 0.04);
+  }
+}
+
+.serviceCardPrimary {
+  background-color: #002046;
+  color: white;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+
+  h3 {
+    color: white !important;
+  }
+
+  p {
+    color: rgba(214, 227, 255, 0.8) !important;
+  }
+
+  li {
+    color: #d6e3ff !important;
+  }
+}
+
+.serviceContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  span.iconOrange {
+    color: #eb851c;
+    font-size: 2.5rem;
+  }
+
+  span.iconTertiary {
+    color: #ffdcc3;
+    font-size: 2.5rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #002046;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    color: #44474e;
+    line-height: 1.6;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+
+    li {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      color: #1a1b1e;
+
+      span {
+        font-size: 1.125rem;
+      }
+
+      .material-symbols-outlined {
+        color: #ffdcc3;
+      }
+    }
+  }
+}
+
+.serviceCardPrimary {
+  .serviceContent ul li .material-symbols-outlined {
+    color: #ffdcc3;
+  }
+}
+
+.btnOutline {
+  width: 100%;
+  padding: 1rem;
+  border: 2px solid rgba(116, 119, 127, 0.3);
+  border-radius: 9999px;
+  font-weight: 700;
+  color: #002046;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s;
+
+  &:hover {
+    background-color: #eb851c;
+    color: white;
+    border-color: #eb851c;
+  }
+}
+
+.btnSecondary {
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  background-color: #ffdcc3;
+  color: #2f1500;
+  border-radius: 9999px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 0.3s;
+
+  &:hover {
+    opacity: 0.9;
+  }
+}

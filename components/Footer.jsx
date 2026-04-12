@@ -13,7 +13,7 @@ export default function Footer() {
         <div className={styles.linkCol}>
           <h4>Services</h4>
           <ul>
-            <li><Link href="/recover">Data Recovery</Link></li>
+            <li><Link href="/datarecovery">Data Recover</Link></li>
             <li><Link href="/services">WiFi Networking</Link></li>
             <li><Link href="/services">Hardware Repair</Link></li>
             <li><Link href="/services">Cloud Syncing</Link></li>

@@ -15,19 +15,19 @@ export default function Header() {
           </Link>
 
           <input type="checkbox" id="nav-toggle" className={styles.navToggle} />
-          
+
           <nav className={styles.navMenu}>
             <div className={styles.navLinks}>
-               <Link href="/recover" className={styles.navLink}>Recovery</Link>
-               <Link href="/services" className={styles.navLink}>Services</Link>
-               <Link href="/services" className={styles.navLink}>Process</Link>
-               <Link href="/services" className={styles.navLink}>Support</Link>
+              <Link href="/datarecovery" className={styles.navLink}>Data Recovery</Link>
+              <Link href="/services" className={styles.navLink}>Services</Link>
+              <Link href="/services" className={styles.navLink}>Process</Link>
+              <Link href="/services" className={styles.navLink}>Support</Link>
             </div>
-            
+
             <div className={styles.navActions}>
-              <button 
-                className="btn" 
-                style={{ padding: '0.625rem 1.5rem', fontSize: '0.875rem' }} 
+              <button
+                className="btn"
+                style={{ padding: '0.625rem 1.5rem', fontSize: '0.875rem' }}
                 onClick={() => setIsModalOpen(true)}
               >
                 Book Now
@@ -42,7 +42,7 @@ export default function Header() {
           </label>
         </div>
       </header>
-      
+
       {isModalOpen && <AppointmentModal onClose={() => setIsModalOpen(false)} />}
     </>
   );

@@ -12,7 +12,7 @@ export default function Recover() {
   return (
     <div className={styles.pageWrapper}>
       <Head>
-        <title>The Digital Lifeline | Curb to Cloud Tech</title>
+        <title>Data Recovery | Curb to Cloud Tech</title>
       </Head>
 
       <Header />
@@ -22,8 +22,7 @@ export default function Recover() {
         <section className={styles.heroSection}>
           <div className={styles.heroContent}>
             <span className={styles.pillLabel}>Digital Concierge</span>
-            <h1 className={styles.heroTitle}>
-              The Digital Lifeline: <span className={styles.heroTitleHighlight}>Expert Data Recovery</span> at Your Doorstep
+            <h1 className={styles.heroTitle}><span className={styles.heroTitleHighlight}>Expert Data Recovery</span> at Your Doorstep
             </h1>
             <p className={styles.heroDesc}>
               Losing your precious memories or critical work is stressful. We bring high-end recovery labs directly to your curb, so you never have to worry about your data leaving your sight.
@@ -38,10 +37,10 @@ export default function Recover() {
             </div>
           </div>
           <div className={styles.heroVisual}>
-            <img 
-              className={styles.heroImage} 
-              alt="Mobile Tech Work Center" 
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsnFwLCt_coyVYSkDuSyCuM3uijn6PuPmb_815IPKdbXCaj32mWFObjWiiAgDghAdrvbU1x-gks3m-6il6W1msA3NZNLdenYd3_Rutcfog6h-saoTqpuFp1YdYl9vhXeBUD-Axa-L1xDjSpqucpnokjPA_Dr4Ci2BNn4jBNNUuCo_yRTEevqbeuA-FWmbH8ABMr_OHKC2eHxkd_XsHh1rHKnJ5dXuv3IYa3_yI1zPdYJaiq1_6BY10HWNGp_vn8KLntBjSgdflVaIw" 
+            <img
+              className={styles.heroImage}
+              alt="Mobile Tech Work Center"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsnFwLCt_coyVYSkDuSyCuM3uijn6PuPmb_815IPKdbXCaj32mWFObjWiiAgDghAdrvbU1x-gks3m-6il6W1msA3NZNLdenYd3_Rutcfog6h-saoTqpuFp1YdYl9vhXeBUD-Axa-L1xDjSpqucpnokjPA_Dr4Ci2BNn4jBNNUuCo_yRTEevqbeuA-FWmbH8ABMr_OHKC2eHxkd_XsHh1rHKnJ5dXuv3IYa3_yI1zPdYJaiq1_6BY10HWNGp_vn8KLntBjSgdflVaIw"
             />
             {/* Floating Trust Card */}
             <div className={styles.trustCardWrapper}>
@@ -67,7 +66,7 @@ export default function Recover() {
               <h2>When Tech Goes Quiet, We Listen</h2>
               <p>Common situations where we restore your peace of mind.</p>
             </div>
-            
+
             <div className={styles.scenariosGrid}>
               <div className={styles.scenarioCard}>
                 <div className={styles.scenarioIcon}>
@@ -105,7 +104,7 @@ export default function Recover() {
           <div className={styles.processContainer}>
             <div>
               <h2 className={styles.processTitle}>
-                Simple Recovery,<br/>Professional Care.
+                Simple Recovery,<br />Professional Care.
               </h2>
               <div className={styles.processSteps}>
                 <div className={styles.processStep}>
@@ -132,8 +131,8 @@ export default function Recover() {
               </div>
             </div>
             <div className={styles.processVisual}>
-              <img 
-                alt="The Recovery Process" 
+              <img
+                alt="The Recovery Process"
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjz1XI6sfnpQS0_zRhP909ytMB7cBy40GHxWsL6j0EJyhEP0gpYsUo3b3o1_i2Yt2bbRrdz726h83nZKY20rKYSnRDwc03aypahYHEsadOgMLjukllB5jP4XaB358pr8wBmhH6-4GpnGUHkCmx0_tnBuzb-DYc8tAN4hJ8pJ0HxbJNj5sw5wLvWXD6uMXEmbmo9lalZUUk9DSBRTjdj3fAl_g9WAF6YQoBy_CKMj_1lFn6eZI2kTzClpLsHdk1vrMVrJ07AbLgTFFY"
               />
             </div>
