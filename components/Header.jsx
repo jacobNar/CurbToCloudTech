@@ -19,9 +19,9 @@ export default function Header() {
           <nav className={styles.navMenu}>
             <div className={styles.navLinks}>
               <Link href="/datarecovery" className={styles.navLink}>Data Recovery</Link>
-              <Link href="/services" className={styles.navLink}>Services</Link>
-              <Link href="/services" className={styles.navLink}>Process</Link>
-              <Link href="/services" className={styles.navLink}>Support</Link>
+              <Link href="/techsupport" className={styles.navLink}>Tech Support</Link>
+              <Link href="/speedup" className={styles.navLink}>Speed Up</Link>
+              <Link href="/pricing" className={styles.navLink}>Pricing</Link>
             </div>
 
             <div className={styles.navActions}>

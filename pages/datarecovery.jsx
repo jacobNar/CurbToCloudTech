@@ -22,10 +22,10 @@ export default function Recover() {
         <section className={styles.heroSection}>
           <div className={styles.heroContent}>
             <span className={styles.pillLabel}>Digital Concierge</span>
-            <h1 className={styles.heroTitle}><span className={styles.heroTitleHighlight}>Expert Data Recovery</span> at Your Doorstep
+            <h1 className={styles.heroTitle}><span className={styles.heroTitleHighlight}>Professional Data Recovery:</span> We Rescue Your Files at Your Front Door.
             </h1>
             <p className={styles.heroDesc}>
-              Losing your precious memories or critical work is stressful. We bring high-end recovery labs directly to your curb, so you never have to worry about your data leaving your sight.
+              Lost photos? Deleted documents? Don't panic. Our "No Data, No Fee" guarantee means you only pay when we succeed.
             </p>
             <div className={styles.heroActions}>
               <button className={styles.primaryBtn} onClick={() => setIsModalOpen(true)}>
@@ -49,10 +49,10 @@ export default function Recover() {
                   <div className={styles.trustIcon}>
                     <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>verified_user</span>
                   </div>
-                  <span className={styles.trustTitle}>On-Site Guarantee</span>
+                  <span className={styles.trustTitle}>The Guarantee</span>
                 </div>
                 <p className={styles.trustCardDesc}>
-                  Your hard drive never leaves your driveway. 100% privacy maintained.
+                  If we can't recover your critical files, you don't pay a cent for the recovery.
                 </p>
               </div>
             </div>
@@ -63,8 +63,8 @@ export default function Recover() {
         <section className={styles.scenariosSection}>
           <div className={styles.scenariosContainer}>
             <div className={styles.scenariosHeader}>
-              <h2>When Tech Goes Quiet, We Listen</h2>
-              <p>Common situations where we restore your peace of mind.</p>
+              <h2>What We Do</h2>
+              <p>We specialize in recovering lost data from crashed, unbootable, or corrupted PCs and Macs. Whether it’s a clicking hard drive or a frozen MacBook, we bring the lab to your living room.</p>
             </div>
 
             <div className={styles.scenariosGrid}>
@@ -124,8 +124,8 @@ export default function Recover() {
                 <div className={styles.processStep}>
                   <div className={`${styles.stepNumber} ${styles.darkBg}`}>3</div>
                   <div className={styles.stepContent}>
-                    <h4>Problem Solved</h4>
-                    <p>Verify your files on the spot. We hand back your data on a secure, encrypted drive.</p>
+                    <h4>How You Get Your Data</h4>
+                    <p>Once recovered, we provide your files via a secure download link. Need a physical copy? We can provide a dedicated USB drive for a small additional fee.</p>
                   </div>
                 </div>
               </div>
@@ -133,7 +133,7 @@ export default function Recover() {
             <div className={styles.processVisual}>
               <img
                 alt="The Recovery Process"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjz1XI6sfnpQS0_zRhP909ytMB7cBy40GHxWsL6j0EJyhEP0gpYsUo3b3o1_i2Yt2bbRrdz726h83nZKY20rKYSnRDwc03aypahYHEsadOgMLjukllB5jP4XaB358pr8wBmhH6-4GpnGUHkCmx0_tnBuzb-DYc8tAN4hJ8pJ0HxbJNj5sw5wLvWXD6uMXEmbmo9lalZUUk9DSBRTjdj3fAl_g9WAF6YQoBy_CKMj_1lFn6eZI2kTzClpLsHdk1vrMVrJ07AbLgTFFY"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSc9kieVsMgfO864cZf2E-E4sYoTj-JneQ0iUUxlGmCRHSwWHoMKuWlIvFdvNO11tSkhStqaUcaZE7a43VQsIyfeDeneeFDXeA1s4-6D8y3mAnbrAgzehOOXn8TRBMXQCR4t53qTtuSPR_8gknGNtDbaHRcNd7dQ1HSPaha-F5qjcFkqOWl9UcLtibJB2BASEkSemsTwudNaPJVNLJav5gmcGINyROvRsrbsdgHwT5PRkj7obwPH221REqtpdTZEntbqvcQrGGqdhG"
               />
             </div>
           </div>
@@ -159,6 +159,10 @@ export default function Recover() {
               <div className={styles.faqCard}>
                 <h4>What about privacy?</h4>
                 <p>Your privacy is our core value. Our technicians are vetted professionals, and your data never leaves your property.</p>
+              </div>
+              <div className={styles.faqCard}>
+                <h4>Do you service mobile devices?</h4>
+                <p>Note: We do not service mobile phones or tablets. Our data recovery is focused exclusively on PCs and Macs.</p>
               </div>
             </div>
           </div>
