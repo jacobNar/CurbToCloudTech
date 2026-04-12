@@ -21,16 +21,25 @@ export default function TechSupport() {
         {/* Hero Section */}
         <section className={styles.heroSection}>
           <div className={styles.heroContent}>
-            <span className={styles.pillLabel}>Tech Support</span>
             <h1 className={styles.heroTitle}>
               <span className={styles.heroTitleHighlight}>Residential Tech Support</span> That Actually Makes Sense.
             </h1>
+            <div className={styles.heroBadges}>
+               <span className={styles.badgeOne}>
+                  <span className="material-symbols-outlined text-sm">verified_user</span>
+                  No Fix, No Fee
+               </span>
+               <span className={styles.badgeTwo}>
+                  <span className="material-symbols-outlined text-sm">home_pin</span>
+                  Local & Reliable
+               </span>
+            </div>
             <p className={styles.heroDesc}>
               From stubborn printers to "dead zone" Wi-Fi, we fix the frustrations that slow you down.
             </p>
             <div className={styles.heroActions}>
               <button className={styles.primaryBtn} onClick={() => setIsModalOpen(true)}>
-                Book Support
+                Book Tech Support
               </button>
               <button className={styles.secondaryBtn} onClick={() => document.getElementById('services').scrollIntoView({ behavior: 'smooth' })}>
                 See Our Fixes
@@ -114,6 +123,15 @@ export default function TechSupport() {
             </div>
           </div>
         </section>
+
+        {/* Mobile Hero Visual at bottom */}
+        <div className={styles.heroVisualMobile}>
+          <img
+            className={styles.heroImage}
+            alt="Home Tech Support"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvtLPBy5w2987doVa1LuRc2qE7Nha6RtTkRJ9GjI-u8L-5Tsl9dy1srMdMUsxLA7xj_RYe93kl5p5vv-AufPiFtcuHwwS0__DSea-evgxZDS9Gs1i1Ud9yVYoriMaaMKlA0QDy37PGZ3JxcyRT8WhjynPz3XxRUqdHSfR1ltcVP2FRElKq0N5ZL88CcFKzl5e82oMvKfQaq1YmK-4KSvAvJO69iR1P8TddQutaPt04Xhjq9Q0P-8YCN2D2ZluwJ3B4z965QMubYtbN"
+          />
+        </div>
       </main>
 
       <Footer />

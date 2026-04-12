@@ -21,15 +21,24 @@ export default function Recover() {
         {/* Hero Section: Editorial Asymmetry */}
         <section className={styles.heroSection}>
           <div className={styles.heroContent}>
-            <span className={styles.pillLabel}>Digital Concierge</span>
             <h1 className={styles.heroTitle}><span className={styles.heroTitleHighlight}>Professional Data Recovery:</span> We Rescue Your Files at Your Front Door.
             </h1>
+            <div className={styles.heroBadges}>
+               <span className={styles.badgeOne}>
+                  <span className="material-symbols-outlined text-sm">verified_user</span>
+                  No Fix, No Fee
+               </span>
+               <span className={styles.badgeTwo}>
+                  <span className="material-symbols-outlined text-sm">home_pin</span>
+                  Local & Reliable
+               </span>
+            </div>
             <p className={styles.heroDesc}>
               Lost photos? Deleted documents? Don't panic. Our "No Data, No Fee" guarantee means you only pay when we succeed.
             </p>
             <div className={styles.heroActions}>
               <button className={styles.primaryBtn} onClick={() => setIsModalOpen(true)}>
-                Get Your Files Back
+                Get Files Back
               </button>
               <button className={styles.secondaryBtn} onClick={() => document.getElementById('process').scrollIntoView({ behavior: 'smooth' })}>
                 Learn Our Process

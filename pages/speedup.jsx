@@ -12,7 +12,7 @@ export default function SpeedUp() {
   return (
     <div className={styles.pageWrapper}>
       <Head>
-        <title>Device Performance Boost | Curb to Cloud Tech</title>
+        <title>Device Speed Up | Curb to Cloud Tech</title>
       </Head>
 
       <Header />
@@ -21,16 +21,25 @@ export default function SpeedUp() {
         {/* Hero Section */}
         <section className={styles.heroSection}>
           <div className={styles.heroContent}>
-            <span className={styles.pillLabel}>Performance Boost</span>
             <h1 className={styles.heroTitle}>
               <span className={styles.heroTitleHighlight}>Give Your Old Computer</span> That "New PC" Feel.
             </h1>
+            <div className={styles.heroBadges}>
+               <span className={styles.badgeOne}>
+                  <span className="material-symbols-outlined text-sm">verified_user</span>
+                  No Fix, No Fee
+               </span>
+               <span className={styles.badgeTwo}>
+                  <span className="material-symbols-outlined text-sm">home_pin</span>
+                  Local & Reliable
+               </span>
+            </div>
             <p className={styles.heroDesc}>
               Don't replace it—optimize it. We specialize in making slow PCs and Macs fast again.
             </p>
             <div className={styles.heroActions}>
               <button className={styles.primaryBtn} onClick={() => setIsModalOpen(true)}>
-                Speed Up My PC
+                Device Speed Up
               </button>
             </div>
           </div>
@@ -96,7 +105,7 @@ export default function SpeedUp() {
             <div className={styles.faqGrid}>
               <div className={styles.faqCard}>
                 <h4>Will this delete my files?</h4>
-                <p>No, our speedup process is completely non-destructive. It focuses on cleaning up junk, optimizing settings, and removing bloatware without affecting your personal documents or photos.</p>
+                <p>No, our device speed up process is completely non-destructive. It focuses on cleaning up junk, optimizing settings, and removing bloatware without affecting your personal documents or photos.</p>
               </div>
               <div className={styles.faqCard}>
                 <h4>How long does a tune-up take?</h4>
@@ -113,6 +122,15 @@ export default function SpeedUp() {
             </div>
           </div>
         </section>
+
+        {/* Mobile Hero Visual at bottom */}
+        <div className={styles.heroVisualMobile}>
+          <img
+            className={styles.heroImage}
+            alt="Device Tune-Up"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSc9kieVsMgfO864cZf2E-E4sYoTj-JneQ0iUUxlGmCRHSwWHoMKuWlIvFdvNO11tSkhStqaUcaZE7a43VQsIyfeDeneeFDXeA1s4-6D8y3mAnbrAgzehOOXn8TRBMXQCR4t53qTtuSPR_8gknGNtDbaHRcNd7dQ1HSPaha-F5qjcFkqOWl9UcLtibJB2BASEkSemsTwudNaPJVNLJav5gmcGINyROvRsrbsdgHwT5PRkj7obwPH221REqtpdTZEntbqvcQrGGqdhG"
+          />
+        </div>
       </main>
 
       <Footer />

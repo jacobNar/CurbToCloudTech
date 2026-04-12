@@ -19,24 +19,24 @@ export default function Home() {
             <section className={styles.heroSection}>
                <div className={`${styles.twoColGrid} width-container fade-in`}>
                   <div className={styles.heroLeft}>
+                     <h1 className={styles.heroH1}>
+                        Stop fighting your tech. We’ll come to you and make it work—guaranteed.
+                     </h1>
                      <div className={styles.heroBadges}>
                         <span className={styles.badgeOne}>
                            <span className="material-symbols-outlined text-sm">verified_user</span>
-                           No Fix, No Fee Guarantee
+                           No Fix, No Fee
                         </span>
                         <span className={styles.badgeTwo}>
                            <span className="material-symbols-outlined text-sm">home_pin</span>
                            Local & Reliable
                         </span>
                      </div>
-                     <h1 className={styles.heroH1}>
-                        Stop fighting your tech. We’ll come to you and make it work—guaranteed.
-                     </h1>
-                     <p className={styles.heroText}>
+                     <p className={styles.heroText} style={{ margin: "-1rem 0" }}>
                         Technology should serve you, not stress you out. We bring expert, friendly tech support directly to your living room.
                      </p>
                      <div className={styles.heroActions}>
-                        <button onClick={() => setIsModalOpen(true)}>Book Your Tech Concierge</button>
+                        <button onClick={() => setIsModalOpen(true)}>Book Tech Support</button>
                         <button onClick={() => document.getElementById('services').scrollIntoView({ behavior: 'smooth' })}>
                            View Our Services
                            <span className="material-symbols-outlined">arrow_forward</span>
@@ -123,7 +123,7 @@ export default function Home() {
                         <h2>Ready for a stress-free tech experience?</h2>
                         <p>Join hundreds of families who have reclaimed their digital peace. Book your session today.</p>
                         <div className={styles.ctaActions}>
-                           <button className={styles.btnAction} onClick={() => setIsModalOpen(true)}>Schedule Your Visit Now</button>
+                           <button className={styles.btnAction} onClick={() => setIsModalOpen(true)}>Book Visit Now</button>
                         </div>
                      </div>
                   </div>
