@@ -7,7 +7,9 @@ export default async function handler(req, res) {
     }
 
     try {
-        const { contact_name, email, phone_number, company_name, project_description, appointment_time, type, address } = req.body;
+        const { contact_name, email, phone_number, company_name, project_description, appointment_time, type, service_type, address_line1, address_line2, city, state, zip_code } = req.body;
+
+        const address = `${address_line1 || ''} ${address_line2 || ''} ${city || ''}, ${state || ''} ${zip_code || ''}`.trim();
 
         if (!email || !appointment_time) {
             return res.status(400).json({ message: 'Email and appointment time are required' });
@@ -32,7 +34,7 @@ export default async function handler(req, res) {
 
             const event = {
                 summary: `Meeting with ${contact_name || company_name}`,
-                description: `Phone: ${phone_number}\nCompany: ${company_name}\nDescription: ${project_description}`,
+                description: `Phone: ${phone_number}\nCompany: ${company_name}\nService Type: ${service_type || 'N/A'}\nDescription: ${project_description}`,
                 start: { dateTime: startTime.toISOString() },
                 end: { dateTime: endTime.toISOString() },
             };

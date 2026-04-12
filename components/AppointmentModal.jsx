@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import styles from '@/styles/AppointmentModal.module.scss';
+import { loadStripe } from '@stripe/stripe-js';
+import { Elements } from '@stripe/react-stripe-js';
+import PaymentForm from './PaymentForm';
+
+const stripePromise = typeof window !== 'undefined' ? loadStripe(process.env.NEXT_PUBLIC_STRIPE_PK || '') : null;
+
 
 export default function AppointmentModal({ onClose }) {
     const [step, setStep] = useState('date');
@@ -15,8 +21,13 @@ export default function AppointmentModal({ onClose }) {
         phone_number: '',
         company_name: '',
         project_description: '',
-        type: 'online',
-        address: ''
+        type: 'inperson',
+        service_type: 'Data Recovery',
+        address_line1: '',
+        address_line2: '',
+        city: '',
+        state: '',
+        zip_code: ''
     });
 
     // Reset state when opened
@@ -25,7 +36,7 @@ export default function AppointmentModal({ onClose }) {
         setSelectedDate(null);
         setSelectedTime(null);
         setEventDetails(null);
-        setFormData({ contact_name: '', email: '', phone_number: '', company_name: '', project_description: '', type: 'online', address: '' });
+        setFormData({ contact_name: '', email: '', phone_number: '', company_name: '', project_description: '', type: 'inperson', service_type: 'Data Recovery', address_line1: '', address_line2: '', city: '', state: '', zip_code: '' });
     }, []);
 
     // Mock Calendar Generation (Current Month)
@@ -90,8 +101,34 @@ export default function AppointmentModal({ onClose }) {
         setStep('details');
     };
 
-    const handleSubmit = async (e) => {
+    const [clientSecret, setClientSecret] = useState('');
+
+    const handleGoToPayment = async (e) => {
         e.preventDefault();
+        setLoading(true);
+
+        try {
+            const res = await fetch('/api/appointment/create-payment-intent', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData)
+            });
+
+            if (res.ok) {
+                const data = await res.json();
+                setClientSecret(data.clientSecret);
+                setStep('payment');
+            } else {
+                alert('Something went wrong initializing payment. Please try again.');
+            }
+        } catch (error) {
+            console.error(error);
+            alert('Error initializing payment.');
+        }
+        setLoading(false);
+    };
+
+    const handleBookAppointment = async () => {
         setLoading(true);
 
         // Combine date and time
@@ -133,6 +170,7 @@ export default function AppointmentModal({ onClose }) {
                         {step === 'date' && 'Select a Date'}
                         {step === 'time' && 'Select a Time'}
                         {step === 'details' && 'Your Details'}
+                        {step === 'payment' && 'Payment'}
                         {step === 'success' && 'Confirmed!'}
                     </h3>
                     <button className={styles.closeBtn} onClick={onClose}>&times;</button>
@@ -187,7 +225,7 @@ export default function AppointmentModal({ onClose }) {
                     )}
 
                     {step === 'details' && (
-                        <form onSubmit={handleSubmit}>
+                        <form onSubmit={handleGoToPayment}>
                             <div className={styles.formGroup}>
                                 <label className={styles.label}>Name</label>
                                 <input
@@ -227,28 +265,81 @@ export default function AppointmentModal({ onClose }) {
                                 />
                             </div>
                             <div className={styles.formGroup}>
-                                <label className={styles.label}>Meeting Type</label>
+                                <label className={styles.label}>Service Type</label>
                                 <select 
                                     className={styles.input}
-                                    value={formData.type}
-                                    onChange={e => setFormData({ ...formData, type: e.target.value })}
+                                    value={formData.service_type}
+                                    onChange={e => {
+                                        // "Website" or similar future services will be 'online'
+                                        const isOnlineService = e.target.value.toLowerCase().includes('website');
+                                        setFormData({ 
+                                            ...formData, 
+                                            service_type: e.target.value, 
+                                            type: isOnlineService ? 'online' : 'inperson' 
+                                        });
+                                    }}
                                 >
-                                    <option value="online">Online / Google Meets</option>
-                                    <option value="inperson">In Person / On-site</option>
+                                    <option value="Data Recovery">Data Recovery</option>
+                                    <option value="Hourly Tech Support">Hourly Tech Support</option>
+                                    <option value="Device Speed Up">Device Speed Up</option>
                                 </select>
                             </div>
                             {formData.type === 'inperson' && (
-                                <div className={styles.formGroup}>
-                                    <label className={styles.label}>Service Address</label>
-                                    <input
-                                        type="text"
-                                        className={styles.input}
-                                        required
-                                        placeholder="123 Main St, City, ST 12345"
-                                        value={formData.address}
-                                        onChange={e => setFormData({ ...formData, address: e.target.value })}
-                                    />
-                                </div>
+                                <>
+                                    <div className={styles.formGroup}>
+                                        <label className={styles.label}>Address Line 1</label>
+                                        <input
+                                            type="text"
+                                            className={styles.input}
+                                            required
+                                            placeholder="123 Main St"
+                                            value={formData.address_line1}
+                                            onChange={e => setFormData({ ...formData, address_line1: e.target.value })}
+                                        />
+                                    </div>
+                                    <div className={styles.formGroup}>
+                                        <label className={styles.label}>Address Line 2</label>
+                                        <input
+                                            type="text"
+                                            className={styles.input}
+                                            placeholder="Apt 4B"
+                                            value={formData.address_line2}
+                                            onChange={e => setFormData({ ...formData, address_line2: e.target.value })}
+                                        />
+                                    </div>
+                                    <div style={{ display: 'flex', gap: '10px' }}>
+                                        <div className={styles.formGroup} style={{ flex: 2 }}>
+                                            <label className={styles.label}>City</label>
+                                            <input
+                                                type="text"
+                                                className={styles.input}
+                                                required
+                                                value={formData.city}
+                                                onChange={e => setFormData({ ...formData, city: e.target.value })}
+                                            />
+                                        </div>
+                                        <div className={styles.formGroup} style={{ flex: 1 }}>
+                                            <label className={styles.label}>State</label>
+                                            <input
+                                                type="text"
+                                                className={styles.input}
+                                                required
+                                                value={formData.state}
+                                                onChange={e => setFormData({ ...formData, state: e.target.value })}
+                                            />
+                                        </div>
+                                        <div className={styles.formGroup} style={{ flex: 1 }}>
+                                            <label className={styles.label}>ZIP</label>
+                                            <input
+                                                type="text"
+                                                className={styles.input}
+                                                required
+                                                value={formData.zip_code}
+                                                onChange={e => setFormData({ ...formData, zip_code: e.target.value })}
+                                            />
+                                        </div>
+                                    </div>
+                                </>
                             )}
                             <div className={styles.formGroup}>
                                 <label className={styles.label}>What do you need help with?</label>
@@ -269,10 +360,22 @@ export default function AppointmentModal({ onClose }) {
                             <div className={styles.actions}>
                                 <button type="button" className={styles.backBtn} onClick={() => setStep('time')}>Back</button>
                                 <button type="submit" className={styles.confirmBtn} disabled={loading}>
-                                    {loading ? 'Confirming...' : 'Confirm Appointment'}
+                                    {loading ? 'Processing...' : 'Next / Go to Payment'}
                                 </button>
                             </div>
                         </form>
+                    )}
+
+                    {step === 'payment' && clientSecret && (
+                        <div>
+                            <Elements stripe={stripePromise} options={{ clientSecret }}>
+                                <PaymentForm 
+                                    onSuccess={() => handleBookAppointment()} 
+                                    onBack={() => setStep('details')} 
+                                    amount={10} 
+                                />
+                            </Elements>
+                        </div>
                     )}
 
                     {step === 'success' && (
