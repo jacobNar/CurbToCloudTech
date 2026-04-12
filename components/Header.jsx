@@ -18,16 +18,7 @@ export default function Header() {
 
           <nav className={styles.navMenu}>
             <div className={styles.navLinks}>
-              <div className={styles.dropdown}>
-                <span className={styles.navLink} style={{cursor: 'pointer'}}>Data Recovery ▾</span>
-                <div className={styles.dropdownContent}>
-                  <Link href="/datarecovery" className={styles.dropdownItem} onClick={() => document.getElementById('nav-toggle').checked = false}>Overview</Link>
-                  <Link href="/hdd-recovery" className={styles.dropdownItem} onClick={() => document.getElementById('nav-toggle').checked = false}>Hard Drives (HDD)</Link>
-                  <Link href="/ssd-recovery" className={styles.dropdownItem} onClick={() => document.getElementById('nav-toggle').checked = false}>Solid State Drives (SSD)</Link>
-                  <Link href="/mac-windows-recovery" className={styles.dropdownItem} onClick={() => document.getElementById('nav-toggle').checked = false}>Apple Mac / Windows</Link>
-                  <Link href="/flash-drive-recovery" className={styles.dropdownItem} onClick={() => document.getElementById('nav-toggle').checked = false}>USB / Flash Drives</Link>
-                </div>
-              </div>
+              <Link href="/datarecovery" className={styles.navLink} onClick={() => document.getElementById('nav-toggle').checked = false}>Data Recovery</Link>
               <Link href="/techsupport" className={styles.navLink} onClick={() => document.getElementById('nav-toggle').checked = false}>Tech Support</Link>
               <Link href="/speedup" className={styles.navLink} onClick={() => document.getElementById('nav-toggle').checked = false}>Speed Up</Link>
               <Link href="/pricing" className={styles.navLink} onClick={() => document.getElementById('nav-toggle').checked = false}>Pricing</Link>

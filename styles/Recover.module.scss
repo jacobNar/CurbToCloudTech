@@ -13,7 +13,7 @@
   --surface-container-high: #e9e7eb;
   --on-surface-variant: #44474e;
   --outline-variant: #c4c6cf;
-  
+
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -152,9 +152,9 @@
   align-self: end;
   justify-self: start;
   transform: translate(-2rem, 2rem);
-  
+
   @media (max-width: 1023px) {
-    transform: translate(-1rem, 1rem); 
+    transform: translate(-1rem, 1rem);
   }
 }
 
@@ -163,7 +163,7 @@
   padding: 1.5rem;
   border-radius: 8px;
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(196, 198, 207, 0.15); 
+  border: 1px solid rgba(196, 198, 207, 0.15);
   max-width: 20rem;
   display: flex;
   flex-direction: column;
@@ -188,9 +188,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    
+
     span {
-       color: var(--on-tertiary-container);
+      color: var(--on-tertiary-container);
     }
   }
 
@@ -238,6 +238,7 @@
     color: var(--primary);
     margin-bottom: 1rem;
   }
+
   p {
     color: var(--on-surface-variant);
     max-width: 42rem;
@@ -264,6 +265,7 @@
 
   &:hover {
     box-shadow: 0 40px 40px rgba(0, 32, 70, 0.04);
+
     .scenarioIcon {
       transform: scale(1.1);
     }
@@ -358,8 +360,13 @@
   color: #fff;
   font-size: 1.125rem;
 
-  &.darkBg { background-color: var(--primary); }
-  &.accentBg { background-color: var(--on-tertiary-container); }
+  &.darkBg {
+    background-color: var(--primary);
+  }
+
+  &.accentBg {
+    background-color: var(--on-tertiary-container);
+  }
 }
 
 .stepContent {
@@ -368,7 +375,9 @@
     font-weight: 700;
     color: var(--primary);
     margin-bottom: 0.5rem;
+    margin-top: 0;
   }
+
   p {
     color: var(--on-surface-variant);
     line-height: 1.5;
@@ -392,10 +401,10 @@
 .faqSection {
   max-width: 1440px;
   margin: 0 auto;
-  padding: 0 1.5rem 4rem 1.5rem;
+  padding: 3rem 1.5rem 4rem 1.5rem;
 
   @media (min-width: 768px) {
-    padding: 0 1.5rem 6rem 1.5rem;
+    padding: 3rem 1.5rem 6rem 1.5rem;
   }
 }
 

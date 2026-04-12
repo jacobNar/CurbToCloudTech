@@ -59,30 +59,6 @@ export default function Recover() {
           </div>
         </section>
 
-        {/* Emergency Section */}
-        <section className={styles.scenariosSection} style={{ backgroundColor: 'var(--primary)', color: 'white', marginTop: '0', paddingBottom: '6rem' }}>
-          <div className={styles.scenariosContainer}>
-            <div className={styles.scenariosHeader}>
-              <h2 style={{ color: 'white' }}>Emergency: What To Do If Your Drive Fails</h2>
-              <p style={{ color: 'rgba(255,255,255,0.8)' }}>Follow these crucial steps to maximize your chances of a successful data rescue.</p>
-            </div>
-            <div className={styles.scenariosGrid}>
-              <div className={styles.scenarioCard} style={{ backgroundColor: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', boxShadow: 'none' }}>
-                <h3 className={styles.scenarioTitle} style={{ color: 'white' }}>1. Stop Using It</h3>
-                <p className={styles.scenarioDesc} style={{ color: 'rgba(255,255,255,0.8)' }}>Turn off the device immediately. Continuing to run a failing drive can permanently overwrite data or cause physical damage to the platters.</p>
-              </div>
-              <div className={styles.scenarioCard} style={{ backgroundColor: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', boxShadow: 'none' }}>
-                <h3 className={styles.scenarioTitle} style={{ color: 'white' }}>2. Avoid Software Tools</h3>
-                <p className={styles.scenarioDesc} style={{ color: 'rgba(255,255,255,0.8)' }}>Do not run generic disk utility tools or data recovery software. These put extreme stress on failing components and often make recovery impossible.</p>
-              </div>
-              <div className={styles.scenarioCard} style={{ backgroundColor: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', boxShadow: 'none' }}>
-                <h3 className={styles.scenarioTitle} style={{ color: 'white' }}>3. Call The Professionals</h3>
-                <p className={styles.scenarioDesc} style={{ color: 'rgba(255,255,255,0.8)' }}>Don't ship your fragile drive across the country. Call us and we will securely perform the recovery right from your driveway.</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* Scenarios Section: Tonal Layering Cards */}
         <section className={styles.scenariosSection}>
           <div className={styles.scenariosContainer}>
@@ -118,6 +94,63 @@ export default function Recover() {
                 <p className={styles.scenarioDesc}>
                   If files are "unreadable" or "damaged," our deep-sector scanning tools can stitch your history back together.
                 </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Supported Hardware Section */}
+        <section className={styles.scenariosSection} style={{ backgroundColor: 'var(--bg-light)', paddingTop: '2rem' }}>
+          <div className={styles.scenariosContainer}>
+            <div className={styles.scenariosHeader}>
+              <h2>Everything We Recover</h2>
+              <p>From failed hard drives to dead MacBooks, our technicians are equipped with advanced tools to recover files from virtually any device.</p>
+            </div>
+
+            <div className={styles.scenariosGrid}>
+              <div className={styles.scenarioCard}>
+                <div className={styles.scenarioIcon}>
+                  <span className="material-symbols-outlined">devices</span>
+                </div>
+                <h3 className={styles.scenarioTitle}>Types of Devices</h3>
+                <ul style={{ listStyleType: 'none', padding: 0, marginTop: '1rem', lineHeight: '1.8' }}>
+                  <li>• Desktop Systems</li>
+                  <li>• Laptops & Notebooks</li>
+                  <li>• External Hard Drives</li>
+                  <li>• Portable SSDs</li>
+                  <li>• USB Thumb Drives</li>
+                  <li>• Camera Memory Cards</li>
+                </ul>
+              </div>
+
+              <div className={styles.scenarioCard}>
+                <div className={styles.scenarioIcon}>
+                  <span className="material-symbols-outlined">memory</span>
+                </div>
+                <h3 className={styles.scenarioTitle}>Hardware Components</h3>
+                <ul style={{ listStyleType: 'none', padding: 0, marginTop: '1rem', lineHeight: '1.8' }}>
+                  <li>• Hard Disk Drives (HDD)</li>
+                  <li>• Solid State Drives (SSD)</li>
+                  <li>• NVMe / PCIe M.2 SSDs</li>
+                  <li>• SATA / IDE Drives</li>
+                  <li>• USB Flash Media</li>
+                  <li>• SD & MicroSD Cards</li>
+                </ul>
+              </div>
+
+              <div className={styles.scenarioCard}>
+                <div className={styles.scenarioIcon}>
+                  <span className="material-symbols-outlined">laptop_windows</span>
+                </div>
+                <h3 className={styles.scenarioTitle}>Systems & Brands</h3>
+                <ul style={{ listStyleType: 'none', padding: 0, marginTop: '1rem', lineHeight: '1.8' }}>
+                  <li>• Windows (11, 10) & macOS</li>
+                  <li>• Apple, Dell, HP, Lenovo</li>
+                  <li>• WD, Seagate, Toshiba</li>
+                  <li>• Samsung, SanDisk, PNY</li>
+                  <li>• Crucial, Kingston</li>
+                  <li>• And many more...</li>
+                </ul>
               </div>
             </div>
           </div>
@@ -159,6 +192,30 @@ export default function Recover() {
                 alt="The Recovery Process"
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSc9kieVsMgfO864cZf2E-E4sYoTj-JneQ0iUUxlGmCRHSwWHoMKuWlIvFdvNO11tSkhStqaUcaZE7a43VQsIyfeDeneeFDXeA1s4-6D8y3mAnbrAgzehOOXn8TRBMXQCR4t53qTtuSPR_8gknGNtDbaHRcNd7dQ1HSPaha-F5qjcFkqOWl9UcLtibJB2BASEkSemsTwudNaPJVNLJav5gmcGINyROvRsrbsdgHwT5PRkj7obwPH221REqtpdTZEntbqvcQrGGqdhG"
               />
+            </div>
+          </div>
+        </section>
+
+        {/* Emergency Section */}
+        <section className={styles.scenariosSection} style={{ backgroundColor: 'var(--primary)', color: 'white', marginTop: '0', paddingBottom: '6rem' }}>
+          <div className={styles.scenariosContainer}>
+            <div className={styles.scenariosHeader}>
+              <h2 style={{ color: 'white' }}>Emergency: What To Do If Your Drive Fails</h2>
+              <p style={{ color: 'rgba(255,255,255,0.8)' }}>Follow these crucial steps to maximize your chances of a successful data rescue.</p>
+            </div>
+            <div className={styles.scenariosGrid}>
+              <div className={styles.scenarioCard} style={{ backgroundColor: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', boxShadow: 'none' }}>
+                <h3 className={styles.scenarioTitle} style={{ color: 'white' }}>1. Stop Using It</h3>
+                <p className={styles.scenarioDesc} style={{ color: 'rgba(255,255,255,0.8)' }}>Turn off the device immediately. Continuing to run a failing drive can permanently overwrite data or cause physical damage to the platters.</p>
+              </div>
+              <div className={styles.scenarioCard} style={{ backgroundColor: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', boxShadow: 'none' }}>
+                <h3 className={styles.scenarioTitle} style={{ color: 'white' }}>2. Avoid Software Tools</h3>
+                <p className={styles.scenarioDesc} style={{ color: 'rgba(255,255,255,0.8)' }}>Do not run generic disk utility tools or data recovery software. These put extreme stress on failing components and often make recovery impossible.</p>
+              </div>
+              <div className={styles.scenarioCard} style={{ backgroundColor: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', boxShadow: 'none' }}>
+                <h3 className={styles.scenarioTitle} style={{ color: 'white' }}>3. Call The Professionals</h3>
+                <p className={styles.scenarioDesc} style={{ color: 'rgba(255,255,255,0.8)' }}>Don't ship your fragile drive across the country. Call us and we will securely perform the recovery right from your driveway.</p>
+              </div>
             </div>
           </div>
         </section>
