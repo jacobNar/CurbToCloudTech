@@ -23,11 +23,7 @@
   font-size: 1.5rem;
   font-weight: 700;
   letter-spacing: -0.05em;
-  color: transparent;
-  background-clip: text;
-  -webkit-background-clip: text;
-  background-image: linear-gradient(to right, #4ade80, #a855f7); /* Default but wait! We can use primary to secondary */
-  background-image: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+  color: var(--color-secondary);
   font-family: var(--font-headline);
 }
 
@@ -136,6 +132,25 @@
     flex-direction: row;
     margin-top: 0;
     margin-left: 1rem;
+  }
+}
+
+.headerBtn {
+  display: inline-block;
+  padding: 0.625rem 1.5rem;
+  background: var(--color-secondary);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 700;
+  font-family: var(--font-headline);
+  transition: all 0.3s ease;
+  font-size: 0.875rem;
+
+  &:hover {
+    opacity: 0.9;
+    box-shadow: 0 0 15px rgba(235, 133, 28, 0.4);
   }
 }
 

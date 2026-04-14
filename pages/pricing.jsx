@@ -1,9 +1,7 @@
 import Head from 'next/head';
 import { useState } from 'react';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import AppointmentModal from '../components/AppointmentModal';
 import styles from '@/styles/Recover.module.scss';
+import AppointmentModal from '../components/AppointmentModal';
 import Link from 'next/link';
 
 export default function Pricing() {
@@ -14,8 +12,6 @@ export default function Pricing() {
       <Head>
         <title>Pricing & Strategy | Curb to Cloud Tech</title>
       </Head>
-
-      <Header />
 
       <main className={styles.mainContent}>
         <section className={styles.heroSection}>
@@ -57,8 +53,6 @@ export default function Pricing() {
           </div>
         </section>
       </main>
-
-      <Footer />
 
       {isModalOpen && <AppointmentModal onClose={() => setIsModalOpen(false)} />}
     </div>

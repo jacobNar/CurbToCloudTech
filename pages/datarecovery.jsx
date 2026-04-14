@@ -1,10 +1,8 @@
 import Head from 'next/head';
 import { useState } from 'react';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import AppointmentModal from '../components/AppointmentModal';
 import styles from '@/styles/Recover.module.scss';
 import Link from 'next/link';
+import AppointmentModal from '../components/AppointmentModal';
 
 export default function Recover() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -14,8 +12,6 @@ export default function Recover() {
       <Head>
         <title>Data Recovery | Curb to Cloud Tech</title>
       </Head>
-
-      <Header />
 
       <main className={styles.mainContent}>
         {/* Hero Section: Editorial Asymmetry */}
@@ -258,8 +254,6 @@ export default function Recover() {
           </div>
         </section>
       </main>
-
-      <Footer />
 
       {isModalOpen && <AppointmentModal onClose={() => setIsModalOpen(false)} />}
     </div>

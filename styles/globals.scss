@@ -1,9 +1,9 @@
 :root {
-  --color-primary: #8ff5ff;
-  --color-primary-dim: #00deec;
-  --color-primary-container: #00eefc;
-  --color-secondary: #ac89ff;
-  --color-secondary-dim: #874cff;
+  --color-primary: #002046;
+  --color-primary-dim: #001a38;
+  --color-primary-container: #1b365d;
+  --color-secondary: #eb851c;
+  --color-secondary-dim: #cf7112;
   --color-background: #0e0e0f;
   --color-surface: #0e0e0f;
   --color-surface-container-high: #201f21;
@@ -12,7 +12,7 @@
   --color-surface-container: #1a191b;
   --color-on-surface: #ffffff;
   --color-on-surface-variant: #adaaab;
-  --color-on-primary: #005d63;
+  --color-on-primary: #ffffff;
   --color-outline-variant: #484849;
   
   --font-headline: 'Space Grotesk', sans-serif;
@@ -106,7 +106,7 @@ a {
 
   &:hover {
     opacity: 0.9;
-    box-shadow: 0 0 15px rgba(143, 245, 255, 0.2);
+    box-shadow: 0 0 15px rgba(235, 133, 28, 0.3);
   }
 }
 

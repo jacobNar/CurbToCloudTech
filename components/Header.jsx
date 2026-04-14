@@ -26,8 +26,7 @@ export default function Header() {
 
             <div className={styles.navActions}>
               <button
-                className="btn"
-                style={{ padding: '0.625rem 1.5rem', fontSize: '0.875rem' }}
+                className={styles.headerBtn}
                 onClick={() => setIsModalOpen(true)}
               >
                 Book Now

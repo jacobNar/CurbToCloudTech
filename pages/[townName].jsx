@@ -1,10 +1,8 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+import styles from '@/styles/Town.module.scss';
 import AppointmentModal from '../components/AppointmentModal';
 import Services from '../components/Services';
-import styles from '@/styles/Town.module.scss';
 import { useState } from 'react';
 
 const towns = [
@@ -55,8 +53,6 @@ export default function TownPage({ townName, state, featureText }) {
         <title>Tech Support & IT Services in {townName}, {state} | CurbToCloudTech</title>
         <meta name="description" content={`Expert tech support, networking, and web design for homes and businesses in ${townName}, ${state}. Friendly, reliable service.`} />
       </Head>
-
-      <Header />
 
       <main className={styles.mainContent}>
         {/* Hero Section */}
@@ -197,9 +193,7 @@ export default function TownPage({ townName, state, featureText }) {
         </section>
       </main>
 
-      <Footer />
-
-      {isModalOpen && <AppointmentModal onClose={() => setIsModalOpen(false)} />}
+      {isModalOpen && <AppointmentModal autoTown={townName} onClose={() => setIsModalOpen(false)} />}
     </div>
   );
 }
