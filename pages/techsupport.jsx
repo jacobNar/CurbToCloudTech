@@ -46,7 +46,7 @@ export default function TechSupport() {
             <img
               className={styles.heroImage}
               alt="Home Tech Support"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvtLPBy5w2987doVa1LuRc2qE7Nha6RtTkRJ9GjI-u8L-5Tsl9dy1srMdMUsxLA7xj_RYe93kl5p5vv-AufPiFtcuHwwS0__DSea-evgxZDS9Gs1i1Ud9yVYoriMaaMKlA0QDy37PGZ3JxcyRT8WhjynPz3XxRUqdHSfR1ltcVP2FRElKq0N5ZL88CcFKzl5e82oMvKfQaq1YmK-4KSvAvJO69iR1P8TddQutaPt04Xhjq9Q0P-8YCN2D2ZluwJ3B4z965QMubYtbN"
+              src="/images/tech-support.png"
             />
           </div>
         </section>
@@ -125,7 +125,7 @@ export default function TechSupport() {
           <img
             className={styles.heroImage}
             alt="Home Tech Support"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvtLPBy5w2987doVa1LuRc2qE7Nha6RtTkRJ9GjI-u8L-5Tsl9dy1srMdMUsxLA7xj_RYe93kl5p5vv-AufPiFtcuHwwS0__DSea-evgxZDS9Gs1i1Ud9yVYoriMaaMKlA0QDy37PGZ3JxcyRT8WhjynPz3XxRUqdHSfR1ltcVP2FRElKq0N5ZL88CcFKzl5e82oMvKfQaq1YmK-4KSvAvJO69iR1P8TddQutaPt04Xhjq9Q0P-8YCN2D2ZluwJ3B4z965QMubYtbN"
+            src="/images/tech-support.png"
           />
         </div>
       </main>

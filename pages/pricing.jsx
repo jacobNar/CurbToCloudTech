@@ -40,7 +40,7 @@ export default function Pricing() {
                 <p><strong>Estimated Rate:</strong> $99 (First hr) + $45 per addl. 30m</p>
               </div>
               <div className={styles.faqCard}>
-                <h4>Device Speed-Up</h4>
+                <h4>Device Tune-Up</h4>
                 <p><strong>Pricing Model:</strong> Flat Fee per Device</p>
                 <p><strong>Estimated Rate:</strong> $125 per computer</p>
               </div>

@@ -15,7 +15,8 @@ export default function Services({ onOpenModal }) {
                   <div className={styles.serviceContent}>
                      <span className={`material-symbols-outlined ${styles.iconOrange}`} style={{ fontVariationSettings: "'FILL' 1" }}>router</span>
                      <div>
-                        <h3>Home WiFi Optimization</h3>
+                        <h3>Tech Support</h3>
+                        <p style={{ fontWeight: 'bold', margin: '0.25rem 0 1rem 0' }}>$99 (First hr) + $45 per addl. hr</p>
                         <p>Eliminate dead zones and buffering. We optimize your WiFi coverage from the garden to the attic.</p>
                      </div>
                      <ul>
@@ -33,12 +34,13 @@ export default function Services({ onOpenModal }) {
                      <span className={`material-symbols-outlined ${styles.iconTertiary}`} style={{ fontVariationSettings: "'FILL' 1" }}>settings_backup_restore</span>
                      <div>
                         <h3>Data Recovery</h3>
+                        <p style={{ fontWeight: 'bold', margin: '0.25rem 0 1rem 0' }}>$199 (Success only)</p>
                         <p>Lost photos or critical files? Our advanced recovery tools find what's missing when others can't.</p>
                      </div>
                      <ul>
-                        <li><span className="material-symbols-outlined">verified</span> Deep Drive Scanning</li>
-                        <li><span className="material-symbols-outlined">verified</span> Cloud Backup Strategy</li>
-                        <li><span className="material-symbols-outlined">verified</span> Encrypted Retrieval</li>
+                        <li><span className="material-symbols-outlined">verified</span> Photo and video recovery</li>
+                        <li><span className="material-symbols-outlined">verified</span> Hard drive recovery</li>
+                        <li><span className="material-symbols-outlined">verified</span> School and work files</li>
                      </ul>
                   </div>
                   <button className={styles.btnSecondary} onClick={onOpenModal}>Request Recovery</button>
@@ -50,6 +52,7 @@ export default function Services({ onOpenModal }) {
                      <span className={`material-symbols-outlined ${styles.iconOrange}`} style={{ fontVariationSettings: "'FILL' 1" }}>security</span>
                      <div>
                         <h3>Device Tune-Up</h3>
+                        <p style={{ fontWeight: 'bold', margin: '0.25rem 0 1rem 0' }}>$125 per computer</p>
                         <p>Make your old computer feel new again. We clean, speed up, and protect your digital privacy.</p>
                      </div>
                      <ul>

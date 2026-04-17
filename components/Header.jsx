@@ -20,7 +20,7 @@ export default function Header() {
             <div className={styles.navLinks}>
               <Link href="/datarecovery" className={styles.navLink} onClick={() => document.getElementById('nav-toggle').checked = false}>Data Recovery</Link>
               <Link href="/techsupport" className={styles.navLink} onClick={() => document.getElementById('nav-toggle').checked = false}>Tech Support</Link>
-              <Link href="/speedup" className={styles.navLink} onClick={() => document.getElementById('nav-toggle').checked = false}>Speed Up</Link>
+              <Link href="/devicetuneup" className={styles.navLink} onClick={() => document.getElementById('nav-toggle').checked = false}>Device Tune-Up</Link>
               <Link href="/pricing" className={styles.navLink} onClick={() => document.getElementById('nav-toggle').checked = false}>Pricing</Link>
             </div>
 

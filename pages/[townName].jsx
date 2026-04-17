@@ -76,7 +76,7 @@ export default function TownPage({ townName, state, featureText }) {
               <div className={styles.trustSignals}>
                 <div className={styles.avatars}>
                   <div className={styles.avatarImgWrapper}>
-                    <img alt="technician" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAL-NtBlGu7OOeAydWEgAajq-Y5AXVUvGkH0fBD5AYqYUhmBRbZNAVsPrKn9BgsuJCrP5XYHQYhfv5GXTkimIaEKoTP-9Ec9su0N_l8xMyVQcFaFAdmrAiZ8fIPzAbQENdR9QTAjdv736t9qz57ENuOmmPAhWZNwi2qsPXQ1SBvH_yix40gtAf2gPN-tafEjGcT4UzllEsZcTqaQhKcpgF5fwuKjBGsZhEwaaVQNYpqllvH4W2FKZnGofixo-luCY34KaKDv4Oaths5" />
+                    <img alt="technician" src="/images/technician.png" />
                   </div>
                   <div className={styles.ratingBadge}>4.9</div>
                 </div>
@@ -89,7 +89,7 @@ export default function TownPage({ townName, state, featureText }) {
                 <div className={styles.cardBg}></div>
                 <div className={styles.trustCard}>
                   <div className={styles.cardImgWrapper}>
-                    <img alt="friendly tech support" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvtLPBy5w2987doVa1LuRc2qE7Nha6RtTkRJ9GjI-u8L-5Tsl9dy1srMdMUsxLA7xj_RYe93kl5p5vv-AufPiFtcuHwwS0__DSea-evgxZDS9Gs1i1Ud9yVYoriMaaMKlA0QDy37PGZ3JxcyRT8WhjynPz3XxRUqdHSfR1ltcVP2FRElKq0N5ZL88CcFKzl5e82oMvKfQaq1YmK-4KSvAvJO69iR1P8TddQutaPt04Xhjq9Q0P-8YCN2D2ZluwJ3B4z965QMubYtbN" />
+                    <img alt="friendly tech support" src="/images/tech-support.png" />
                   </div>
                   <div className={styles.reviewContent}>
                     <div className={styles.stars}>

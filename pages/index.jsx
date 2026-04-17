@@ -49,7 +49,7 @@ export default function Home() {
                         <img
                            className={styles.heroMainImg}
                            alt="A friendly male technician in a professional polo shirt smiling and helping an elderly woman with her laptop in a bright modern living room"
-                           src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSc9kieVsMgfO864cZf2E-E4sYoTj-JneQ0iUUxlGmCRHSwWHoMKuWlIvFdvNO11tSkhStqaUcaZE7a43VQsIyfeDeneeFDXeA1s4-6D8y3mAnbrAgzehOOXn8TRBMXQCR4t53qTtuSPR_8gknGNtDbaHRcNd7dQ1HSPaha-F5qjcFkqOWl9UcLtibJB2BASEkSemsTwudNaPJVNLJav5gmcGINyROvRsrbsdgHwT5PRkj7obwPH221REqtpdTZEntbqvcQrGGqdhG"
+                           src="/images/tuneup.png"
                         />
                         <div className={styles.trustCard}>
                            <div className={styles.trustIcon}>
@@ -115,7 +115,7 @@ export default function Home() {
                         <img
                            className={styles.ctaBgImage}
                            alt="Abstract mix"
-                           src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6mFQRMjcziT_r8_-G06CIkp8X5qNwoeyPR_QW_4b9K0c3BjDHbYB0ZIWSfagf2lGPfpLCsehyOGa4HFr4V3HqeOrr-QDepzr9-8Hard4uhYWOjJqEM4SCmKKEewcDf7HBmc890kYASeWMPIzMVwUPxVMnFHxUkP9yIixGvlQUC5SbgBaDZ5upXyFEGKq9nbuGzTWkjxp-11HV8ZvarKlYlTlpvd5uUAQhCXlbiCK5yMQ-pjzpVNmBX3HTz9xLULdfet9ERKZdnjHK"
+                           src="/images/networking.png"
                         />
                      </div>
 

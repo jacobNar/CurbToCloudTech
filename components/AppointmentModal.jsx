@@ -281,7 +281,7 @@ export default function AppointmentModal({ onClose }) {
                                 >
                                     <option value="Data Recovery">Data Recovery</option>
                                     <option value="Hourly Tech Support">Hourly Tech Support</option>
-                                    <option value="Device Speed Up">Device Speed Up</option>
+                                    <option value="Device Tune-Up">Device Tune-Up</option>
                                 </select>
                             </div>
                             {formData.type === 'inperson' && (

@@ -4,13 +4,13 @@ import styles from '@/styles/Recover.module.scss';
 import Link from 'next/link';
 import AppointmentModal from '../components/AppointmentModal';
 
-export default function SpeedUp() {
+export default function DeviceTuneUp() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <div className={styles.pageWrapper}>
       <Head>
-        <title>Device Speed Up | Curb to Cloud Tech</title>
+        <title>Device Tune-Up | Curb to Cloud Tech</title>
       </Head>
 
       <main className={styles.mainContent}>
@@ -35,7 +35,7 @@ export default function SpeedUp() {
             </p>
             <div className={styles.heroActions}>
               <button className={styles.primaryBtn} onClick={() => setIsModalOpen(true)}>
-                Device Speed Up
+                Device Tune-Up
               </button>
             </div>
           </div>
@@ -43,7 +43,7 @@ export default function SpeedUp() {
             <img
               className={styles.heroImage}
               alt="Device Tune-Up"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSc9kieVsMgfO864cZf2E-E4sYoTj-JneQ0iUUxlGmCRHSwWHoMKuWlIvFdvNO11tSkhStqaUcaZE7a43VQsIyfeDeneeFDXeA1s4-6D8y3mAnbrAgzehOOXn8TRBMXQCR4t53qTtuSPR_8gknGNtDbaHRcNd7dQ1HSPaha-F5qjcFkqOWl9UcLtibJB2BASEkSemsTwudNaPJVNLJav5gmcGINyROvRsrbsdgHwT5PRkj7obwPH221REqtpdTZEntbqvcQrGGqdhG"
+              src="/images/tuneup.png"
             />
           </div>
         </section>
@@ -101,7 +101,7 @@ export default function SpeedUp() {
             <div className={styles.faqGrid}>
               <div className={styles.faqCard}>
                 <h4>Will this delete my files?</h4>
-                <p>No, our device speed up process is completely non-destructive. It focuses on cleaning up junk, optimizing settings, and removing bloatware without affecting your personal documents or photos.</p>
+                <p>No, our device tune-up process is completely non-destructive. It focuses on cleaning up junk, optimizing settings, and removing bloatware without affecting your personal documents or photos.</p>
               </div>
               <div className={styles.faqCard}>
                 <h4>How long does a tune-up take?</h4>
@@ -124,7 +124,7 @@ export default function SpeedUp() {
           <img
             className={styles.heroImage}
             alt="Device Tune-Up"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSc9kieVsMgfO864cZf2E-E4sYoTj-JneQ0iUUxlGmCRHSwWHoMKuWlIvFdvNO11tSkhStqaUcaZE7a43VQsIyfeDeneeFDXeA1s4-6D8y3mAnbrAgzehOOXn8TRBMXQCR4t53qTtuSPR_8gknGNtDbaHRcNd7dQ1HSPaha-F5qjcFkqOWl9UcLtibJB2BASEkSemsTwudNaPJVNLJav5gmcGINyROvRsrbsdgHwT5PRkj7obwPH221REqtpdTZEntbqvcQrGGqdhG"
+            src="/images/tuneup.png"
           />
         </div>
       </main>
