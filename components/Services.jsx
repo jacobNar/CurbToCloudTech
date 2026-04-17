@@ -25,7 +25,7 @@ export default function Services({ onOpenModal }) {
                         <li><span className="material-symbols-outlined">check_circle</span> Security Optimization</li>
                      </ul>
                   </div>
-                  <button className={styles.btnOutline} onClick={onOpenModal}>Learn More</button>
+                  <button className={styles.btnOutline} onClick={onOpenModal}>Book Now</button>
                </div>
 
                {/* Package 2 */}
@@ -61,7 +61,7 @@ export default function Services({ onOpenModal }) {
                         <li><span className="material-symbols-outlined">check_circle</span> Privacy Shield Install</li>
                      </ul>
                   </div>
-                  <button className={styles.btnOutline} onClick={onOpenModal}>Learn More</button>
+                  <button className={styles.btnOutline} onClick={onOpenModal}>Book Now</button>
                </div>
             </div>
          </div>

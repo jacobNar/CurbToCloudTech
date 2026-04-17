@@ -62,10 +62,10 @@ export default function TownPage({ townName, state, featureText }) {
           <div className={styles.heroGrid}>
             <div className={styles.heroText}>
               <h1 className={styles.heroTitle}>
-                Stop fighting your tech. I'll come to you.
+                Stop fighting your tech. We will come to you.
               </h1>
               <p className={styles.heroDesc}>
-                Expert, friendly IT support for your {townName} home. Whether it's a broken drive or patchy WiFi, I make it work—guaranteed.
+                Expert, friendly IT support for your {townName} home. Whether it's a broken drive or patchy WiFi, we make it work—guaranteed.
               </p>
               <div className={styles.heroActions}>
                 <button className={styles.btnPrimary} onClick={() => setIsModalOpen(true)}>
@@ -75,7 +75,7 @@ export default function TownPage({ townName, state, featureText }) {
                   View Pricing
                 </button>
               </div>
-              <div className={styles.trustSignals}>
+              {/* <div className={styles.trustSignals}>
                 <div className={styles.avatars}>
                   <div className={styles.avatarImgWrapper}>
                     <Image alt="technician" src="/images/technician.png" width={100} height={100} />
@@ -83,7 +83,7 @@ export default function TownPage({ townName, state, featureText }) {
                   <div className={styles.ratingBadge}>4.9</div>
                 </div>
                 <span>Your local IT professionals in {townName}</span>
-              </div>
+              </div> */}
             </div>
 
             <div className={styles.heroVisual}>
@@ -101,8 +101,8 @@ export default function TownPage({ townName, state, featureText }) {
                       <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
                       <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
                     </div>
-                    <p className={styles.quote}>"Finally, someone who explains tech in plain English and fixed my internet in minutes!"</p>
-                    <p className={styles.author}>— Sarah J., {townName}</p>
+                    <p className={styles.quote}>"It was refreshingly effortless"</p>
+                    <p className={styles.author}>— Barb Sorensen, Palatine</p>
                   </div>
                 </div>
               </div>
@@ -146,7 +146,7 @@ export default function TownPage({ townName, state, featureText }) {
                   <span className={`material-symbols-outlined ${styles.infoIcon}`}>verified</span>
                   <div>
                     <h4>Flat-Rate Pricing</h4>
-                    <p>Know exactly what you'll pay before I even start. No hidden hourly fees.</p>
+                    <p>Know exactly what you'll pay before we even start. No hidden hourly fees.</p>
                   </div>
                 </div>
               </div>

@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import styles from '@/styles/Home.module.scss';
+import townStyles from '@/styles/Town.module.scss';
 import { useState } from 'react';
 import dynamic from 'next/dynamic';
 const AppointmentModal = dynamic(() => import('@/components/AppointmentModal'), { ssr: false });
@@ -112,8 +113,54 @@ export default function Home() {
                </div>
             </section>
 
+            {/* Global Service Area Wrapper */}
+            <section className={townStyles.serviceAreaSection} style={{ backgroundColor: '#f4f3f7', marginTop: '0', paddingBottom: '4rem', paddingTop: '4rem' }}>
+              <div className="width-container fade-in">
+                <div className={townStyles.sectionHeader}>
+                  <h2 className={townStyles.sectionTitle} style={{ color: '#002046' }}>Serving the Northwest Chicagoland Suburbs</h2>
+                  <p className={townStyles.sectionDesc} style={{ color: '#44474e' }}>From Crystal Lake to Evanston, we bring elite tech support directly to your driveway.</p>
+                </div>
+
+                <div className={townStyles.mapContainer}>
+                  <div className={townStyles.mapOverlap}>
+                    <div className={townStyles.mapWrapper}>
+                      <iframe
+                        width="100%"
+                        height="100%"
+                        style={{ border: 0 }}
+                        loading="lazy"
+                        allowFullScreen
+                        referrerPolicy="no-referrer-when-downgrade"
+                        src="https://www.google.com/maps?q=McHenry+County,+IL&output=embed">
+                      </iframe>
+                    </div>
+                  </div>
+
+                  <div className={townStyles.mapInfo} style={{ backgroundColor: '#ffffff', border: '1px solid rgba(0,0,0,0.1)', boxShadow: '0 20px 25px -5px rgba(0, 32, 70, 0.04)' }}>
+                    <div className={townStyles.infoList}>
+                      <div className={townStyles.infoItem}>
+                        <span className={`material-symbols-outlined ${townStyles.infoIcon}`} style={{ color: '#eb851c' }}>location_on</span>
+                        <div>
+                          <h4 style={{ color: '#002046', marginBottom: '0.25rem' }}>Local & Reliable</h4>
+                          <p style={{ color: '#44474e' }}>Serving over 30 local towns with priority scheduling.</p>
+                        </div>
+                      </div>
+                      <div className={townStyles.infoItem}>
+                        <span className={`material-symbols-outlined ${townStyles.infoIcon}`} style={{ color: '#eb851c' }}>time_auto</span>
+                        <div>
+                          <h4 style={{ color: '#002046', marginBottom: '0.25rem' }}>Fast Response Times</h4>
+                          <p style={{ color: '#44474e' }}>Schedule your at-home appointment today.</p>
+                        </div>
+                      </div>
+                    </div>
+                    <button className={townStyles.btnCta} style={{ width: '100%', padding: '1rem', fontSize: '1rem' }} onClick={() => setIsModalOpen(true)}>Book Priority Visit</button>
+                  </div>
+                </div>
+              </div>
+            </section>
+
             {/* Final CTA Action */}
-            <section className={styles.ctaSegment}>
+            {/* <section className={styles.ctaSegment}>
                <div className="width-container fade-in">
                   <div className={styles.ctaContainer}>
                      <div className={styles.ctaBgImageContainer}>
@@ -135,7 +182,7 @@ export default function Home() {
                      </div>
                   </div>
                </div>
-            </section>
+            </section> */}
          </div>
 
          {isModalOpen && <AppointmentModal onClose={() => setIsModalOpen(false)} />}

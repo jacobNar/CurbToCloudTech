@@ -22,7 +22,7 @@ export default function Pricing() {
               No hidden hourly traps. For general support, we charge a flat diagnostic fee for the first hour, which covers most common fixes. If it's a bigger project, we'll give you a quote before we keep working.
             </p>
             <div className={styles.heroActions} style={{ justifyContent: "center" }}>
-               <button className={styles.primaryBtn} onClick={() => setIsModalOpen(true)}>Book a Visit</button>
+              <button className={styles.primaryBtn} onClick={() => setIsModalOpen(true)}>Book a Visit</button>
             </div>
           </div>
         </section>
@@ -33,12 +33,12 @@ export default function Pricing() {
               <div className={styles.faqCard}>
                 <h4>Data Recovery</h4>
                 <p><strong>Pricing Model:</strong> Flat Fee (Simple) / Tiered (Complex)</p>
-                <p><strong>Estimated Rate:</strong> $150 - $350+ (Success only)</p>
+                <p><strong>Estimated Rate:</strong> $199 (Success only)</p>
               </div>
               <div className={styles.faqCard}>
                 <h4>Tech Support</h4>
                 <p><strong>Pricing Model:</strong> First Hour Flat + Incremental</p>
-                <p><strong>Estimated Rate:</strong> $99 (First hr) + $45 per addl. 30m</p>
+                <p><strong>Estimated Rate:</strong> $99 (First hr) + $45 per addl. hr</p>
               </div>
               <div className={styles.faqCard}>
                 <h4>Device Tune-Up</h4>
@@ -48,7 +48,7 @@ export default function Pricing() {
               <div className={styles.faqCard}>
                 <h4>Add-ons</h4>
                 <p><strong>Pricing Model:</strong> USB Drive / Storage Media</p>
-                <p><strong>Estimated Rate:</strong> $20 - $40</p>
+                <p><strong>Estimated Rate:</strong> $20</p>
               </div>
             </div>
           </div>

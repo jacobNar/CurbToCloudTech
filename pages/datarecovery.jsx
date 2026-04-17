@@ -22,14 +22,14 @@ export default function Recover() {
             <h1 className={styles.heroTitle}><span className={styles.heroTitleHighlight}>Professional Data Recovery:</span> We Rescue Your Files at Your Front Door.
             </h1>
             <div className={styles.heroBadges}>
-               <span className={styles.badgeOne}>
-                  <span className="material-symbols-outlined text-sm">verified_user</span>
-                  No Fix, No Fee
-               </span>
-               <span className={styles.badgeTwo}>
-                  <span className="material-symbols-outlined text-sm">home_pin</span>
-                  Local & Reliable
-               </span>
+              <span className={styles.badgeOne}>
+                <span className="material-symbols-outlined text-sm">verified_user</span>
+                No Fix, No Fee
+              </span>
+              <span className={styles.badgeTwo}>
+                <span className="material-symbols-outlined text-sm">home_pin</span>
+                Local & Reliable
+              </span>
             </div>
             <p className={styles.heroDesc}>
               Lost photos? Deleted documents? Don't panic. Our "No Data, No Fee" guarantee means you only pay when we succeed.
@@ -185,7 +185,7 @@ export default function Recover() {
                   <div className={`${styles.stepNumber} ${styles.accentBg}`}>2</div>
                   <div className={styles.stepContent}>
                     <h4>We Arrive at Your Curb</h4>
-                    <p>Our Mobile Work Center pulls up. We handle everything inside our climate-controlled lab.</p>
+                    <p>Our Mobile Work Center pulls up. We handle everything inside at your curb.</p>
                   </div>
                 </div>
                 <div className={styles.processStep}>

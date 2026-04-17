@@ -7,36 +7,33 @@ export default function Footer() {
       <div className={styles.footerContainer}>
         <div className={styles.brandCol}>
           <div className={styles.brandTitle}>Curb to Cloud</div>
-          <p>Next-generation mobile IT support. Bringing elite technical systems and data recovery directly to your curb.</p>
+          <p>Your friendly neighborhood IT support. Bringing elite technical knowledge and data recovery directly to your curb.</p>
         </div>
-        
+
         <div className={styles.linkCol}>
           <h4>Services</h4>
           <ul>
-            <li><Link href="/datarecovery">Data Recover</Link></li>
-            <li><Link href="/services">WiFi Networking</Link></li>
-            <li><Link href="/services">Hardware Repair</Link></li>
-            <li><Link href="/services">Cloud Syncing</Link></li>
+            <li><Link href="/datarecovery">Data Recovery</Link></li>
+            <li><Link href="/techsupport">Tech Support</Link></li>
+            <li><Link href="/devicetuneup">Device Tune-Up</Link></li>
           </ul>
         </div>
-        
+
         <div className={styles.linkCol}>
-          <h4>Support</h4>
+          <h4>Company</h4>
           <ul>
-            <li><Link href="/services">Terms of Service</Link></li>
-            <li><Link href="/services">Privacy Policy</Link></li>
-            <li><Link href="/services">On-Site Areas</Link></li>
-            <li><Link href="/services">Emergency Contact</Link></li>
+            <li><Link href="/pricing">Pricing</Link></li>
+            <li><Link href="/">Home</Link></li>
           </ul>
         </div>
-        
+
         <div className={styles.connectCol}>
           <h4>Connect</h4>
           <div className={styles.socials}>
-            <a href="#" aria-label="Share">
+            {/* <a href="#" aria-label="Share">
               <span className="material-symbols-outlined">share</span>
-            </a>
-            <a href="#" aria-label="Email">
+            </a> */}
+            <a href="mailto:curbtocloudtech@gmail.com" aria-label="Email">
               <span className="material-symbols-outlined">mail</span>
             </a>
           </div>

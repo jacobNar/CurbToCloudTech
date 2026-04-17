@@ -23,14 +23,14 @@ export default function TechSupport() {
               <span className={styles.heroTitleHighlight}>Residential Tech Support</span> That Actually Makes Sense.
             </h1>
             <div className={styles.heroBadges}>
-               <span className={styles.badgeOne}>
-                  <span className="material-symbols-outlined text-sm">verified_user</span>
-                  No Fix, No Fee
-               </span>
-               <span className={styles.badgeTwo}>
-                  <span className="material-symbols-outlined text-sm">home_pin</span>
-                  Local & Reliable
-               </span>
+              <span className={styles.badgeOne}>
+                <span className="material-symbols-outlined text-sm">verified_user</span>
+                No Fix, No Fee
+              </span>
+              <span className={styles.badgeTwo}>
+                <span className="material-symbols-outlined text-sm">home_pin</span>
+                Local & Reliable
+              </span>
             </div>
             <p className={styles.heroDesc}>
               From stubborn printers to "dead zone" Wi-Fi, we fix the frustrations that slow you down.
@@ -117,10 +117,10 @@ export default function TechSupport() {
                 <h4>What about privacy?</h4>
                 <p>Your privacy is our core value. Our technicians are vetted professionals, and your data never leaves your property unless requested.</p>
               </div>
-              <div className={styles.faqCard}>
+              {/* <div className={styles.faqCard}>
                 <h4>Do you service mobile devices?</h4>
                 <p>Note: We do not service mobile phones or tablets. Our tech support is focused exclusively on PCs, Macs, printers and home networks.</p>
-              </div>
+              </div> */}
             </div>
           </div>
         </section>
