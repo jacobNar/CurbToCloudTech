@@ -206,7 +206,7 @@ export default function AppointmentModal({ onClose }) {
                         <div>
                             <p className={styles.label}>Available times for {selectedDate?.toLocaleDateString()}</p>
                             <div className={styles.timeGrid}>
-                                {loading ? <p>Loading...</p> : slots.map(slot => (
+                                {loading ? <p style={{ color: 'var(--color-on-surface)', textAlign: 'center', gridColumn: '1 / -1', padding: '1rem' }}>Loading...</p> : slots.map(slot => (
                                     <button
                                         key={slot.time}
                                         className={styles.timeBtn}

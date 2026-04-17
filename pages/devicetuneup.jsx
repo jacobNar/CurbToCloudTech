@@ -3,7 +3,8 @@ import Image from 'next/image';
 import { useState } from 'react';
 import styles from '@/styles/Recover.module.scss';
 import Link from 'next/link';
-import AppointmentModal from '../components/AppointmentModal';
+import dynamic from 'next/dynamic';
+const AppointmentModal = dynamic(() => import('../components/AppointmentModal'), { ssr: false });
 
 export default function DeviceTuneUp() {
   const [isModalOpen, setIsModalOpen] = useState(false);

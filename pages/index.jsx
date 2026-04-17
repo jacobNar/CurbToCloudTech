@@ -2,7 +2,8 @@ import Head from 'next/head';
 import Image from 'next/image';
 import styles from '@/styles/Home.module.scss';
 import { useState } from 'react';
-import AppointmentModal from '@/components/AppointmentModal';
+import dynamic from 'next/dynamic';
+const AppointmentModal = dynamic(() => import('@/components/AppointmentModal'), { ssr: false });
 import Services from '@/components/Services';
 
 export default function Home() {

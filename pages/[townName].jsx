@@ -2,7 +2,8 @@ import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from '@/styles/Town.module.scss';
-import AppointmentModal from '../components/AppointmentModal';
+import dynamic from 'next/dynamic';
+const AppointmentModal = dynamic(() => import('../components/AppointmentModal'), { ssr: false });
 import Services from '../components/Services';
 import { useState } from 'react';
 
