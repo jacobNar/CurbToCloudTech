@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Image from 'next/image';
 import { useState } from 'react';
 import styles from '@/styles/Recover.module.scss';
 import Link from 'next/link';
@@ -43,10 +44,13 @@ export default function TechSupport() {
             </div>
           </div>
           <div className={styles.heroVisual}>
-            <img
+            <Image
               className={styles.heroImage}
               alt="Home Tech Support"
               src="/images/tech-support.png"
+              width={800}
+              height={600}
+              priority
             />
           </div>
         </section>
@@ -122,10 +126,12 @@ export default function TechSupport() {
 
         {/* Mobile Hero Visual at bottom */}
         <div className={styles.heroVisualMobile}>
-          <img
+          <Image
             className={styles.heroImage}
             alt="Home Tech Support"
             src="/images/tech-support.png"
+            width={800}
+            height={600}
           />
         </div>
       </main>

@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Image from 'next/image';
 import styles from '@/styles/Home.module.scss';
 import { useState } from 'react';
 import AppointmentModal from '@/components/AppointmentModal';
@@ -46,10 +47,13 @@ export default function Home() {
 
                   <div className={styles.heroRight}>
                      <div className={styles.heroImageContainer}>
-                        <img
+                        <Image
                            className={styles.heroMainImg}
                            alt="A friendly male technician in a professional polo shirt smiling and helping an elderly woman with her laptop in a bright modern living room"
                            src="/images/tuneup.png"
+                           width={800}
+                           height={600}
+                           priority
                         />
                         <div className={styles.trustCard}>
                            <div className={styles.trustIcon}>
@@ -112,10 +116,12 @@ export default function Home() {
                <div className="width-container fade-in">
                   <div className={styles.ctaContainer}>
                      <div className={styles.ctaBgImageContainer}>
-                        <img
+                        <Image
                            className={styles.ctaBgImage}
                            alt="Abstract mix"
                            src="/images/networking.png"
+                           layout="fill"
+                           objectFit="cover"
                         />
                      </div>
 

@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Image from 'next/image';
 import { useState } from 'react';
 import styles from '@/styles/Recover.module.scss';
 import Link from 'next/link';
@@ -40,10 +41,13 @@ export default function DeviceTuneUp() {
             </div>
           </div>
           <div className={styles.heroVisual}>
-            <img
+            <Image
               className={styles.heroImage}
               alt="Device Tune-Up"
               src="/images/tuneup.png"
+              width={800}
+              height={600}
+              priority
             />
           </div>
         </section>
@@ -121,10 +125,12 @@ export default function DeviceTuneUp() {
 
         {/* Mobile Hero Visual at bottom */}
         <div className={styles.heroVisualMobile}>
-          <img
+          <Image
             className={styles.heroImage}
             alt="Device Tune-Up"
             src="/images/tuneup.png"
+            width={800}
+            height={600}
           />
         </div>
       </main>

@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Image from 'next/image';
 import { useState } from 'react';
 import styles from '@/styles/Recover.module.scss';
 import Link from 'next/link';
@@ -42,10 +43,13 @@ export default function Recover() {
             </div>
           </div>
           <div className={styles.heroVisual}>
-            <img
+            <Image
               className={styles.heroImage}
               alt="Mobile Tech Work Center"
               src="/images/data-recovery.png"
+              width={800}
+              height={600}
+              priority
             />
             {/* Floating Trust Card */}
             <div className={styles.trustCardWrapper}>
@@ -193,9 +197,11 @@ export default function Recover() {
               </div>
             </div>
             <div className={styles.processVisual}>
-              <img
+              <Image
                 alt="The Recovery Process"
                 src="/images/tuneup.png"
+                width={800}
+                height={600}
               />
             </div>
           </div>

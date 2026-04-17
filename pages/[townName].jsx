@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Image from 'next/image';
 import Link from 'next/link';
 import styles from '@/styles/Town.module.scss';
 import AppointmentModal from '../components/AppointmentModal';
@@ -76,7 +77,7 @@ export default function TownPage({ townName, state, featureText }) {
               <div className={styles.trustSignals}>
                 <div className={styles.avatars}>
                   <div className={styles.avatarImgWrapper}>
-                    <img alt="technician" src="/images/technician.png" />
+                    <Image alt="technician" src="/images/technician.png" width={100} height={100} />
                   </div>
                   <div className={styles.ratingBadge}>4.9</div>
                 </div>
@@ -89,7 +90,7 @@ export default function TownPage({ townName, state, featureText }) {
                 <div className={styles.cardBg}></div>
                 <div className={styles.trustCard}>
                   <div className={styles.cardImgWrapper}>
-                    <img alt="friendly tech support" src="/images/tech-support.png" />
+                    <Image alt="friendly tech support" src="/images/tech-support.png" width={800} height={600} priority />
                   </div>
                   <div className={styles.reviewContent}>
                     <div className={styles.stars}>
