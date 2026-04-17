@@ -1,7 +1,8 @@
 import Head from 'next/head';
 import { useState } from 'react';
 import styles from '@/styles/Recover.module.scss';
-import AppointmentModal from '../components/AppointmentModal';
+import dynamic from 'next/dynamic';
+const AppointmentModal = dynamic(() => import('../components/AppointmentModal'), { ssr: false });
 import Link from 'next/link';
 
 export default function Pricing() {

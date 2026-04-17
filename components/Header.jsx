@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import styles from '@/styles/Header.module.scss';
-import AppointmentModal from './AppointmentModal';
+import dynamic from 'next/dynamic';
+const AppointmentModal = dynamic(() => import('./AppointmentModal'), { ssr: false });
 import { useState } from 'react';
 
 export default function Header() {
