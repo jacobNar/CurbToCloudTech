@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import styles from '@/styles/Header.module.scss';
 import dynamic from 'next/dynamic';
+import Image from 'next/image';
 const AppointmentModal = dynamic(() => import('./AppointmentModal'), { ssr: false });
 import { useState } from 'react';
 
@@ -12,7 +13,14 @@ export default function Header() {
       <header className={styles.header}>
         <div className={styles.navContainer}>
           <Link href="/" className={styles.logo}>
-            Curb to Cloud
+            <Image
+              src="/images/color-corrected-logo-no-bg.png"
+              alt="Curb to Cloud Tech Logo"
+              width={274}
+              height={200}
+              className={styles.logoImage}
+              priority
+            />
           </Link>
 
           <input type="checkbox" id="nav-toggle" className={styles.navToggle} />

@@ -6,7 +6,7 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div className={styles.footerContainer}>
         <div className={styles.brandCol}>
-          <div className={styles.brandTitle}>Curb to Cloud</div>
+          <div className={styles.brandTitle}>Curb to Cloud Tech</div>
           <p>Your friendly neighborhood IT support. Bringing elite technical knowledge and data recovery directly to your curb.</p>
         </div>
 
@@ -24,6 +24,8 @@ export default function Footer() {
           <ul>
             <li><Link href="/pricing">Pricing</Link></li>
             <li><Link href="/">Home</Link></li>
+            <li><Link href="/privacy">Privacy Policy</Link></li>
+            <li><Link href="/terms">Terms of Service</Link></li>
           </ul>
         </div>
 
@@ -38,7 +40,7 @@ export default function Footer() {
             </a>
           </div>
           <div className={styles.copyright}>
-            <p>&copy; {new Date().getFullYear()} Curb to Cloud. All Rights Reserved.</p>
+            <p>&copy; {new Date().getFullYear()} Curb to Cloud Tech. All Rights Reserved.</p>
           </div>
         </div>
       </div>
