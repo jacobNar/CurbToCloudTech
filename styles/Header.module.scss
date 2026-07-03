@@ -68,6 +68,7 @@
   clip-path: circle(0px at top right);
   transition: clip-path 0.4s ease-in-out;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  pointer-events: none;
 
   @media (min-width: 768px) {
     position: static;
@@ -78,11 +79,13 @@
     width: auto;
     clip-path: none;
     border-bottom: none;
+    pointer-events: auto;
   }
 }
 
 .navToggle:checked~.navMenu {
   clip-path: circle(150% at top right);
+  pointer-events: auto;
 }
 
 .navToggle:checked~.navToggleLabel span:nth-child(1) {

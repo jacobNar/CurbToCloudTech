@@ -17,8 +17,10 @@ export default function TechSupport() {
 
       <main className={styles.mainContent}>
         {/* Hero Section */}
-        <section className={styles.heroSection}>
-          <div className={styles.heroContent}>
+        <section className="section-hero">
+          <div className="width-container">
+            <div className="hero-grid">
+              <div className={styles.heroContent}>
             <h1 className={styles.heroTitle}>
               <span className={styles.heroTitleHighlight}>Residential Tech Support</span> That Actually Makes Sense.
             </h1>
@@ -35,11 +37,11 @@ export default function TechSupport() {
             <p className={styles.heroDesc}>
               From stubborn printers to "dead zone" Wi-Fi, we fix the frustrations that slow you down.
             </p>
-            <div className={styles.heroActions}>
-              <button className={styles.primaryBtn} onClick={() => setIsModalOpen(true)}>
+            <div className="hero-actions">
+              <button className="btn btn-large" onClick={() => setIsModalOpen(true)}>
                 Book Tech Support
               </button>
-              <button className={styles.secondaryBtn} onClick={() => document.getElementById('services').scrollIntoView({ behavior: 'smooth' })}>
+              <button className="btn btn-secondary btn-large" onClick={() => document.getElementById('services').scrollIntoView({ behavior: 'smooth' })}>
                 See Our Fixes
               </button>
             </div>
@@ -48,17 +50,19 @@ export default function TechSupport() {
             <Image
               className={styles.heroImage}
               alt="Home Tech Support"
-              src="/images/tech-support.png"
+              src="/images/tech-support-hero.jpg"
               width={800}
               height={600}
               priority
             />
           </div>
-        </section>
+        </div>
+      </div>
+    </section>
 
         {/* Services Section */}
-        <section id="services" className={styles.scenariosSection}>
-          <div className={styles.scenariosContainer}>
+        <section id="services" className="section-padding bg-light">
+          <div className="width-container">
             <div className={styles.scenariosHeader}>
               <h2>What We Fix</h2>
               <p>Common frustrations we can solve in a single visit.</p>
@@ -97,8 +101,9 @@ export default function TechSupport() {
         </section>
 
         {/* FAQ Section: Warm Styling */}
-        <section className={styles.faqSection}>
-          <div className={styles.faqContainer}>
+        <section className="section-padding">
+          <div className="width-container">
+            <div className={styles.faqContainer}>
             <h2 className={styles.faqTitle}>Frequently Asked Questions</h2>
             <div className={styles.faqGrid}>
               <div className={styles.faqCard}>
@@ -123,14 +128,15 @@ export default function TechSupport() {
               </div> */}
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
         {/* Mobile Hero Visual at bottom */}
         <div className={styles.heroVisualMobile}>
           <Image
             className={styles.heroImage}
             alt="Home Tech Support"
-            src="/images/tech-support.png"
+            src="/images/tech-support-hero.jpg"
             width={800}
             height={600}
           />

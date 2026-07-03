@@ -59,7 +59,7 @@ export default function TermsOfService() {
           <section className={styles.section}>
             <h2 className={styles.sectionTitle}>4. Data Recovery Disclaimer</h2>
             <p className={styles.paragraph}>
-              For data recovery services: You acknowledge that data recovery processes carry inherent risks of hardware failure or data loss. Curb to Cloud Tech is not responsible for any pre-existing damage to your drive, storage media, or computer system. While we make every professional effort to recover your data, we do not guarantee successful recovery, and you agree that we are not liable for data that cannot be recovered or is lost during the recovery attempt.
+              For file extraction and data recovery services: You acknowledge that retrieving files from locked, crashed, or unbootable systems carries inherent risks of data loss. Curb to Cloud Tech is not responsible for any pre-existing damage to your computer system, storage media, or drive. While we make every professional effort to retrieve your data, we do not guarantee successful recovery, and you agree that we are not liable for data that cannot be retrieved or is lost during the attempt.
             </p>
           </section>
 

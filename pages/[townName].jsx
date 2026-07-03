@@ -52,26 +52,26 @@ export default function TownPage({ townName, state, featureText }) {
   return (
     <div className={styles.pageWrapper}>
       <Head>
-        <title>Tech Support & IT Services in {townName}, {state} | CurbToCloudTech</title>
+        <title>{`Tech Support & IT Services in ${townName}, ${state} | CurbToCloudTech`}</title>
         <meta name="description" content={`Expert tech support, networking, and web design for homes and businesses in ${townName}, ${state}. Friendly, reliable service.`} />
       </Head>
 
       <main className={styles.mainContent}>
-        {/* Hero Section */}
-        <section className={styles.heroSection}>
-          <div className={styles.heroGrid}>
+        <section className="section-hero">
+          <div className="width-container">
+            <div className="hero-grid">
             <div className={styles.heroText}>
               <h1 className={styles.heroTitle}>
                 Stop fighting your tech. We will come to you.
               </h1>
               <p className={styles.heroDesc}>
-                Expert, friendly IT support for your {townName} home. Whether it's a broken drive or patchy WiFi, we make it work—guaranteed.
+                Expert, friendly IT support for your {townName} home. Whether it's a locked computer or patchy WiFi, we make it work—guaranteed.
               </p>
-              <div className={styles.heroActions}>
-                <button className={styles.btnPrimary} onClick={() => setIsModalOpen(true)}>
+              <div className="hero-actions">
+                <button className="btn btn-large" onClick={() => setIsModalOpen(true)}>
                   Schedule Your Visit
                 </button>
-                <button className={styles.btnSecondary} onClick={() => document.getElementById('packages').scrollIntoView({ behavior: 'smooth' })}>
+                <button className="btn btn-secondary btn-large" onClick={() => document.getElementById('packages').scrollIntoView({ behavior: 'smooth' })}>
                   View Pricing
                 </button>
               </div>
@@ -91,7 +91,7 @@ export default function TownPage({ townName, state, featureText }) {
                 <div className={styles.cardBg}></div>
                 <div className={styles.trustCard}>
                   <div className={styles.cardImgWrapper}>
-                    <Image alt="friendly tech support" src="/images/tech-support.png" width={800} height={600} priority />
+                    <Image alt="friendly tech support" src="/images/tech-support-hero.jpg" width={800} height={600} priority />
                   </div>
                   <div className={styles.reviewContent}>
                     <div className={styles.stars}>
@@ -108,11 +108,13 @@ export default function TownPage({ townName, state, featureText }) {
               </div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
         {/* Service Area Wrapper */}
-        <section className={styles.serviceAreaSection}>
-          <div className={styles.sectionHeader}>
+        <section className="section-padding bg-light">
+          <div className="width-container">
+            <div className={styles.sectionHeader}>
             <h2 className={styles.sectionTitle}>Friendly Tech Support in Your Neighborhood</h2>
             <p className={styles.sectionDesc}>From the town square to the suburbs, I'm just a short drive away.</p>
           </div>
@@ -153,14 +155,16 @@ export default function TownPage({ townName, state, featureText }) {
               <button className={styles.btnOutline} onClick={() => setIsModalOpen(true)}>Check My Zip Code</button>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
         {/* Packages Component Wrapper */}
         <Services onOpenModal={() => setIsModalOpen(true)} />
 
         {/* Trust Signals */}
-        <section className={styles.trustSection}>
-          <div className={styles.trustGrid}>
+        <section className="section-padding">
+          <div className="width-container">
+            <div className={styles.trustGrid}>
             <div className={styles.trustBanner}>
               <h2>No Fix, No Fee Guarantee</h2>
               <p>You shouldn't pay for technology that doesn't work. If I can't find a solution for your technical issue, you don't owe me a dime. Simple as that.</p>
@@ -178,11 +182,13 @@ export default function TownPage({ townName, state, featureText }) {
               <p>Transparent pricing. No surprises on your final bill.</p>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
         {/* CTA Section */}
-        <section className={styles.ctaSection}>
-          <div className={styles.ctaCard}>
+        <section className="section-padding">
+          <div className="width-container">
+            <div className={styles.ctaCard}>
             <div className={styles.ctaBlurWrapper}>
               <div className={styles.ctaBlurCircle}></div>
             </div>
@@ -190,6 +196,7 @@ export default function TownPage({ townName, state, featureText }) {
               <h2>Ready to fix your home tech once and for all?</h2>
               <p>Appointments are available as soon as tomorrow in {townName}. Let's get your digital life back on track.</p>
               <button className={styles.btnCta} onClick={() => setIsModalOpen(true)}>Schedule Your Visit Now</button>
+            </div>
             </div>
           </div>
         </section>

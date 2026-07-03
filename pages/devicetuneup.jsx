@@ -17,26 +17,28 @@ export default function DeviceTuneUp() {
 
       <main className={styles.mainContent}>
         {/* Hero Section */}
-        <section className={styles.heroSection}>
-          <div className={styles.heroContent}>
+        <section className="section-hero">
+          <div className="width-container">
+            <div className="hero-grid">
+              <div className={styles.heroContent}>
             <h1 className={styles.heroTitle}>
               <span className={styles.heroTitleHighlight}>Give Your Old Computer</span> That "New PC" Feel.
             </h1>
             <div className={styles.heroBadges}>
-               <span className={styles.badgeOne}>
-                  <span className="material-symbols-outlined text-sm">verified_user</span>
-                  No Fix, No Fee
-               </span>
-               <span className={styles.badgeTwo}>
-                  <span className="material-symbols-outlined text-sm">home_pin</span>
-                  Local & Reliable
-               </span>
+              <span className={styles.badgeOne}>
+                <span className="material-symbols-outlined text-sm">verified_user</span>
+                No Fix, No Fee
+              </span>
+              <span className={styles.badgeTwo}>
+                <span className="material-symbols-outlined text-sm">home_pin</span>
+                Local & Reliable
+              </span>
             </div>
             <p className={styles.heroDesc}>
               Don't replace it—optimize it. We specialize in making slow PCs and Macs fast again.
             </p>
-            <div className={styles.heroActions}>
-              <button className={styles.primaryBtn} onClick={() => setIsModalOpen(true)}>
+            <div className="hero-actions">
+              <button className="btn btn-large" onClick={() => setIsModalOpen(true)}>
                 Device Tune-Up
               </button>
             </div>
@@ -45,17 +47,19 @@ export default function DeviceTuneUp() {
             <Image
               className={styles.heroImage}
               alt="Device Tune-Up"
-              src="/images/tuneup.png"
+              src="/images/tech-support-hero.jpg"
               width={800}
               height={600}
               priority
             />
+            </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Process Section */}
-        <section className={styles.processSection}>
-          <div className={styles.processContainer}>
+        <section className="section-padding">
+          <div className="width-container">
+            <div className={styles.processContainer}>
             <div>
               <h2 className={styles.processTitle}>
                 Service Includes
@@ -64,44 +68,46 @@ export default function DeviceTuneUp() {
                 <div className={styles.processStep}>
                   <div className={`${styles.stepNumber} ${styles.darkBg}`}>1</div>
                   <div className={styles.stepContent}>
-                     <p>Deep cleaning of system junk.</p>
+                    <p>Deep cleaning of system junk.</p>
                   </div>
                 </div>
                 <div className={styles.processStep}>
                   <div className={`${styles.stepNumber} ${styles.accentBg}`}>2</div>
                   <div className={styles.stepContent}>
-                     <p>Disabling resource-heavy background services.</p>
+                    <p>Disabling resource-heavy background services.</p>
                   </div>
                 </div>
                 <div className={styles.processStep}>
                   <div className={`${styles.stepNumber} ${styles.darkBg}`}>3</div>
                   <div className={styles.stepContent}>
-                     <p>Optimizing startup sequences.</p>
+                    <p>Optimizing startup sequences.</p>
                   </div>
                 </div>
                 <div className={styles.processStep}>
                   <div className={`${styles.stepNumber} ${styles.accentBg}`}>4</div>
                   <div className={styles.stepContent}>
-                     <p>Checking for malware that hides in the background.</p>
+                    <p>Checking for malware that hides in the background.</p>
                   </div>
                 </div>
               </div>
             </div>
-            
+
             <div>
-               <h2 className={styles.processTitle}>
-                 Why it Works
-               </h2>
-               <p style={{fontSize: "1.25rem", lineHeight: "1.6", color: "var(--on-surface-variant)"}}>
-                  Over time, "digital clutter" bogs down even high-end machines. We trim the fat so your computer boots faster and responds instantly.
-               </p>
+              <h2 className={styles.processTitle}>
+                Why it Works
+              </h2>
+              <p style={{ fontSize: "1.25rem", lineHeight: "1.6", color: "var(--on-surface-variant)" }}>
+                Over time, "digital clutter" bogs down even high-end machines. We trim the fat so your computer boots faster and responds instantly.
+              </p>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
         {/* FAQ Section */}
-        <section className={styles.faqSection}>
-          <div className={styles.faqContainer}>
+        <section className="section-padding">
+          <div className="width-container">
+            <div className={styles.faqContainer}>
             <h2 className={styles.faqTitle}>Frequently Asked Questions</h2>
             <div className={styles.faqGrid}>
               <div className={styles.faqCard}>
@@ -122,14 +128,15 @@ export default function DeviceTuneUp() {
               </div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
         {/* Mobile Hero Visual at bottom */}
         <div className={styles.heroVisualMobile}>
           <Image
             className={styles.heroImage}
             alt="Device Tune-Up"
-            src="/images/tuneup.png"
+            src="/images/tech-support-hero.jpg"
             width={800}
             height={600}
           />

@@ -2,7 +2,7 @@ import styles from '@/styles/ServicesSection.module.scss';
 
 export default function Services({ onOpenModal }) {
    return (
-      <section id="services" className={styles.servicesSegment}>
+      <section id="services" className="section-padding bg-light">
          <div className="width-container">
             <div className={styles.sectionHeader}>
                <h2 className={styles.sectionH2}>Precision Care Packages</h2>
@@ -35,11 +35,11 @@ export default function Services({ onOpenModal }) {
                      <div>
                         <h3>Data Recovery</h3>
                         <p style={{ fontWeight: 'bold', margin: '0.25rem 0 1rem 0' }}>$199 (Success only)</p>
-                        <p>Lost photos or critical files? Our advanced recovery tools find what's missing when others can't.</p>
+                        <p>Locked out or computer won't turn on? We extract your photos, documents, and critical files directly from the system.</p>
                      </div>
                      <ul>
-                        <li><span className="material-symbols-outlined">verified</span> Photo and video recovery</li>
-                        <li><span className="material-symbols-outlined">verified</span> Hard drive recovery</li>
+                        <li><span className="material-symbols-outlined">verified</span> Locked or dead PC & Mac recovery</li>
+                        <li><span className="material-symbols-outlined">verified</span> Photo, video & document extraction</li>
                         <li><span className="material-symbols-outlined">verified</span> School and work files</li>
                      </ul>
                   </div>

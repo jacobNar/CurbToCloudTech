@@ -15,21 +15,24 @@ export default function Pricing() {
       </Head>
 
       <main className={styles.mainContent}>
-        <section className={styles.heroSection}>
-          <div className={styles.heroContent} style={{ maxWidth: "800px", margin: "0 auto", textAlign: "center" }}>
-            <h1 className={styles.heroTitle}>Pricing Model</h1>
-            <p className={styles.heroDesc} style={{ margin: "0 auto 3rem auto" }}>
-              No hidden hourly traps. For general support, we charge a flat diagnostic fee for the first hour, which covers most common fixes. If it's a bigger project, we'll give you a quote before we keep working.
-            </p>
-            <div className={styles.heroActions} style={{ justifyContent: "center" }}>
-              <button className={styles.primaryBtn} onClick={() => setIsModalOpen(true)}>Book a Visit</button>
+        <section className="section-hero">
+          <div className="width-container">
+            <div className={styles.heroContent} style={{ maxWidth: "800px", margin: "0 auto", textAlign: "center" }}>
+              <h1 className={styles.heroTitle}>Pricing Model</h1>
+              <p className={styles.heroDesc} style={{ margin: "0 auto 3rem auto" }}>
+                No hidden hourly traps. For general support, we charge a flat diagnostic fee for the first hour, which covers most common fixes. If it's a bigger project, we'll give you a quote before we keep working.
+              </p>
+              <div className="hero-actions" style={{ justifyContent: "center" }}>
+                <button className="btn btn-large" onClick={() => setIsModalOpen(true)}>Book a Visit</button>
+              </div>
             </div>
           </div>
         </section>
 
-        <section className={styles.faqSection}>
-          <div className={styles.faqContainer}>
-            <div className={styles.faqGrid}>
+        <section className="section-padding">
+          <div className="width-container">
+            <div className={styles.faqContainer}>
+              <div className={styles.faqGrid}>
               <div className={styles.faqCard}>
                 <h4>Data Recovery</h4>
                 <p><strong>Pricing Model:</strong> Flat Fee (Simple) / Tiered (Complex)</p>
@@ -52,7 +55,8 @@ export default function Pricing() {
               </div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
       </main>
 
       {isModalOpen && <AppointmentModal onClose={() => setIsModalOpen(false)} />}
