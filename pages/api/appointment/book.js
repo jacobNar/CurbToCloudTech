@@ -1,6 +1,26 @@
-import { google } from 'googleapis';
-import * as brevo from '@getbrevo/brevo';
 import StripeService from '@/lib/StripeService';
+
+const getPaymentAmount = (serviceType = '') => {
+    const normalized = (serviceType || '').toLowerCase();
+
+    if (normalized.includes('recovery')) return 19900;
+    if (normalized.includes('tune')) return 12500;
+    if (normalized.includes('support')) return 9900;
+
+    return 0;
+};
+
+const sanitizePhoneForBrevo = (phone) => {
+    if (!phone || typeof phone !== 'string') return null;
+
+    const trimmed = phone.trim();
+    if (!trimmed) return null;
+
+    const digits = trimmed.replace(/\D/g, '');
+    if (digits.length < 7 || digits.length > 15) return null;
+
+    return trimmed;
+};
 
 export default async function handler(req, res) {
     if (req.method !== 'POST') {
@@ -16,58 +36,14 @@ export default async function handler(req, res) {
             return res.status(400).json({ message: 'Email and appointment time are required' });
         }
 
-        let meetLink = null;
         const isDigital = type === 'online';
-        
+        let meetLink = null;
         let eventDetailsForClient = null;
 
-        // 1. Google Calendar Booking
-        if (process.env.GOOGLE_CLIENT_ID && process.env.GOOGLE_CLIENT_SECRET && process.env.GOOGLE_REFRESH_TOKEN) {
-            const oauth2Client = new google.auth.OAuth2(
-                process.env.GOOGLE_CLIENT_ID,
-                process.env.GOOGLE_CLIENT_SECRET
-            );
-            oauth2Client.setCredentials({ refresh_token: process.env.GOOGLE_REFRESH_TOKEN });
-
-            const calendar = google.calendar({ version: 'v3', auth: oauth2Client });
-            const startTime = new Date(appointment_time);
-            const endTime = new Date(startTime.getTime() + 60 * 60 * 1000); // 1 hour
-
-            const event = {
-                summary: `Meeting with ${contact_name || company_name}`,
-                description: `Phone: ${phone_number}\nCompany: ${company_name}\nService Type: ${service_type || 'N/A'}\nDescription: ${project_description}`,
-                start: { dateTime: startTime.toISOString() },
-                end: { dateTime: endTime.toISOString() },
-            };
-
-            if (isDigital) {
-                // Requires Google Workspace for Native Conference Data injection
-                event.conferenceData = {
-                    createRequest: { requestId: `meet_${Date.now()}` }
-                };
-            } else {
-                event.location = address;
-            }
-
-            try {
-                const calendarResponse = await calendar.events.insert({
-                    calendarId: process.env.GOOGLE_CALENDAR_ID || 'primary',
-                    resource: event,
-                    conferenceDataVersion: 1
-                });
-                
-                if (isDigital && calendarResponse.data.hangoutLink) {
-                   meetLink = calendarResponse.data.hangoutLink;
-                }
-                eventDetailsForClient = calendarResponse.data;
-            } catch (err) {
-                console.error("Failed to book Google Calendar event:", err);
-                // Proceed anyway so contact gets added to CRM
-            }
-        }
+        // Google calendar booking is temporarily disabled until Google access is enabled.
 
         const stripeService = new StripeService();
-        await stripeService.findOrCreateCustomer(email, {
+        const stripeCustomer = await stripeService.findOrCreateCustomer(email, {
             name: contact_name,
             phone: phone_number,
             address: {
@@ -86,61 +62,140 @@ export default async function handler(req, res) {
             }
         });
 
-        // 2. Brevo CRM Contact Creation
+        const paymentAmount = getPaymentAmount(service_type);
+        let paymentIntentId = null;
+
+        if (paymentAmount > 0) {
+            try {
+                const paymentIntent = await stripeService.createPaymentIntent(stripeCustomer.id, paymentAmount, 'usd', {
+                    email,
+                    contact_name: contact_name || '',
+                    company_name: company_name || '',
+                    service_type: service_type || '',
+                    appointment_time,
+                    source: 'appointment_request'
+                });
+                paymentIntentId = paymentIntent.id;
+            } catch (err) {
+                console.error('Failed to create Stripe pending payment intent:', err);
+            }
+        }
+
+        // 2. Brevo CRM Contact Creation and transactional email
         if (process.env.BREVO_API_KEY) {
-            const defaultClient = brevo.ApiClient.instance;
-            const apiKey = defaultClient.authentications['api-key'];
-            apiKey.apiKey = process.env.BREVO_API_KEY;
-
-            const contactsApi = new brevo.ContactsApi();
-            const listId = isDigital ? parseInt(process.env.BREVO_LIST_ID_DIGITAL) : parseInt(process.env.BREVO_LIST_ID_IN_PERSON);
-            
-            const createContact = new brevo.CreateContact();
-            createContact.email = email;
-            createContact.listIds = [listId];
-            createContact.updateEnabled = true;
-
             const nameParts = (contact_name || '').split(' ');
-            createContact.attributes = {
+            const sanitizedPhone = sanitizePhoneForBrevo(phone_number);
+            const attributes = {
                 FIRSTNAME: nameParts[0] || '',
                 LASTNAME: nameParts.slice(1).join(' ') || '',
-                SMS: phone_number || '',
                 COMPANY: company_name || '',
                 ADDRESS: address || ''
             };
 
-            try {
-                await contactsApi.createContact(createContact);
-            } catch (err) {
-                console.error("Failed to add Brevo contact:", err);
+            if (sanitizedPhone) {
+                attributes.SMS = sanitizedPhone;
             }
 
-            // 3. Brevo Transactional Email
-            const transacEmailsApi = new brevo.TransactionalEmailsApi();
-            const sendSmtpEmail = new brevo.SendSmtpEmail();
-            
-            sendSmtpEmail.to = [{ email: email, name: contact_name }];
-            sendSmtpEmail.templateId = isDigital ? parseInt(process.env.BREVO_TEMPLATE_ID_DIGITAL) : parseInt(process.env.BREVO_TEMPLATE_ID_IN_PERSON);
-            
-            // Pass the variables into the template dynamically
-            sendSmtpEmail.params = {
-                MEET_LINK: meetLink || 'Will be sent manually if missing',
-                APPOINTMENT_TIME: new Date(appointment_time).toLocaleString(),
-                ADDRESS: address || '',
-                FIRSTNAME: nameParts[0] || ''
-            };
+            try {
+                const brevoResponse = await fetch('https://api.brevo.com/v3/contacts', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'api-key': process.env.BREVO_API_KEY
+                    },
+                    body: JSON.stringify({
+                        email,
+                        listIds: [
+                            isDigital ? parseInt(process.env.BREVO_LIST_ID_DIGITAL || '0') : parseInt(process.env.BREVO_LIST_ID_IN_PERSON || '0')
+                        ].filter(Boolean),
+                        updateEnabled: true,
+                        attributes
+                    })
+                });
+
+                if (!brevoResponse.ok) {
+                    const brevoText = await brevoResponse.text();
+                    console.error('Failed to add Brevo contact:', brevoText);
+                }
+            } catch (err) {
+                console.error('Failed to add Brevo contact:', err);
+            }
 
             try {
-                await transacEmailsApi.sendTransacEmail(sendSmtpEmail);
+                const sender = {
+                    name: 'CurbToCloudTech',
+                    email: process.env.BREVO_FROM_EMAIL || process.env.BREVO_ADMIN_EMAIL || email
+                };
+
+                const customerEmailPayload = {
+                    sender,
+                    to: [{ email, name: contact_name || 'Customer' }],
+                    subject: 'We received your appointment request',
+                    htmlContent: `
+                        <p>Hi ${nameParts[0] || 'there'},</p>
+                        <p>We have received your appointment request for ${service_type || 'your service'}.</p>
+                        <p>We will call you to confirm your appointment.</p>
+                        <p><strong>Requested time:</strong> ${new Date(appointment_time).toLocaleString()}</p>
+                    `,
+                    textContent: `Hi ${nameParts[0] || 'there'}, we have received your appointment request for ${service_type || 'your service'}. We will call you to confirm your appointment. Requested time: ${new Date(appointment_time).toLocaleString()}.`
+                };
+
+                const adminEmailPayload = {
+                    sender,
+                    to: [{ email: process.env.BREVO_ADMIN_EMAIL, name: 'CurbToCloudTech Admin' }],
+                    subject: 'New appointment request received',
+                    htmlContent: `
+                        <p>New appointment request received.</p>
+                        <p><strong>Customer:</strong> ${contact_name || email}</p>
+                        <p><strong>Email:</strong> ${email}</p>
+                        <p><strong>Phone:</strong> ${sanitizedPhone || 'Not provided'}</p>
+                        <p><strong>Service:</strong> ${service_type || 'N/A'}</p>
+                        <p><strong>Requested time:</strong> ${new Date(appointment_time).toLocaleString()}</p>
+                        <p><strong>Address:</strong> ${address || 'N/A'}</p>
+                    `,
+                    textContent: `New appointment request received. Customer: ${contact_name || email}. Email: ${email}. Phone: ${sanitizedPhone || 'Not provided'}. Service: ${service_type || 'N/A'}. Requested time: ${new Date(appointment_time).toLocaleString()}. Address: ${address || 'N/A'}.`
+                };
+
+                const customerResponse = await fetch('https://api.brevo.com/v3/smtp/email', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'api-key': process.env.BREVO_API_KEY
+                    },
+                    body: JSON.stringify(customerEmailPayload)
+                });
+
+                if (!customerResponse.ok) {
+                    const customerText = await customerResponse.text();
+                    console.error('Failed to send customer Brevo transactional email:', customerText);
+                }
+
+                if (process.env.BREVO_ADMIN_EMAIL) {
+                    const adminResponse = await fetch('https://api.brevo.com/v3/smtp/email', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'api-key': process.env.BREVO_API_KEY
+                        },
+                        body: JSON.stringify(adminEmailPayload)
+                    });
+
+                    if (!adminResponse.ok) {
+                        const adminText = await adminResponse.text();
+                        console.error('Failed to send admin Brevo transactional email:', adminText);
+                    }
+                }
             } catch (err) {
-                console.error("Failed to send Brevo transactional email:", err);
+                console.error('Failed to send Brevo transactional email:', err);
             }
         }
 
-        return res.status(200).json({ 
-            success: true, 
+        return res.status(200).json({
+            success: true,
             message: 'Appointment booked successfully!',
-            eventDetails: eventDetailsForClient
+            eventDetails: eventDetailsForClient,
+            stripeCustomerId: stripeCustomer.id,
+            paymentIntentId
         });
     } catch (error) {
         console.error('Error booking appointment:', error);

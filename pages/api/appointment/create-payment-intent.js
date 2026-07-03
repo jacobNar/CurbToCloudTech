@@ -1,12 +1,22 @@
 import StripeService from '@/lib/StripeService';
 
+const getPaymentAmount = (serviceType = '') => {
+    const normalized = (serviceType || '').toLowerCase();
+
+    if (normalized.includes('recovery')) return 19900;
+    if (normalized.includes('tune')) return 12500;
+    if (normalized.includes('support')) return 9900;
+
+    return 0;
+};
+
 export default async function handler(req, res) {
     if (req.method !== 'POST') {
         return res.status(405).json({ message: 'Method not allowed' });
     }
 
     try {
-        const { contact_name, email, phone_number } = req.body;
+        const { contact_name, email, phone_number, service_type } = req.body;
 
         if (!email) {
             return res.status(400).json({ message: 'Email is required for payment' });
@@ -18,9 +28,15 @@ export default async function handler(req, res) {
             phone: phone_number
         });
 
-        const paymentIntent = await stripeService.createPaymentIntent(customer.id);
+        const paymentAmount = getPaymentAmount(service_type);
+        const paymentIntent = await stripeService.createPaymentIntent(customer.id, paymentAmount, 'usd', {
+            email,
+            contact_name: contact_name || '',
+            service_type: service_type || '',
+            source: 'payment_intent_api'
+        });
 
-        res.status(200).json({ clientSecret: paymentIntent.client_secret });
+        res.status(200).json({ clientSecret: paymentIntent.client_secret, paymentIntentId: paymentIntent.id, amount: paymentAmount });
     } catch (error) {
         console.error('Error creating payment intent:', error);
         res.status(500).json({ message: 'Internal Server Error' });
