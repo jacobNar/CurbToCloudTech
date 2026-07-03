@@ -1,5 +1,6 @@
 import { google } from 'googleapis';
 import * as brevo from '@getbrevo/brevo';
+import StripeService from '@/lib/StripeService';
 
 export default async function handler(req, res) {
     if (req.method !== 'POST') {
@@ -64,6 +65,26 @@ export default async function handler(req, res) {
                 // Proceed anyway so contact gets added to CRM
             }
         }
+
+        const stripeService = new StripeService();
+        await stripeService.findOrCreateCustomer(email, {
+            name: contact_name,
+            phone: phone_number,
+            address: {
+                line1: address_line1 || '',
+                line2: address_line2 || '',
+                city: city || '',
+                state: state || '',
+                postal_code: zip_code || ''
+            },
+            metadata: {
+                appointment_time: appointment_time,
+                description: project_description || '',
+                company_name: company_name || '',
+                service_type: service_type || '',
+                type: type || ''
+            }
+        });
 
         // 2. Brevo CRM Contact Creation
         if (process.env.BREVO_API_KEY) {
