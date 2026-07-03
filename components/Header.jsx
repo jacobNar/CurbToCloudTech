@@ -14,7 +14,7 @@ export default function Header() {
         <div className={styles.navContainer}>
           <Link href="/" className={styles.logo}>
             <Image
-              src="/images/logo-final-square.png"
+              src="/images/logo-final-v3-square.png"
               alt="Curb to Cloud Tech Logo"
               width={250}
               height={250}
