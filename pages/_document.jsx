@@ -13,7 +13,7 @@ export default function Document() {
       <body>
         <noscript>
           <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-P2XJRM55"
+            src="https://www.googletagmanager.com/ns.html?id=GTM-TWV5HWSV"
             height="0"
             width="0"
             style={{ display: 'none', visibility: 'hidden' }}
