@@ -19,7 +19,7 @@ export default function TermsOfService() {
         <div className={styles.card}>
           <section className={styles.section}>
             <p className={styles.paragraph}>
-              Welcome to Curb to Cloud Tech. These Terms of Service govern your use of our website located at this domain and our IT support, data recovery, and device tune-up services.
+              Welcome to Curb to Cloud Tech. These Terms of Service govern your use of our website located at this domain and our professional data recovery services.
             </p>
             <p className={styles.paragraph}>
               By accessing our website or booking our services, you agree to comply with and be bound by these Terms of Service. If you do not agree with any part of these terms, you must not use our website or services.
@@ -29,7 +29,7 @@ export default function TermsOfService() {
           <section className={styles.section}>
             <h2 className={styles.sectionTitle}>1. Services Provided</h2>
             <p className={styles.paragraph}>
-              Curb to Cloud Tech offers residential and small business IT support, device tune-ups, data recovery, and technical consulting. Services may be performed in-person (on-site) or digitally (remotely), depending on the booking type selected. We reserve the right to modify, suspend, or discontinue any aspect of our services at any time.
+              Curb to Cloud Tech offers residential and small business data recovery, file extraction, and hardware-level data retrieval services. Services may be performed in-person (on-site) or digitally (remotely), depending on the booking type selected. We reserve the right to modify, suspend, or discontinue any aspect of our services at any time.
             </p>
           </section>
 
@@ -49,7 +49,7 @@ export default function TermsOfService() {
           <section className={styles.section}>
             <h2 className={styles.sectionTitle}>3. Fees and Payments</h2>
             <p className={styles.paragraph}>
-              Pricing for services is outlined on our Pricing page or provided via a direct quote. For certain services, a diagnostic fee or deposit may be required at the time of booking.
+              Pricing for services is outlined on our website or provided via a direct quote. For certain services, a diagnostic fee or deposit may be required at the time of booking.
             </p>
             <p className={styles.paragraph}>
               <strong>Stripe Payments:</strong> All online payments and pre-authorizations are processed securely by Stripe. You agree to pay all charges incurred by you or on your behalf through the website, at the prices in effect when such charges are incurred.
@@ -64,28 +64,35 @@ export default function TermsOfService() {
           </section>
 
           <section className={styles.section}>
-            <h2 className={styles.sectionTitle}>5. Intellectual Property</h2>
+            <h2 className={styles.sectionTitle}>5. Privacy and Analytics Tracking</h2>
+            <p className={styles.paragraph}>
+              Your use of our website and services is also governed by our Privacy Policy. We partner with third-party analytics and advertising networks, including Google Analytics, Facebook Pixel, and Microsoft Clarity. By using our website, you acknowledge and agree that these providers may capture behavioral metrics, heatmaps, and session interactions using cookies and tracking technologies to help us optimize our site, improve security, and analyze marketing effectiveness.
+            </p>
+          </section>
+
+          <section className={styles.section}>
+            <h2 className={styles.sectionTitle}>6. Intellectual Property</h2>
             <p className={styles.paragraph}>
               All content on this website, including text, graphics, logos, images, icons, and software, is the property of Curb to Cloud Tech and is protected by copyright and intellectual property laws. You may not reproduce, distribute, modify, or republish any content from this website without our prior written consent.
             </p>
           </section>
 
           <section className={styles.section}>
-            <h2 className={styles.sectionTitle}>6. Limitation of Liability</h2>
+            <h2 className={styles.sectionTitle}>7. Limitation of Liability</h2>
             <p className={styles.paragraph}>
               To the maximum extent permitted by applicable law, in no event shall Curb to Cloud Tech or its technicians be liable for any indirect, punitive, incidental, special, consequential, or exemplary damages, including without limitation damages for loss of profits, goodwill, use, data, or other intangible losses, arising out of or relating to the use of, or inability to use, our website or services.
             </p>
           </section>
 
           <section className={styles.section}>
-            <h2 className={styles.sectionTitle}>7. Governing Law</h2>
+            <h2 className={styles.sectionTitle}>8. Governing Law</h2>
             <p className={styles.paragraph}>
               These Terms of Service and any dispute arising out of or related to them or our services shall be governed by and construed in accordance with the laws of the State of Illinois, United States, without regard to its conflict of law principles.
             </p>
           </section>
 
           <section className={styles.section}>
-            <h2 className={styles.sectionTitle}>8. Contact Us</h2>
+            <h2 className={styles.sectionTitle}>9. Contact Us</h2>
             <p className={styles.paragraph}>
               If you have any questions or concerns about these Terms of Service, please contact us at:
             </p>

@@ -18,7 +18,7 @@ export default function AppointmentModal({ onClose }) {
         company_name: '',
         project_description: '',
         type: 'inperson',
-        service_type: 'Data Recovery',
+        service_type: 'In-Home Data Recovery',
         address_line1: '',
         address_line2: '',
         city: '',
@@ -32,7 +32,7 @@ export default function AppointmentModal({ onClose }) {
         setSelectedDate(null);
         setSelectedTime(null);
         setEventDetails(null);
-        setFormData({ contact_name: '', email: '', phone_number: '', company_name: '', project_description: '', type: 'inperson', service_type: 'Data Recovery', address_line1: '', address_line2: '', city: '', state: '', zip_code: '' });
+        setFormData({ contact_name: '', email: '', phone_number: '', company_name: '', project_description: '', type: 'inperson', service_type: 'In-Home Data Recovery', address_line1: '', address_line2: '', city: '', state: '', zip_code: '' });
     }, []);
 
     // Calendar Generation (Current Month)
@@ -273,9 +273,8 @@ export default function AppointmentModal({ onClose }) {
                                         });
                                     }}
                                 >
-                                    <option value="Data Recovery">Data Recovery</option>
-                                    <option value="Hourly Tech Support">Hourly Tech Support</option>
-                                    <option value="Device Tune-Up">Device Tune-Up</option>
+                                    <option value="In-Home Data Recovery">In-Home Data Recovery</option>
+                                    <option value="Device Pick-Up & Return">Device Pick-Up & Return</option>
                                 </select>
                             </div>
                             {formData.type === 'inperson' && (
@@ -365,8 +364,7 @@ export default function AppointmentModal({ onClose }) {
                             <div className={styles.successIcon}>✓</div>
                             <h2 id="appointment-confirmed">Appointment Confirmed!</h2>
                             <p>We have sent a confirmation email to {formData.email}.</p>
-
-
+                            <p>We will call you to confirm your appointment.</p>
                             <button className={styles.confirmBtn} onClick={onClose}>Close</button>
                         </div>
                     )}

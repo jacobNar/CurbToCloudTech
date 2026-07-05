@@ -4,7 +4,8 @@
   min-height: 100vh;
   padding-top: 8rem;
   padding-bottom: 4rem;
-  background-color: var(--color-background);
+  background-color: #faf9fd;
+  color: #44474e;
 }
 
 .container {
@@ -16,14 +17,14 @@
 
 .header {
   margin-bottom: 4rem;
-  border-bottom: 1px solid var(--color-outline-variant);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   padding-bottom: 2rem;
 }
 
 .title {
   font-family: var(--font-headline);
   font-size: 3rem;
-  color: var(--color-on-surface);
+  color: #002046;
   margin: 0 0 1rem 0;
   font-weight: 700;
   line-height: 1.2;
@@ -31,16 +32,16 @@
 
 .lastUpdated {
   font-size: 0.95rem;
-  color: var(--color-on-surface-variant);
+  color: #5a6375;
   margin: 0;
 }
 
 .card {
-  background-color: var(--color-surface-container);
-  border: 1px solid var(--color-outline-variant);
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 12px;
   padding: 3rem;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 20px 25px -5px rgba(0, 32, 70, 0.04);
 }
 
 .section {
@@ -54,7 +55,7 @@
 .sectionTitle {
   font-family: var(--font-headline);
   font-size: 1.75rem;
-  color: var(--color-secondary);
+  color: #eb851c;
   margin-top: 0;
   margin-bottom: 1.25rem;
   font-weight: 600;
@@ -63,7 +64,7 @@
 .paragraph {
   font-size: 1.05rem;
   line-height: 1.7;
-  color: var(--color-on-surface);
+  color: #44474e;
   margin: 0 0 1.25rem 0;
 
   &:last-child {
@@ -71,7 +72,7 @@
   }
 
   strong {
-    color: var(--color-on-surface);
+    color: #002046;
     font-weight: 600;
   }
 }
@@ -85,14 +86,14 @@
 .listItem {
   font-size: 1.05rem;
   line-height: 1.7;
-  color: var(--color-on-surface);
+  color: #44474e;
   margin-bottom: 0.75rem;
   position: relative;
   padding-left: 1.5rem;
 
   &::before {
     content: "•";
-    color: var(--color-secondary);
+    color: #eb851c;
     font-weight: bold;
     display: inline-block;
     width: 1em;
@@ -105,26 +106,26 @@
   }
 
   strong {
-    color: var(--color-on-surface);
+    color: #002046;
     font-weight: 600;
   }
 }
 
 .noticeBox {
   background-color: rgba(235, 133, 28, 0.08);
-  border-left: 4px solid var(--color-secondary);
+  border-left: 4px solid #eb851c;
   border-radius: 0 8px 8px 0;
   padding: 1.5rem;
   margin: 2rem 0;
 }
 
 .link {
-  color: var(--color-secondary);
+  color: #eb851c;
   text-decoration: underline;
   transition: color 0.2s ease;
 
   &:hover {
-    color: var(--color-secondary-dim);
+    color: #cf7112;
   }
 }
 

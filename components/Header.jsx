@@ -27,10 +27,9 @@ export default function Header() {
 
           <nav className={styles.navMenu}>
             <div className={styles.navLinks}>
-              <Link href="/datarecovery" className={styles.navLink} onClick={() => document.getElementById('nav-toggle').checked = false}>Data Recovery</Link>
-              <Link href="/techsupport" className={styles.navLink} onClick={() => document.getElementById('nav-toggle').checked = false}>Tech Support</Link>
-              <Link href="/devicetuneup" className={styles.navLink} onClick={() => document.getElementById('nav-toggle').checked = false}>Device Tune-Up</Link>
-              <Link href="/pricing" className={styles.navLink} onClick={() => document.getElementById('nav-toggle').checked = false}>Pricing</Link>
+              <Link href="/#process" className={styles.navLink} onClick={() => document.getElementById('nav-toggle').checked = false}>Our Process</Link>
+              <Link href="/#pricing" className={styles.navLink} onClick={() => document.getElementById('nav-toggle').checked = false}>Pricing</Link>
+              <Link href="/#service-area" className={styles.navLink} onClick={() => document.getElementById('nav-toggle').checked = false}>Service Area</Link>
             </div>
 
             <div className={styles.navActions}>

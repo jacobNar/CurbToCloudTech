@@ -19,7 +19,7 @@ export default function PrivacyPolicy() {
         <div className={styles.card}>
           <section className={styles.section}>
             <p className={styles.paragraph}>
-              At Curb to Cloud Tech, we are committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services, including scheduling IT support, data recovery, and device tune-up services.
+              At Curb to Cloud Tech, we are committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services, including scheduling professional data recovery services.
             </p>
             <p className={styles.paragraph}>
               Please read this Privacy Policy carefully. By using our website and services, you consent to the data practices described in this policy.
@@ -70,6 +70,7 @@ export default function PrivacyPolicy() {
               <li className={styles.listItem}><strong>Brevo:</strong> Used for transactional email delivery and customer relationship management. We use Brevo to send appointment confirmations, schedule updates, and transactional notifications.</li>
               <li className={styles.listItem}><strong>Google Analytics & Google Tag Manager:</strong> Used to monitor and analyze website traffic, user interactions, and performance to improve our website design.</li>
               <li className={styles.listItem}><strong>Facebook Pixel:</strong> Used to measure the effectiveness of advertising campaigns and understand actions taken on our website.</li>
+              <li className={styles.listItem}><strong>Microsoft Clarity & Microsoft Advertising:</strong> Used to capture how you use and interact with our website through behavioral metrics, heatmaps, and session replay to improve and market our services. Website usage data is captured using first and third-party cookies and other tracking technologies to determine service popularity and online activity. Additionally, we use this information for site optimization, security, and advertising. For more information about how Microsoft collects and uses your data, visit the <a href="https://privacy.microsoft.com/en-us/privacystatement" target="_blank" rel="noopener noreferrer" className={styles.link}>Microsoft Privacy Statement</a>.</li>
             </ul>
           </section>
 

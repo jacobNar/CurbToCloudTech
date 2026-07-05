@@ -1,5 +1,6 @@
 .footer {
-  background-color: rgb(10, 10, 10); /* neutral 950 essentially */
+  background-color: rgb(10, 10, 10);
+  /* neutral 950 essentially */
   width: 100%;
   border-top: 1px solid rgba(72, 72, 73, 0.3);
 }
@@ -34,7 +35,7 @@
   }
 
   p {
-    color: #737373;
+    color: white;
     font-size: 0.875rem;
     line-height: 1.6;
   }
@@ -58,16 +59,13 @@
   }
 
   a {
-    color: #737373;
+    color: var(--color-on-surface);
     font-size: 0.875rem;
     font-family: var(--font-body);
     transition: all 0.2s ease;
 
     &:hover {
-      color: transparent;
-      background-clip: text;
-      -webkit-background-clip: text;
-      background-image: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+      color: var(--color-secondary);
     }
   }
 }
@@ -92,7 +90,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #a3a3a3;
+      color: white;
       transition: color 0.2s ease;
 
       &:hover {
@@ -104,6 +102,6 @@
   .copyright {
     margin-top: 1.5rem;
     font-size: 0.75rem;
-    color: #525252;
+    color: white;
   }
 }

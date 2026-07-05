@@ -13,16 +13,16 @@ export default function Footer() {
         <div className={styles.linkCol}>
           <h4>Services</h4>
           <ul>
-            <li><Link href="/datarecovery">Data Recovery</Link></li>
-            <li><Link href="/techsupport">Tech Support</Link></li>
-            <li><Link href="/devicetuneup">Device Tune-Up</Link></li>
+            <li><Link href="/">Data Recovery</Link></li>
+            <li><Link href="/#process">Our Process</Link></li>
+            <li><Link href="/#service-area">Service Area</Link></li>
           </ul>
         </div>
 
         <div className={styles.linkCol}>
           <h4>Company</h4>
           <ul>
-            <li><Link href="/pricing">Pricing</Link></li>
+            <li><Link href="/#pricing">Pricing</Link></li>
             <li><Link href="/">Home</Link></li>
             <li><Link href="/privacy">Privacy Policy</Link></li>
             <li><Link href="/terms">Terms of Service</Link></li>

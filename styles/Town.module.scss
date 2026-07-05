@@ -257,6 +257,7 @@
   padding: 0.5rem;
   background-color: var(--tertiary-fixed);
   border-radius: 8px;
+  flex-shrink: 0;
 }
 
 .btnOutline {
@@ -626,4 +627,47 @@
   background-color: rgba(255, 220, 195, 0.3);
   border-radius: 50%;
   filter: blur(48px);
+}
+
+.townsList {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem 1rem;
+  max-width: 64rem;
+  margin: 0 auto 3rem auto;
+  padding: 0 1.5rem;
+  list-style: none;
+
+  @media (min-width: 576px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  li {
+    font-size: 0.95rem;
+    color: var(--primary);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    &::before {
+      content: "•";
+      color: var(--on-tertiary-container);
+      font-weight: bold;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.2s;
+
+      &:hover {
+        color: #eb851c;
+      }
+    }
+  }
 }

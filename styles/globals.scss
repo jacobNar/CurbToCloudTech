@@ -72,6 +72,7 @@ a {
   overflow: hidden;
   white-space: nowrap;
   vertical-align: -0.15em;
+  flex-shrink: 0;
 }
 
 .glow-subtle:hover {
