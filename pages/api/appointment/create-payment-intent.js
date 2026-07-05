@@ -1,15 +1,5 @@
 import StripeService from '@/lib/StripeService';
 
-const getPaymentAmount = (serviceType = '') => {
-    const normalized = (serviceType || '').toLowerCase();
-
-    if (normalized.includes('recovery')) return 19900;
-    if (normalized.includes('tune')) return 12500;
-    if (normalized.includes('support')) return 9900;
-
-    return 0;
-};
-
 export default async function handler(req, res) {
     if (req.method !== 'POST') {
         return res.status(405).json({ message: 'Method not allowed' });
@@ -28,7 +18,7 @@ export default async function handler(req, res) {
             phone: phone_number
         });
 
-        const paymentAmount = getPaymentAmount(service_type);
+        const paymentAmount = 19900
         const paymentIntent = await stripeService.createPaymentIntent(customer.id, paymentAmount, 'usd', {
             email,
             contact_name: contact_name || '',

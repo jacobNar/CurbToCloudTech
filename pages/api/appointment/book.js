@@ -1,15 +1,5 @@
 import StripeService from '@/lib/StripeService';
 
-const getPaymentAmount = (serviceType = '') => {
-    const normalized = (serviceType || '').toLowerCase();
-
-    if (normalized.includes('recovery')) return 19900;
-    if (normalized.includes('tune')) return 12500;
-    if (normalized.includes('support')) return 9900;
-
-    return 0;
-};
-
 const sanitizePhoneForBrevo = (phone) => {
     if (!phone || typeof phone !== 'string') return null;
 
@@ -62,7 +52,7 @@ export default async function handler(req, res) {
             }
         });
 
-        const paymentAmount = getPaymentAmount(service_type);
+        const paymentAmount = 19900;
         let paymentIntentId = null;
 
         if (paymentAmount > 0) {
