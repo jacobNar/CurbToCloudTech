@@ -1,6 +1,7 @@
 import '@/styles/globals.scss';
 import Layout from '@/components/Layout';
 import Script from 'next/script';
+import Head from 'next/head';
 import { Space_Grotesk, Inter } from 'next/font/google';
 
 const spaceGrotesk = Space_Grotesk({ subsets: ['latin'] });
@@ -9,6 +10,9 @@ const inter = Inter({ subsets: ['latin'] });
 export default function App({ Component, pageProps }) {
   return (
     <>
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Head>
       <style jsx global>{`
         :root {
           --font-headline: ${spaceGrotesk.style.fontFamily}, sans-serif;

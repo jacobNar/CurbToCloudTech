@@ -35,13 +35,17 @@
 
 .serviceCard {
   background-color: #ffffff;
-  padding: 2.5rem;
+  padding: 2rem 1.5rem;
   border-radius: 0.75rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   gap: 3rem;
   transition: all 0.3s ease;
+
+  @media (min-width: 768px) {
+    padding: 2.5rem;
+  }
 
   &:hover {
     box-shadow: 0 20px 25px -5px rgba(0, 32, 70, 0.04);

@@ -30,6 +30,37 @@
   flex: 1;
 }
 
+.heroText {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.heroTitle {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--primary);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 2rem;
+
+  @media (min-width: 768px) {
+    font-size: 3rem;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 4.5rem;
+  }
+}
+
+.heroDesc {
+  color: var(--on-surface-variant);
+  font-size: 1.25rem;
+  line-height: 1.6;
+  max-width: 34rem;
+  margin-bottom: 3rem;
+}
+
 
 
 .trustSignals {
@@ -96,17 +127,26 @@
 .cardBg {
   background-color: rgba(214, 227, 255, 0.2);
   border-radius: 12px;
-  transform: rotate(-3deg);
+  transform: none;
   z-index: 0;
+
+  @media (min-width: 768px) {
+    transform: rotate(-3deg);
+  }
 }
 
 .trustCard {
   background-color: var(--surface-container-low);
   border-radius: 12px;
-  padding: 2rem;
-  transform: rotate(2deg);
+  padding: 1.5rem;
+  transform: none;
   z-index: 10;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+
+  @media (min-width: 768px) {
+    padding: 2rem;
+    transform: rotate(2deg);
+  }
 }
 
 .cardImgWrapper {
@@ -220,11 +260,15 @@
 }
 
 .mapInfo {
-  padding: 2.5rem;
+  padding: 2rem 1.5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 1.5rem;
+
+  @media (min-width: 768px) {
+    padding: 2.5rem;
+  }
 }
 
 .infoList {
@@ -315,11 +359,15 @@
 
 .packageCard {
   background-color: var(--surface-container-low);
-  padding: 2.5rem;
+  padding: 2rem 1.5rem;
   border-radius: 12px;
   display: flex;
   flex-direction: column;
   transition: box-shadow 0.5s;
+
+  @media (min-width: 768px) {
+    padding: 2.5rem;
+  }
 
   &:hover {
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
@@ -467,10 +515,14 @@
 .trustBanner {
   background-color: var(--tertiary-fixed);
   border-radius: 12px;
-  padding: 3rem;
+  padding: 2rem 1.5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  @media (min-width: 768px) {
+    padding: 3rem;
+  }
 
   @media (min-width: 768px) {
     grid-column: span 2;
@@ -495,12 +547,16 @@
   background-color: var(--primary);
   color: #fff;
   border-radius: 12px;
-  padding: 2.5rem;
+  padding: 2rem 1.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   justify-content: center;
+
+  @media (min-width: 768px) {
+    padding: 2.5rem;
+  }
 
   span {
     font-size: 3rem;
@@ -523,12 +579,16 @@
 .trustBoxSecondary {
   background-color: var(--surface-container-highest);
   border-radius: 12px;
-  padding: 2.5rem;
+  padding: 2rem 1.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   justify-content: center;
+
+  @media (min-width: 768px) {
+    padding: 2.5rem;
+  }
 
   span {
     font-size: 3rem;
@@ -610,6 +670,12 @@
     opacity: 0.9;
     transform: scale(1.05);
   }
+
+  @media (max-width: 480px) {
+    padding: 1rem 1.5rem;
+    font-size: 1.125rem;
+    width: 100%;
+  }
 }
 
 .ctaBlurWrapper {
@@ -631,7 +697,7 @@
 
 .townsList {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
   gap: 0.75rem 1rem;
   max-width: 64rem;
   margin: 0 auto 3rem auto;
