@@ -4,9 +4,17 @@ import dynamic from 'next/dynamic';
 import Image from 'next/image';
 const AppointmentModal = dynamic(() => import('./AppointmentModal'), { ssr: false });
 import { useState } from 'react';
+import { useRouter } from 'next/router';
 
 export default function Header() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const router = useRouter();
+
+  const isDataRecoveryPage = router.pathname === '/datarecovery';
+
+  const processHref = isDataRecoveryPage ? '#process' : '/#process';
+  const serviceAreaHref = isDataRecoveryPage ? '#service-area' : '/#service-area';
 
   return (
     <>
@@ -23,21 +31,50 @@ export default function Header() {
             />
           </Link>
 
-          <input type="checkbox" id="nav-toggle" className={styles.navToggle} />
+          <input
+            type="checkbox"
+            id="nav-toggle"
+            className={styles.navToggle}
+            checked={isMenuOpen}
+            onChange={(e) => setIsMenuOpen(e.target.checked)}
+          />
 
           <nav className={styles.navMenu}>
             <div className={styles.navLinks}>
-              <Link href="/#process" className={styles.navLink} onClick={() => document.getElementById('nav-toggle').checked = false}>Our Process</Link>
-              <Link href="/#pricing" className={styles.navLink} onClick={() => document.getElementById('nav-toggle').checked = false}>Pricing</Link>
-              <Link href="/#service-area" className={styles.navLink} onClick={() => document.getElementById('nav-toggle').checked = false}>Service Area</Link>
+              <Link
+                href={processHref}
+                className={styles.navLink}
+                onClick={() => setTimeout(() => setIsMenuOpen(false), 100)}
+              >
+                Our Process
+              </Link>
+              {!isDataRecoveryPage && (
+                <Link
+                  href="/#pricing"
+                  className={styles.navLink}
+                  onClick={() => setTimeout(() => setIsMenuOpen(false), 100)}
+                >
+                  Pricing
+                </Link>
+              )}
+              <Link
+                href={serviceAreaHref}
+                className={styles.navLink}
+                onClick={() => setTimeout(() => setIsMenuOpen(false), 100)}
+              >
+                Service Area
+              </Link>
             </div>
 
             <div className={styles.navActions}>
               <button
                 className={styles.headerBtn}
-                onClick={() => setIsModalOpen(true)}
+                onClick={() => {
+                  setIsModalOpen(true);
+                  setIsMenuOpen(false);
+                }}
               >
-                Book Now
+                {isDataRecoveryPage ? 'Get Free Quote' : 'Book Now'}
               </button>
             </div>
           </nav>
@@ -54,3 +91,4 @@ export default function Header() {
     </>
   );
 }
+

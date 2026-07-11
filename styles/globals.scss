@@ -230,6 +230,12 @@ a {
   }
 }
 
+section.bg-light + section.bg-light,
+section.bg-primary-theme + section.bg-primary-theme,
+section:not(.bg-light):not(.bg-primary-theme):not(.section-hero) + section:not(.bg-light):not(.bg-primary-theme):not(.section-hero) {
+  padding-top: 0;
+}
+
 .hero-grid {
   display: grid;
   grid-template-columns: 1fr;

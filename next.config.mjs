@@ -5,11 +5,6 @@ const nextConfig = {
   async redirects() {
     return [
       {
-        source: '/datarecovery',
-        destination: '/',
-        permanent: true,
-      },
-      {
         source: '/techsupport',
         destination: '/',
         permanent: true,

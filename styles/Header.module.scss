@@ -103,14 +103,14 @@
 .navLinks {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
   font-family: var(--font-headline);
   letter-spacing: -0.025em;
 
   @media (min-width: 768px) {
     flex-direction: row;
     align-items: center;
-    gap: 2rem;
+    gap: 1rem;
   }
 }
 
@@ -119,9 +119,15 @@
   font-weight: 500;
   transition: color 0.3s ease;
   font-size: 1.125rem;
+  display: block;
+  width: 100%;
+  padding: 0.5rem 0;
 
   @media (min-width: 768px) {
     font-size: 1rem;
+    display: inline;
+    width: auto;
+    padding: 0;
   }
 
   &:hover {
