@@ -25,7 +25,7 @@ export default function DataRecovery() {
   return (
     <div className={styles.pageWrapper}>
       <Head>
-        <title>Professional Data Recovery | Curb to Cloud Tech</title>
+        <title>Free Diagnostic | Data Recovery - Curb to Cloud Tech</title>
         <meta name="description" content="We extract and rescue files from locked, crashed, or dead PCs and Macs right at your curb. No Data, No Fee guarantee." />
       </Head>
 
