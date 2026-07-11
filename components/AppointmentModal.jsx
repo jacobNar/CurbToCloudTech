@@ -76,7 +76,7 @@ export default function AppointmentModal({ onClose }) {
             <div className={`${styles.popup} fade-in`}>
                 <div className={styles.header}>
                     <h3>
-                        {step === 'form' && 'Book Appointment'}
+                        {step === 'form' && 'Request Service'}
                         {step === 'success' && 'Confirmed!'}
                     </h3>
                     <button className={styles.closeBtn} onClick={onClose}>&times;</button>
@@ -167,7 +167,7 @@ export default function AppointmentModal({ onClose }) {
 
                             <div className={styles.actions}>
                                 <button type="submit" className={styles.confirmBtn} disabled={loading}>
-                                    {loading ? 'Processing...' : 'Confirm Appointment'}
+                                    {loading ? 'Processing...' : 'Submit Request'}
                                 </button>
                             </div>
                         </form>

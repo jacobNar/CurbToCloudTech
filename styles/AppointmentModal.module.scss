@@ -195,8 +195,6 @@
 /* Actions */
 .actions {
     margin-top: 2rem;
-    display: flex;
-    justify-content: space-between;
 }
 
 .backBtn {
@@ -216,8 +214,7 @@
     border-radius: 8px;
     color: var(--color-on-primary);
     font-weight: 600;
-    flex: 1;
-    margin-left: 1rem;
+    width: 100%;
     cursor: pointer;
     transition: background-color 0.3s;
 }
