@@ -67,6 +67,9 @@ export default function Header() {
             </div>
 
             <div className={styles.navActions}>
+              <a href="tel:+18156690629" className={styles.phoneLinkDesktop}>
+                Call or text (815) 669-0629
+              </a>
               <button
                 className={styles.headerBtn}
                 onClick={() => {
@@ -79,11 +82,16 @@ export default function Header() {
             </div>
           </nav>
 
-          <label htmlFor="nav-toggle" className={styles.navToggleLabel}>
-            <span></span>
-            <span></span>
-            <span></span>
-          </label>
+          <div className={styles.headerRightMobile}>
+            <a href="tel:+18156690629" className={styles.phoneLinkMobile} aria-label="call now">
+              <span className="material-symbols-outlined">call</span>
+            </a>
+            <label htmlFor="nav-toggle" className={styles.navToggleLabel}>
+              <span></span>
+              <span></span>
+              <span></span>
+            </label>
+          </div>
         </div>
       </header>
 

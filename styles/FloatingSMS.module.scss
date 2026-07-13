@@ -1,0 +1,41 @@
+.smsBubble {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 9999px;
+  background-color: var(--color-secondary);
+  color: white;
+  box-shadow: 0 4px 14px rgba(235, 133, 28, 0.4);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: pulseGlow 2s infinite;
+
+  span {
+    font-size: 1.75rem;
+  }
+
+  &:active {
+    transform: scale(0.9);
+  }
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+}
+
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(235, 133, 28, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 12px rgba(235, 133, 28, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(235, 133, 28, 0);
+  }
+}

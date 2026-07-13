@@ -31,10 +31,12 @@ export default function Footer() {
 
         <div className={styles.connectCol}>
           <h4>Connect</h4>
+          <div className={styles.contactDetails}>
+            <a href="tel:+18156690629" className={styles.footerPhone}>
+              (815) 669-0629
+            </a>
+          </div>
           <div className={styles.socials}>
-            {/* <a href="#" aria-label="Share">
-              <span className="material-symbols-outlined">share</span>
-            </a> */}
             <a href="mailto:curbtocloudtech@gmail.com" aria-label="Email">
               <span className="material-symbols-outlined">mail</span>
             </a>
