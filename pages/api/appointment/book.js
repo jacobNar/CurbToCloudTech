@@ -1,6 +1,7 @@
 import StripeService from '@/lib/StripeService';
+import EmailService from '@/lib/EmailService';
 
-const sanitizePhoneForBrevo = (phone) => {
+const sanitizePhone = (phone) => {
     if (!phone || typeof phone !== 'string') return null;
 
     const trimmed = phone.trim();
@@ -71,112 +72,45 @@ export default async function handler(req, res) {
             }
         }
 
-        // 2. Brevo CRM Contact Creation and transactional email
-        if (process.env.BREVO_API_KEY) {
-            const nameParts = (contact_name || '').split(' ');
-            const sanitizedPhone = sanitizePhoneForBrevo(phone_number);
-            const attributes = {
-                FIRSTNAME: nameParts[0] || '',
-                LASTNAME: nameParts.slice(1).join(' ') || '',
-                COMPANY: company_name || '',
-                ADDRESS: address || ''
-            };
+        const emailService = new EmailService();
+        const nameParts = (contact_name || '').split(' ');
+        const sanitizedPhone = sanitizePhone(phone_number);
 
-            if (sanitizedPhone) {
-                attributes.SMS = sanitizedPhone;
-            }
+        try {
+            await emailService.sendEmail({
+                to: email,
+                subject: 'We received your appointment request',
+                html: `
+                    <p>Hi ${nameParts[0] || 'there'},</p>
+                    <p>We have received your appointment request for ${service_type || 'your service'}.</p>
+                    <p>We will call you to confirm your appointment.</p>
+                    <p><strong>Requested time:</strong> ${new Date(appointment_time).toLocaleString()}</p>
+                `,
+                text: `Hi ${nameParts[0] || 'there'}, we have received your appointment request for ${service_type || 'your service'}. We will call you to confirm your appointment. Requested time: ${new Date(appointment_time).toLocaleString()}.`
+            });
+        } catch (err) {
+            console.error('Failed to send customer confirmation email:', err);
+        }
 
+        const adminEmail = process.env.ADMIN_EMAIL;
+        if (adminEmail) {
             try {
-                const brevoResponse = await fetch('https://api.brevo.com/v3/contacts', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'api-key': process.env.BREVO_API_KEY
-                    },
-                    body: JSON.stringify({
-                        email,
-                        listIds: [
-                            isDigital ? parseInt(process.env.BREVO_LIST_ID_DIGITAL || '0') : parseInt(process.env.BREVO_LIST_ID_IN_PERSON || '0')
-                        ].filter(Boolean),
-                        updateEnabled: true,
-                        attributes
-                    })
-                });
-
-                if (!brevoResponse.ok) {
-                    const brevoText = await brevoResponse.text();
-                    console.error('Failed to add Brevo contact:', brevoText);
-                }
-            } catch (err) {
-                console.error('Failed to add Brevo contact:', err);
-            }
-
-            try {
-                const sender = {
-                    name: 'CurbToCloudTech',
-                    email: process.env.BREVO_FROM_EMAIL || process.env.BREVO_ADMIN_EMAIL || email
-                };
-
-                const customerEmailPayload = {
-                    sender,
-                    to: [{ email, name: contact_name || 'Customer' }],
-                    subject: 'We received your appointment request',
-                    htmlContent: `
-                        <p>Hi ${nameParts[0] || 'there'},</p>
-                        <p>We have received your appointment request for ${service_type || 'your service'}.</p>
-                        <p>We will call you to confirm your appointment.</p>
-                        <p><strong>Requested time:</strong> ${new Date(appointment_time).toLocaleString()}</p>
-                    `,
-                    textContent: `Hi ${nameParts[0] || 'there'}, we have received your appointment request for ${service_type || 'your service'}. We will call you to confirm your appointment. Requested time: ${new Date(appointment_time).toLocaleString()}.`
-                };
-
-                const adminEmailPayload = {
-                    sender,
-                    to: [{ email: process.env.BREVO_ADMIN_EMAIL, name: 'CurbToCloudTech Admin' }],
+                await emailService.sendEmail({
+                    to: adminEmail,
                     subject: 'New appointment request received',
-                    htmlContent: `
+                    html: `
                         <p>New appointment request received.</p>
                         <p><strong>Customer:</strong> ${contact_name || email}</p>
                         <p><strong>Email:</strong> ${email}</p>
                         <p><strong>Phone:</strong> ${sanitizedPhone || 'Not provided'}</p>
                         <p><strong>Service:</strong> ${service_type || 'N/A'}</p>
                         <p><strong>Requested time:</strong> ${new Date(appointment_time).toLocaleString()}</p>
-                        <p><strong>Address:</strong> ${address || 'N/A'}</p>
+                        <p><strong>ZIP Code:</strong> ${zip_code || 'N/A'}</p>
                     `,
-                    textContent: `New appointment request received. Customer: ${contact_name || email}. Email: ${email}. Phone: ${sanitizedPhone || 'Not provided'}. Service: ${service_type || 'N/A'}. Requested time: ${new Date(appointment_time).toLocaleString()}. Address: ${address || 'N/A'}.`
-                };
-
-                const customerResponse = await fetch('https://api.brevo.com/v3/smtp/email', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'api-key': process.env.BREVO_API_KEY
-                    },
-                    body: JSON.stringify(customerEmailPayload)
+                    text: `New appointment request received. Customer: ${contact_name || email}. Email: ${email}. Phone: ${sanitizedPhone || 'Not provided'}. Service: ${service_type || 'N/A'}. Requested time: ${new Date(appointment_time).toLocaleString()}. ZIP Code: ${zip_code || 'N/A'}.`
                 });
-
-                if (!customerResponse.ok) {
-                    const customerText = await customerResponse.text();
-                    console.error('Failed to send customer Brevo transactional email:', customerText);
-                }
-
-                if (process.env.BREVO_ADMIN_EMAIL) {
-                    const adminResponse = await fetch('https://api.brevo.com/v3/smtp/email', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'api-key': process.env.BREVO_API_KEY
-                        },
-                        body: JSON.stringify(adminEmailPayload)
-                    });
-
-                    if (!adminResponse.ok) {
-                        const adminText = await adminResponse.text();
-                        console.error('Failed to send admin Brevo transactional email:', adminText);
-                    }
-                }
             } catch (err) {
-                console.error('Failed to send Brevo transactional email:', err);
+                console.error('Failed to send admin notification email:', err);
             }
         }
 

@@ -229,6 +229,11 @@
 .successMessage {
     text-align: center;
     padding: 2rem 0;
+    color: var(--color-text);
+}
+
+.successMessage p {
+    color: var(--color-text);
 }
 
 .successIcon {
