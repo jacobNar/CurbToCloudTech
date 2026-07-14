@@ -3,11 +3,23 @@ import Layout from '@/components/Layout';
 import Script from 'next/script';
 import Head from 'next/head';
 import { Space_Grotesk, Inter } from 'next/font/google';
+import { useEffect } from 'react';
+import AnalyticsService from '@/lib/AnalyticsService';
 
 const spaceGrotesk = Space_Grotesk({ subsets: ['latin'] });
 const inter = Inter({ subsets: ['latin'] });
 
 export default function App({ Component, pageProps }) {
+  useEffect(() => {
+    if (process.env.NODE_ENV === 'production') {
+      const tracker = new AnalyticsService();
+      tracker.init();
+      return () => {
+        tracker.destroy();
+      };
+    }
+  }, []);
+
   return (
     <>
       <Head>

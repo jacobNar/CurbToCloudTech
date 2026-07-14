@@ -110,6 +110,10 @@
       color: white;
       transition: color 0.2s ease;
 
+      span {
+        pointer-events: none;
+      }
+
       &:hover {
         color: var(--color-primary);
       }
