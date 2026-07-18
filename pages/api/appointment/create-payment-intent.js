@@ -6,7 +6,7 @@ export default async function handler(req, res) {
     }
 
     try {
-        const { contact_name, email, phone_number, service_type } = req.body;
+        const { contact_name, email, phone_number } = req.body;
 
         if (!email) {
             return res.status(400).json({ message: 'Email is required for payment' });
@@ -22,7 +22,6 @@ export default async function handler(req, res) {
         const paymentIntent = await stripeService.createPaymentIntent(customer.id, paymentAmount, 'usd', {
             email,
             contact_name: contact_name || '',
-            service_type: service_type || '',
             source: 'payment_intent_api'
         });
 

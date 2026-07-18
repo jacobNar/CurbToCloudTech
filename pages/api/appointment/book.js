@@ -19,16 +19,12 @@ export default async function handler(req, res) {
     }
 
     try {
-        const { contact_name, email, phone_number, company_name, project_description, appointment_time, type, service_type, address_line1, address_line2, city, state, zip_code } = req.body;
+        const { contact_name, email, phone_number, project_description } = req.body;
 
-        const address = `${address_line1 || ''} ${address_line2 || ''} ${city || ''}, ${state || ''} ${zip_code || ''}`.trim();
-
-        if (!email || !appointment_time) {
-            return res.status(400).json({ message: 'Email and appointment time are required' });
+        if (!email) {
+            return res.status(400).json({ message: 'Email is required' });
         }
 
-        const isDigital = type === 'online';
-        let meetLink = null;
         let eventDetailsForClient = null;
 
         // Google calendar booking is temporarily disabled until Google access is enabled.
@@ -37,19 +33,8 @@ export default async function handler(req, res) {
         const stripeCustomer = await stripeService.findOrCreateCustomer(email, {
             name: contact_name,
             phone: phone_number,
-            address: {
-                line1: address_line1 || '',
-                line2: address_line2 || '',
-                city: city || '',
-                state: state || '',
-                postal_code: zip_code || ''
-            },
             metadata: {
-                appointment_time: appointment_time,
-                description: project_description || '',
-                company_name: company_name || '',
-                service_type: service_type || '',
-                type: type || ''
+                description: project_description || ''
             }
         });
 
@@ -61,9 +46,7 @@ export default async function handler(req, res) {
                 const paymentIntent = await stripeService.createPaymentIntent(stripeCustomer.id, paymentAmount, 'usd', {
                     email,
                     contact_name: contact_name || '',
-                    company_name: company_name || '',
-                    service_type: service_type || '',
-                    appointment_time,
+                    description: project_description || '',
                     source: 'appointment_request'
                 });
                 paymentIntentId = paymentIntent.id;
@@ -79,14 +62,13 @@ export default async function handler(req, res) {
         try {
             await emailService.sendEmail({
                 to: email,
-                subject: 'We received your appointment request',
+                subject: 'We received your service request',
                 html: `
                     <p>Hi ${nameParts[0] || 'there'},</p>
-                    <p>We have received your appointment request for ${service_type || 'your service'}.</p>
-                    <p>We will call you to confirm your appointment.</p>
-                    <p><strong>Requested time:</strong> ${new Date(appointment_time).toLocaleString()}</p>
+                    <p>We have received your service request.</p>
+                    <p>We will call you shortly to confirm next steps.</p>
                 `,
-                text: `Hi ${nameParts[0] || 'there'}, we have received your appointment request for ${service_type || 'your service'}. We will call you to confirm your appointment. Requested time: ${new Date(appointment_time).toLocaleString()}.`
+                text: `Hi ${nameParts[0] || 'there'}, we have received your service request. We will call you shortly to confirm next steps.`
             });
         } catch (err) {
             console.error('Failed to send customer confirmation email:', err);
@@ -97,17 +79,15 @@ export default async function handler(req, res) {
             try {
                 await emailService.sendEmail({
                     to: adminEmail,
-                    subject: 'New appointment request received',
+                    subject: 'New service request received',
                     html: `
-                        <p>New appointment request received.</p>
+                        <p>New service request received.</p>
                         <p><strong>Customer:</strong> ${contact_name || email}</p>
                         <p><strong>Email:</strong> ${email}</p>
                         <p><strong>Phone:</strong> ${sanitizedPhone || 'Not provided'}</p>
-                        <p><strong>Service:</strong> ${service_type || 'N/A'}</p>
-                        <p><strong>Requested time:</strong> ${new Date(appointment_time).toLocaleString()}</p>
-                        <p><strong>ZIP Code:</strong> ${zip_code || 'N/A'}</p>
+                        <p><strong>Description:</strong> ${project_description || 'Not provided'}</p>
                     `,
-                    text: `New appointment request received. Customer: ${contact_name || email}. Email: ${email}. Phone: ${sanitizedPhone || 'Not provided'}. Service: ${service_type || 'N/A'}. Requested time: ${new Date(appointment_time).toLocaleString()}. ZIP Code: ${zip_code || 'N/A'}.`
+                    text: `New service request received. Customer: ${contact_name || email}. Email: ${email}. Phone: ${sanitizedPhone || 'Not provided'}. Description: ${project_description || 'Not provided'}.`
                 });
             } catch (err) {
                 console.error('Failed to send admin notification email:', err);

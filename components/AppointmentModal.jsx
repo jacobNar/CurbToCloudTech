@@ -3,46 +3,26 @@ import styles from '@/styles/AppointmentModal.module.scss';
 
 export default function AppointmentModal({ onClose }) {
     const [step, setStep] = useState('form');
-    const [selectedDateTime, setSelectedDateTime] = useState('');
     const [loading, setLoading] = useState(false);
-    const [minDateTime, setMinDateTime] = useState('');
     const [errors, setErrors] = useState({});
 
     const [formData, setFormData] = useState({
         contact_name: '',
         email: '',
         phone_number: '',
-        project_description: '',
-        type: 'inperson',
-        service_type: 'In-Home Data Recovery',
-        zip_code: ''
+        project_description: ''
     });
 
     useEffect(() => {
         setStep('form');
-        setSelectedDateTime('');
         setFormData({
             contact_name: '',
             email: '',
             phone_number: '',
-            project_description: '',
-            type: 'inperson',
-            service_type: 'In-Home Data Recovery',
-            zip_code: ''
+            project_description: ''
         });
-        setMinDateTime(getMinDateTime());
         setErrors({});
     }, []);
-
-    const getMinDateTime = () => {
-        const now = new Date();
-        const yyyy = now.getFullYear();
-        const mm = String(now.getMonth() + 1).padStart(2, '0');
-        const dd = String(now.getDate()).padStart(2, '0');
-        const hh = String(now.getHours()).padStart(2, '0');
-        const min = String(now.getMinutes()).padStart(2, '0');
-        return `${yyyy}-${mm}-${dd}T${hh}:${min}`;
-    };
 
     const handleBookAppointment = async (e) => {
         if (e?.preventDefault) {
@@ -59,15 +39,6 @@ export default function AppointmentModal({ onClose }) {
         } else if (!emailRegex.test(formData.email)) {
             newErrors.email = 'Please enter a valid email address';
         }
-        if (!selectedDateTime) {
-            newErrors.selected_date_time = 'Date and time are required';
-        } else {
-            const selectedDate = new Date(selectedDateTime);
-            const minDate = new Date(minDateTime);
-            if (selectedDate < minDate) {
-                newErrors.selected_date_time = 'Please select a future date and time';
-            }
-        }
         if (!formData.phone_number.trim()) {
             newErrors.phone_number = 'Phone number is required';
         } else {
@@ -75,9 +46,6 @@ export default function AppointmentModal({ onClose }) {
             if (phoneDigits.length < 7 || phoneDigits.length > 15) {
                 newErrors.phone_number = 'Please enter a valid phone number';
             }
-        }
-        if (!formData.zip_code.trim()) {
-            newErrors.zip_code = 'ZIP Code is required';
         }
 
         if (Object.keys(newErrors).length > 0) {
@@ -88,16 +56,11 @@ export default function AppointmentModal({ onClose }) {
         setErrors({});
         setLoading(true);
 
-        const appointmentTime = new Date(selectedDateTime).toISOString();
-
         try {
             const res = await fetch('/api/appointment/book', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    ...formData,
-                    appointment_time: appointmentTime
-                })
+                body: JSON.stringify(formData)
             });
 
             if (res.ok) {
@@ -178,63 +141,6 @@ export default function AppointmentModal({ onClose }) {
                                 />
                                 {errors.phone_number && (
                                     <span className={styles.errorText}>{errors.phone_number}</span>
-                                )}
-                            </div>
-                            <div className={styles.formGroup}>
-                                <label className={styles.label}>Service Type</label>
-                                <select
-                                    className={styles.input}
-                                    value={formData.service_type}
-                                    onChange={e => {
-                                        const isOnlineService = e.target.value.toLowerCase().includes('website');
-                                        setFormData({
-                                            ...formData,
-                                            service_type: e.target.value,
-                                            type: isOnlineService ? 'online' : 'inperson'
-                                        });
-                                    }}
-                                >
-                                    <option value="In-Home Data Recovery">In-Home Data Recovery</option>
-                                    <option value="Device Pick-Up & Return">Device Pick-Up & Return</option>
-                                </select>
-                            </div>
-
-                            <div className={styles.formGroup}>
-                                <label className={styles.label}>Desired Date & Time <span className={styles.requiredStar}>*</span></label>
-                                <input
-                                    type="datetime-local"
-                                    className={`${styles.input} ${errors.selected_date_time ? styles.inputError : ''}`}
-                                    required
-                                    min={minDateTime}
-                                    value={selectedDateTime}
-                                    onChange={e => {
-                                        setSelectedDateTime(e.target.value);
-                                        if (errors.selected_date_time) {
-                                            setErrors({ ...errors, selected_date_time: null });
-                                        }
-                                    }}
-                                />
-                                {errors.selected_date_time && (
-                                    <span className={styles.errorText}>{errors.selected_date_time}</span>
-                                )}
-                            </div>
-
-                            <div className={styles.formGroup}>
-                                <label className={styles.label}>ZIP Code <span className={styles.requiredStar}>*</span></label>
-                                <input
-                                    type="text"
-                                    className={`${styles.input} ${errors.zip_code ? styles.inputError : ''}`}
-                                    required
-                                    value={formData.zip_code}
-                                    onChange={e => {
-                                        setFormData({ ...formData, zip_code: e.target.value });
-                                        if (errors.zip_code) {
-                                            setErrors({ ...errors, zip_code: null });
-                                        }
-                                    }}
-                                />
-                                {errors.zip_code && (
-                                    <span className={styles.errorText}>{errors.zip_code}</span>
                                 )}
                             </div>
 
