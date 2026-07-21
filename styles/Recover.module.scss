@@ -39,7 +39,6 @@
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
-  margin-bottom: 2rem;
 }
 
 .badgeOne {
@@ -104,7 +103,7 @@
   font-size: 1.25rem;
   line-height: 1.6;
   max-width: 34rem;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 
 .heroActions {
@@ -219,7 +218,7 @@
   margin-bottom: 3rem;
 
   @media (min-width: 768px) {
-    margin-bottom: 5rem;
+    margin-bottom: 4rem;
   }
 
   h2 {
@@ -240,59 +239,143 @@
 .scenariosGrid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2rem;
+  gap: 1.5rem;
 
-  @media (min-width: 768px) {
+  @media (min-width: 640px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 1024px) {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
 .scenarioCard {
   background-color: var(--surface-container-lowest);
-  padding: 2rem 1.5rem;
+  padding: 1.75rem 1.5rem;
   border-radius: 12px;
-  transition: box-shadow 0.5s;
-
-  @media (min-width: 768px) {
-    padding: 2.5rem;
-  }
+  border: 1px solid rgba(196, 198, 207, 0.15);
+  transition: box-shadow 0.3s, transform 0.3s;
+  display: flex;
+  flex-direction: column;
 
   &:hover {
-    box-shadow: 0 40px 40px rgba(0, 32, 70, 0.04);
+    box-shadow: 0 20px 30px rgba(0, 32, 70, 0.06);
 
     .scenarioIcon {
-      transform: scale(1.1);
+      transform: scale(1.08);
     }
   }
 }
 
 .scenarioIcon {
-  width: 4rem;
-  height: 4rem;
-  border-radius: 1rem;
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: 0.75rem;
   background-color: var(--secondary-container);
-  margin-bottom: 2rem;
+  margin-bottom: 1.25rem;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: transform 0.3s;
+  flex-shrink: 0;
 
   span {
     color: var(--primary);
-    font-size: 1.875rem;
+    font-size: 1.625rem;
   }
 }
 
 .scenarioTitle {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 700;
   color: var(--primary);
-  margin-bottom: 1rem;
+  margin-bottom: 0.625rem;
 }
 
 .scenarioDesc {
   color: var(--on-surface-variant);
-  line-height: 1.6;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.guaranteeBanner {
+  background-color: var(--tertiary-fixed);
+  border: 1px solid rgba(235, 133, 28, 0.3);
+  border-radius: 12px;
+  padding: 1.25rem 1.75rem;
+  margin-top: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+
+  @media (max-width: 640px) {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.25rem 1rem;
+  }
+}
+
+.guaranteeIcon {
+  font-size: 2rem;
+  color: var(--on-tertiary-container);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+.guaranteeText {
+  font-size: 1.125rem;
+  font-weight: 400;
+  color: #6e3900;
+  margin: 0;
+  line-height: 1.4;
+
+  strong {
+    font-weight: 800;
+    color: #452300;
+  }
+}
+
+.locationBanner {
+  background-color: #002046;
+  color: #ffffff;
+  border-radius: 12px;
+  padding: 1.25rem 1.75rem;
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+
+  @media (max-width: 640px) {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.25rem 1rem;
+  }
+}
+
+.locationIcon {
+  font-size: 2rem;
+  color: #eb851c;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+.locationText {
+  font-size: 1.125rem;
+  font-weight: 400;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.4;
+
+  strong {
+    font-weight: 800;
+    color: #ffffff;
+  }
 }
 
 

@@ -67,7 +67,7 @@ export default function TownPage({ townName, state, featureText }) {
                   Professional Data Recovery in {townName}. We Rescue Your Files.
                 </h1>
                 <p className={styles.heroDesc}>
-                  Locked out or computer won't turn on? We recover your files right in your home, at your curb, or via secure device pick-up in {townName}.
+                  Locked out or computer won't turn on? We recover your files right in your home or via secure device pick-up in {townName}.
                 </p>
                 <div className="hero-actions">
                   <button className="btn btn-large" onClick={() => setIsModalOpen(true)}>
@@ -108,7 +108,7 @@ export default function TownPage({ townName, state, featureText }) {
           <div className="width-container">
             <div className={styles.sectionHeader}>
               <h2 className={styles.sectionTitle}>Professional Data Recovery in Your Neighborhood</h2>
-              <p className={styles.sectionDesc}>From the town square to the suburbs of {townName}, we offer convenient in-home service, curb-side recovery, and secure device pick-up and return.</p>
+              <p className={styles.sectionDesc}>From the town square to the suburbs of {townName}, we offer convenient in-home service and secure device pick-up with return drop-off.</p>
             </div>
 
             <ul className={styles.townsList}>

@@ -89,8 +89,8 @@ export default function DataRecovery() {
         <section className="section-padding bg-light">
           <div className="width-container">
             <div className={styles.scenariosHeader}>
-              <h2 style={{ color: '#002046' }}>What We Do</h2>
-              <p style={{ color: '#44474e' }}>We specialize in extracting and recovering files from crashed, locked, or unbootable PCs and Macs. Whether it’s a forgotten password or a computer that won't turn on, we retrieve your data safely in your home, at your curb, or via secure device pick-up and return.</p>
+              <h2 style={{ color: '#002046' }}>Can We Help You?</h2>
+              <p style={{ color: '#44474e' }}>We specialize in rescuing files from crashed, broken, locked, or unbootable PCs and Macs. If your data is trapped inside a problem computer, we retrieve it safely.</p>
             </div>
 
             <div className={styles.scenariosGrid}>
@@ -98,84 +98,79 @@ export default function DataRecovery() {
                 <div className={styles.scenarioIcon}>
                   <span className="material-symbols-outlined">lock_reset</span>
                 </div>
-                <h3 className={styles.scenarioTitle}>Locked Out</h3>
+                <h3 className={styles.scenarioTitle}>Forgotten Password</h3>
                 <p className={styles.scenarioDesc}>
-                  Forgotten passwords or locked operating systems holding your memories hostage? We safely bypass account locks to retrieve your files without risking your data.
+                  Locked out of your user account or forgot your system password? We safely bypass OS account locks to rescue your photos, documents, and personal files.
                 </p>
               </div>
+
               <div className={styles.scenarioCard}>
                 <div className={styles.scenarioIcon}>
                   <span className="material-symbols-outlined">power_off</span>
                 </div>
-                <h3 className={styles.scenarioTitle}>PC Won't Turn On</h3>
+                <h3 className={styles.scenarioTitle}>Computer Won't Turn On</h3>
                 <p className={styles.scenarioDesc}>
-                  Blank screens and silent fans don't mean your files are gone. As long as the internal storage is healthy, we can extract your data directly from the hardware.
+                  Dead power supply or motherboard failure? Blank screens don't mean your data is gone. We connect directly to your internal drive to extract your files.
                 </p>
               </div>
+
               <div className={styles.scenarioCard}>
                 <div className={styles.scenarioIcon}>
-                  <span className="material-symbols-outlined">description</span>
+                  <span className="material-symbols-outlined">laptop_chromebook</span>
                 </div>
-                <h3 className={styles.scenarioTitle}>Operating System Crashes</h3>
+                <h3 className={styles.scenarioTitle}>Blue Screen of Death</h3>
                 <p className={styles.scenarioDesc}>
-                  If system updates or software failures leave your computer in a boot loop, we bypass the corrupted operating system to pull your files.
+                  Stuck on a blue screen error (BSOD) or fatal system crash? We bypass corrupted operating systems to securely pull all your critical documents.
+                </p>
+              </div>
+
+              <div className={styles.scenarioCard}>
+                <div className={styles.scenarioIcon}>
+                  <span className="material-symbols-outlined">devices_off</span>
+                </div>
+                <h3 className={styles.scenarioTitle}>Broken Screen & Hardware</h3>
+                <p className={styles.scenarioDesc}>
+                  Cracked laptop screen, broken hinges, or damaged body rendering your computer unusable? We safely extract your files directly from the storage media inside.
+                </p>
+              </div>
+
+              <div className={styles.scenarioCard}>
+                <div className={styles.scenarioIcon}>
+                  <span className="material-symbols-outlined">published_with_changes</span>
+                </div>
+                <h3 className={styles.scenarioTitle}>OS Boot Loops & Crashes</h3>
+                <p className={styles.scenarioDesc}>
+                  Failed Windows updates or software corruption trapped in endless reboot loops? We access your files externally without losing a single item.
+                </p>
+              </div>
+
+              <div className={styles.scenarioCard}>
+                <div className={styles.scenarioIcon}>
+                  <span className="material-symbols-outlined">folder_zip</span>
+                </div>
+                <h3 className={styles.scenarioTitle}>Missing & Lost Files</h3>
+                <p className={styles.scenarioDesc}>
+                  Accidentally deleted files or drives prompting you to format? We run specialized extraction tools to rescue your precious photos, tax records, and work files.
                 </p>
               </div>
             </div>
-          </div>
-        </section>
 
-        <section className="section-padding bg-light">
-          <div className="width-container">
-            <div className={styles.scenariosHeader}>
-              <h2 style={{ color: '#002046' }}>Supported Computers & Systems</h2>
-              <p style={{ color: '#44474e' }}>We specialize in extracting files from unbootable, dead, or locked computers, retrieving your files directly from their internal storage.</p>
+            <div className={styles.guaranteeBanner}>
+              <div className={styles.guaranteeIcon}>
+                <span className="material-symbols-outlined">verified_user</span>
+              </div>
+              <p className={styles.guaranteeText}>
+                <strong>No Data, No Fee:</strong> You don't pay a single cent unless we successfully retrieve your files.
+              </p>
             </div>
 
-            <div className={styles.scenariosGrid}>
-              <div className={styles.scenarioCard}>
-                <div className={styles.scenarioIcon}>
-                  <span className="material-symbols-outlined">devices</span>
-                </div>
-                <h3 className={styles.scenarioTitle}>Supported Computers</h3>
-                <ul style={{ listStyleType: 'none', padding: 0, marginTop: '1rem', lineHeight: '1.8', color: '#44474e' }}>
-                  <li>• Desktop PCs</li>
-                  <li>• Laptops & Notebooks</li>
-                  <li>• MacBooks (Intel & Apple Silicon)</li>
-                  <li>• iMacs & Mac Minis</li>
-                  <li>• All-in-One PCs</li>
-                </ul>
+            <div className={styles.locationBanner}>
+              <div className={styles.locationIcon}>
+                <span className="material-symbols-outlined">home_pin</span>
               </div>
-
-              <div className={styles.scenarioCard}>
-                <div className={styles.scenarioIcon}>
-                  <span className="material-symbols-outlined">memory</span>
-                </div>
-                <h3 className={styles.scenarioTitle}>Storage We Extract From</h3>
-                <ul style={{ listStyleType: 'none', padding: 0, marginTop: '1rem', lineHeight: '1.8', color: '#44474e' }}>
-                  <li>• Solid State Drives (SSD)</li>
-                  <li>• NVMe / PCIe M.2 SSDs</li>
-                  <li>• SATA Hard Drives (HDD)</li>
-                  <li>• USB Flash Media</li>
-                  <li>• SD & MicroSD Cards</li>
-                  <li>• (Note: Storage media must be functional)</li>
-                </ul>
-              </div>
-
-              <div className={styles.scenarioCard}>
-                <div className={styles.scenarioIcon}>
-                  <span className="material-symbols-outlined">laptop_windows</span>
-                </div>
-                <h3 className={styles.scenarioTitle}>Systems & Brands</h3>
-                <ul style={{ listStyleType: 'none', padding: 0, marginTop: '1rem', lineHeight: '1.8', color: '#44474e' }}>
-                  <li>• Windows (11, 10, 8, 7) & macOS</li>
-                  <li>• Apple, Dell, HP, Lenovo</li>
-                  <li>• Microsoft Surface</li>
-                  <li>• Samsung, WD, Seagate</li>
-                  <li>• Crucial, SanDisk, Toshiba</li>
-                  <li>• And many more...</li>
-                </ul>
-              </div>
+              <p className={styles.locationText}>
+                <strong>We Come To You:</strong> In-home file recovery & secure device pick-up with return drop-off directly to your door.
+              </p>
             </div>
           </div>
         </section>
@@ -190,7 +185,7 @@ export default function DataRecovery() {
           <div className="width-container" style={{ maxWidth: '48rem', margin: '0 auto' }}>
             <div className={styles.scenariosHeader}>
               <h2 style={{ color: '#002046' }}>Frequently Asked Questions</h2>
-              <p style={{ color: '#44474e' }}>Everything you need to know about our curb-side data recovery process.</p>
+              <p style={{ color: '#44474e' }}>Everything you need to know about our data recovery process.</p>
             </div>
             <div className={styles.faqList}>
               <details className={styles.faqItem}>
@@ -200,6 +195,24 @@ export default function DataRecovery() {
                 </summary>
                 <div className={styles.faqContent}>
                   We believe in honesty first. Our "No Fix, No Fee" guarantee means if we can't find a path to retrieve your files, you don't pay a single cent.
+                </div>
+              </details>
+              <details className={styles.faqItem}>
+                <summary className={styles.faqSummary}>
+                  <span>What computers and operating systems do you support?</span>
+                  <span className="material-symbols-outlined">expand_more</span>
+                </summary>
+                <div className={styles.faqContent}>
+                  We support all major desktop PCs, laptops, MacBooks (Intel & Apple Silicon), iMacs, Mac Minis, and All-in-One PCs running Windows (11, 10, 8, 7) or macOS across all brands (Apple, Dell, HP, Lenovo, Microsoft Surface, Samsung, Asus, Acer, Toshiba, and more).
+                </div>
+              </details>
+              <details className={styles.faqItem}>
+                <summary className={styles.faqSummary}>
+                  <span>What storage media types can you extract files from?</span>
+                  <span className="material-symbols-outlined">expand_more</span>
+                </summary>
+                <div className={styles.faqContent}>
+                  We extract files from Solid State Drives (SSD), NVMe / PCIe M.2 SSDs, SATA Hard Drives (HDD), USB Flash Media, and SD & MicroSD cards, provided the physical storage component has not suffered internal head or controller chip failure.
                 </div>
               </details>
               <details className={styles.faqItem}>
@@ -217,7 +230,7 @@ export default function DataRecovery() {
                   <span className="material-symbols-outlined">expand_more</span>
                 </summary>
                 <div className={styles.faqContent}>
-                  Never. Our service is designed for your comfort. We come directly to your home or office to extract files inside our Mobile Work Center at your curb.
+                  Never. Our service is designed for your comfort. We come directly to your home or office and can either perform the recovery in your home or safely take your computer back to our lab and return it later.
                 </div>
               </details>
               <details className={styles.faqItem}>

@@ -8,28 +8,28 @@ export default function ProcessSection() {
         <div className={styles.processContainer}>
           <div>
             <h2 className={styles.processTitle}>
-              Simple Recovery,<br />Professional Care.
+              Our Simple 3-Step Process
             </h2>
             <div className={styles.processSteps}>
               <div className={styles.processStep}>
                 <div className={`${styles.stepNumber} ${styles.darkBg}`}>1</div>
                 <div className={styles.stepContent}>
-                  <h4>Book Appointment</h4>
-                  <p>Select a time that fits your schedule. No more waiting at generic repair shops.</p>
+                  <h4>Call, Text, or Request Online</h4>
+                  <p>Reach out by phone, text us at (815) 669-0629, or submit an online form for a quick callback. We'll discuss your issue and schedule a convenient appointment.</p>
                 </div>
               </div>
               <div className={styles.processStep}>
                 <div className={`${styles.stepNumber} ${styles.accentBg}`}>2</div>
                 <div className={styles.stepContent}>
-                  <h4>Curb-side or In-Home Service</h4>
-                  <p>We arrive at your location. We can either come inside your home to recover the data right away, or securely take your device back to our lab and return it to you once completed.</p>
+                  <h4>In-Home Service or Lab Pick-Up</h4>
+                  <p>We come directly to your location. We can either do the recovery right in your home or take your computer back to our lab and drop your device off later when completed.</p>
                 </div>
               </div>
               <div className={styles.processStep}>
                 <div className={`${styles.stepNumber} ${styles.darkBg}`}>3</div>
                 <div className={styles.stepContent}>
-                  <h4>How You Get Your Data</h4>
-                  <p>Once recovered, we pre-load all your files onto a brand new, dedicated USB drive—fully included in the flat rate. No storage limits or download waits.</p>
+                  <h4>Get Files Back & Pay Only on Success</h4>
+                  <p>We transfer all your recovered data onto a brand-new USB drive included in the flat rate. With our No Data, No Fee guarantee, you only pay if we successfully rescue your files.</p>
                 </div>
               </div>
             </div>

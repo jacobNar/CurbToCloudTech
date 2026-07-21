@@ -1,6 +1,5 @@
 import Header from './Header';
 import Footer from './Footer';
-import FloatingSMS from './FloatingSMS';
 
 export default function Layout({ children }) {
   return (
@@ -8,7 +7,6 @@ export default function Layout({ children }) {
       <Header />
       <main>{children}</main>
       <Footer />
-      <FloatingSMS />
     </>
   );
 }

@@ -18,7 +18,6 @@
   --font-headline: 'Space Grotesk', sans-serif;
   --font-body: 'Inter', sans-serif;
 
-  /* Backward compatibility for other pages temporarily */
   --color-text: var(--color-on-surface);
   --color-light-bg: var(--color-surface-container-low);
 }
@@ -32,6 +31,7 @@ body {
   background-color: var(--color-background);
   color: var(--color-on-surface);
   scroll-behavior: smooth;
+  scroll-padding-top: 3rem;
   overflow-x: hidden;
 }
 
@@ -230,9 +230,9 @@ a {
   }
 }
 
-section.bg-light + section.bg-light,
-section.bg-primary-theme + section.bg-primary-theme,
-section:not(.bg-light):not(.bg-primary-theme):not(.section-hero) + section:not(.bg-light):not(.bg-primary-theme):not(.section-hero) {
+section.bg-light+section.bg-light,
+section.bg-primary-theme+section.bg-primary-theme,
+section:not(.bg-light):not(.bg-primary-theme):not(.section-hero)+section:not(.bg-light):not(.bg-primary-theme):not(.section-hero) {
   padding-top: 0;
 }
 

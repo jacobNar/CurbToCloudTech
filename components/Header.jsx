@@ -83,6 +83,13 @@ export default function Header() {
           </nav>
 
           <div className={styles.headerRightMobile}>
+            <a
+              href="sms:+18156690629?&body=Hi%20Curb%20to%20Cloud%20Tech%2C%20I'd%20like%20to%20request%20a%20quote%20or%20support%20session.%20My%20name%20is%3A%20"
+              className={styles.smsLinkMobile}
+              aria-label="send text message"
+            >
+              <span className="material-symbols-outlined">sms</span>
+            </a>
             <a href="tel:+18156690629" className={styles.phoneLinkMobile} aria-label="call now">
               <span className="material-symbols-outlined">call</span>
             </a>

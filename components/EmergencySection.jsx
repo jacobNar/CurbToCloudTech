@@ -19,7 +19,7 @@ export default function EmergencySection() {
           </div>
           <div className={styles.scenarioCard} style={{ backgroundColor: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', boxShadow: 'none' }}>
             <h3 className={styles.scenarioTitle} style={{ color: 'white' }}>3. Professional Extraction</h3>
-            <p className={styles.scenarioDesc} style={{ color: 'rgba(255,255,255,0.8)' }}>Call us and we will securely extract the healthy storage drive or bypass the lock to safely retrieve your files from our Mobile Work Center.</p>
+            <p className={styles.scenarioDesc} style={{ color: 'rgba(255,255,255,0.8)' }}>Call, text, or request online. We can perform the recovery right in your home or safely take your computer back to our lab and return your device later.</p>
           </div>
         </div>
       </div>
